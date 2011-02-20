@@ -16,6 +16,8 @@ To create a new StretchrContext object, you simply initialise a new object using
 
 {{{
 StretchrContext *context = [[StretchrContext alloc] initWithAccount:account publicKey:pubK privateKey:privK];
+// ... do work with context ...
+[context release];
 }}}
 
 == Resources ==
