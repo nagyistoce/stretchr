@@ -24,4 +24,4 @@ StretchrContext *context = [[StretchrContext alloc] initWithAccount:account publ
 
 === Creating new resources ===
 
-The `StretchrResource` class enables you 
+To create a new resource, use the `StretchrContext`s `createNewResourceWithPath:` method.
