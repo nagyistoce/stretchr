@@ -6,4 +6,6 @@
 //  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
 
+
+// Asserts two strings are the same using isEqualToString
 #define STAssertStringsEqual(s1, s2, m) STAssertTrue([s1 isEqualToString:s2], m)

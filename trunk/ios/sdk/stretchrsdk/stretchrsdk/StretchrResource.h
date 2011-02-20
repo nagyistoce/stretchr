@@ -13,4 +13,10 @@
     
 }
 
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic, retain) NSMutableDictionary *properties;
+
+- (id)initWithPath:(NSString*)resourcePath;
+- (id)initWithPath:(NSString*)resourcePath andProperties:(NSMutableDictionary*)properties;
+
 @end
