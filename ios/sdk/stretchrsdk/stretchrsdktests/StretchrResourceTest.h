@@ -9,7 +9,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
-#import "StretchrResource.h"
+#import "Stretchr.h"
 
 @interface StretchrResourceTest : SenTestCase {
   

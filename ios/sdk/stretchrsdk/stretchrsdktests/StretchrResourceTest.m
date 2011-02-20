@@ -39,4 +39,41 @@
   
 }
 
+- (void)testDescribingANewResource {
+  
+  StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people"];
+  
+  [resource.properties setValue:@"Edd" forKey:@"name"];
+  [resource.properties setValue:@"Grant" forKey:@"surname"];
+  
+  STAssertStringsEqual([resource.properties objectForKey:@"name"], @"Edd", @"resource.properties.name incorrect");
+  STAssertStringsEqual([resource.properties objectForKey:@"surname"], @"Grant", @"resource.properties.surname incorrect");
+  
+  [resource release];
+  
+}
+
+- (void)testDescribingAnExistingResource {
+  
+  StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people" andId:@"1"];
+  
+  STAssertStringsEqual(resource.resourceId, @"1", @"resource.resourceId incorrect");
+  
+  [resource release];
+  
+}
+
+- (void)testExists {
+  
+  StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people" andId:@"1"];
+  STAssertTrue([resource exists], @"exists should be YES");
+  [resource release];
+  
+  StretchrResource *resource2 = [[StretchrResource alloc] initWithPath:@"/people" andId:nil];
+  STAssertFalse([resource2 exists], @"exists should be NO");
+  [resource2 release];
+  
+}
+
+
 @end
