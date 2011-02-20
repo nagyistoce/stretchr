@@ -4,6 +4,22 @@
 
 <wiki:toc max_depth="1" />
 
-== Classes ==
+== StretchrContext ==
 
-  * [StretchrResource]
+In order to use the features of the SDK you must first create a `StretchrContext` that will describe your Stretchr account, and authentication information.
+
+=== Creating a StretchrContext object ===
+
+==== `initWithAccount:publicKey:privateKey` ====
+
+To create a new StretchrContext object, you simply initialise a new object using the `initWithAccount:publicKey:privateKey` method.
+
+{{{
+StretchrContext *context = [[StretchrContext alloc] initWithAccount:account publicKey:pubK privateKey:privK];
+}}}
+
+== Resources ==
+
+=== Creating new resources ===
+
+The `StretchrResource` class enables you 
