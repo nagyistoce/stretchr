@@ -12,10 +12,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
-#import "StretchrContext.h"
+#import "Stretchr.h"
 
 @interface StretchrContextTest : SenTestCase {
-    
+  StretchrContext *testContext;
 }
 
 @end
