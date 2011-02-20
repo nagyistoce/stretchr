@@ -7,10 +7,14 @@
 //
 
 #import "StretchrContext.h"
-
+#import "StretchrResource.h"
+#import "StretchrConstants.h"
 
 @implementation StretchrContext
 @synthesize accountName, publicKey, privateKey;
+@synthesize useSsl;
+
+#pragma mark - init
 
 - initWithAccountName:(NSString*)accName publicKey:(NSString*)pubKey privateKey:(NSString*)privKey {
   
@@ -32,6 +36,29 @@
   self.publicKey = nil;
   
   [super dealloc];
+  
+}
+
+#pragma mark - URLs
+
+- (NSString*)serverDomain {
+  
+  return [NSString stringWithFormat:@"%@://%@.%@",
+          self.useSsl ? @"https" : @"http",
+          self.accountName,
+          STRETCHR_DOMAIN];
+  
+}
+
+- (NSString*)urlForResource:(StretchrResource*)resource {
+  
+  NSString *idBit = @"";
+  
+  if ([resource exists]) {
+    idBit = [NSString stringWithFormat:@"/%@", resource.resourceId];
+  }
+  
+  return [NSString stringWithFormat:@"%@%@%@", [self serverDomain], resource.path, idBit];
   
 }
 
