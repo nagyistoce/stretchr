@@ -20,6 +20,6 @@
 /**
  Initialises the context object with relevant settings
  */
-- initWithAccountName:(NSString*)account publicKey:(NSString*)pubKey privateKey:(NSString*)privKey;
+- (id)initWithAccountName:(NSString*)account publicKey:(NSString*)pubKey privateKey:(NSString*)privKey;
 
 @end
