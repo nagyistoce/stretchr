@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0548B7ED13119DA500C62F2B /* StretchrResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7EC13119DA500C62F2B /* StretchrResourceTest.m */; };
+		0548B7F113119E4C00C62F2B /* StretchrResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B7EF13119E4C00C62F2B /* StretchrResource.h */; };
+		0548B7F213119E4C00C62F2B /* StretchrResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F013119E4C00C62F2B /* StretchrResource.m */; };
+		0548B7F313119EBF00C62F2B /* StretchrResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F013119E4C00C62F2B /* StretchrResource.m */; };
+		0548B7F81311C6E800C62F2B /* StretchrContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B7F61311C6E800C62F2B /* StretchrContext.h */; };
+		0548B7F91311C6E800C62F2B /* StretchrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F71311C6E800C62F2B /* StretchrContext.m */; };
+		0548B7FA1311C6E800C62F2B /* StretchrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F71311C6E800C62F2B /* StretchrContext.m */; };
+		0548B7FD1311C70D00C62F2B /* StretchrContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */; };
+		05C0CE9313119B8500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
+		05C0CEA313119C2500FFB38D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CEA213119C2500FFB38D /* UIKit.framework */; };
+		05C0CEA413119C2500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
+		05C0CEA613119C2500FFB38D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CEA513119C2500FFB38D /* CoreGraphics.framework */; };
+		05C0CEAC13119C2500FFB38D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05C0CEAA13119C2500FFB38D /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0548B7EB13119DA500C62F2B /* StretchrResourceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrResourceTest.h; sourceTree = "<group>"; };
+		0548B7EC13119DA500C62F2B /* StretchrResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrResourceTest.m; sourceTree = "<group>"; };
+		0548B7EF13119E4C00C62F2B /* StretchrResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrResource.h; sourceTree = "<group>"; };
+		0548B7F013119E4C00C62F2B /* StretchrResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrResource.m; sourceTree = "<group>"; };
+		0548B7F61311C6E800C62F2B /* StretchrContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContext.h; sourceTree = "<group>"; };
+		0548B7F71311C6E800C62F2B /* StretchrContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrContext.m; sourceTree = "<group>"; };
+		0548B7FB1311C70D00C62F2B /* StretchrContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContextTest.h; sourceTree = "<group>"; };
+		0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrContextTest.m; sourceTree = "<group>"; };
+		0548B7FF1311CF7500C62F2B /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
+		05C0CE8F13119B8500FFB38D /* libstretchrsdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libstretchrsdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		05C0CE9213119B8500FFB38D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05C0CE9613119B8500FFB38D /* stretchrsdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stretchrsdk-Prefix.pch"; sourceTree = "<group>"; };
+		05C0CEA113119C2500FFB38D /* stretchrsdktests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stretchrsdktests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05C0CEA213119C2500FFB38D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		05C0CEA513119C2500FFB38D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		05C0CEA913119C2500FFB38D /* stretchrsdktests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stretchrsdktests-Info.plist"; sourceTree = "<group>"; };
+		05C0CEAB13119C2500FFB38D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05C0CEAD13119C2500FFB38D /* stretchrsdktests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stretchrsdktests-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05C0CE8C13119B8500FFB38D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05C0CE9313119B8500FFB38D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05C0CE9D13119C2500FFB38D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05C0CEA313119C2500FFB38D /* UIKit.framework in Frameworks */,
+				05C0CEA413119C2500FFB38D /* Foundation.framework in Frameworks */,
+				05C0CEA613119C2500FFB38D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0548B7EE13119E3600C62F2B /* Stretchr */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7EF13119E4C00C62F2B /* StretchrResource.h */,
+				0548B7F013119E4C00C62F2B /* StretchrResource.m */,
+				0548B7F61311C6E800C62F2B /* StretchrContext.h */,
+				0548B7F71311C6E800C62F2B /* StretchrContext.m */,
+			);
+			name = Stretchr;
+			sourceTree = "<group>";
+		};
+		0548B7F51311C37800C62F2B /* Stretchr */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7EB13119DA500C62F2B /* StretchrResourceTest.h */,
+				0548B7EC13119DA500C62F2B /* StretchrResourceTest.m */,
+				0548B7FB1311C70D00C62F2B /* StretchrContextTest.h */,
+				0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */,
+			);
+			name = Stretchr;
+			sourceTree = "<group>";
+		};
+		05C0CE8413119B8500FFB38D = {
+			isa = PBXGroup;
+			children = (
+				05C0CE9413119B8500FFB38D /* stretchrsdk */,
+				05C0CEA713119C2500FFB38D /* stretchrsdktests */,
+				05C0CE9113119B8500FFB38D /* Frameworks */,
+				05C0CE9013119B8500FFB38D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05C0CE9013119B8500FFB38D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05C0CE8F13119B8500FFB38D /* libstretchrsdk.a */,
+				05C0CEA113119C2500FFB38D /* stretchrsdktests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05C0CE9113119B8500FFB38D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05C0CE9213119B8500FFB38D /* Foundation.framework */,
+				05C0CEA213119C2500FFB38D /* UIKit.framework */,
+				05C0CEA513119C2500FFB38D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05C0CE9413119B8500FFB38D /* stretchrsdk */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7EE13119E3600C62F2B /* Stretchr */,
+				05C0CE9513119B8500FFB38D /* Supporting Files */,
+			);
+			path = stretchrsdk;
+			sourceTree = "<group>";
+		};
+		05C0CE9513119B8500FFB38D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05C0CE9613119B8500FFB38D /* stretchrsdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05C0CEA713119C2500FFB38D /* stretchrsdktests */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7FF1311CF7500C62F2B /* TestHelpers.h */,
+				0548B7F51311C37800C62F2B /* Stretchr */,
+				05C0CEA813119C2500FFB38D /* Supporting Files */,
+			);
+			path = stretchrsdktests;
+			sourceTree = "<group>";
+		};
+		05C0CEA813119C2500FFB38D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05C0CEA913119C2500FFB38D /* stretchrsdktests-Info.plist */,
+				05C0CEAA13119C2500FFB38D /* InfoPlist.strings */,
+				05C0CEAD13119C2500FFB38D /* stretchrsdktests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05C0CE8D13119B8500FFB38D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0548B7F113119E4C00C62F2B /* StretchrResource.h in Headers */,
+				0548B7F81311C6E800C62F2B /* StretchrContext.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		05C0CE8E13119B8500FFB38D /* stretchrsdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05C0CE9913119B8500FFB38D /* Build configuration list for PBXNativeTarget "stretchrsdk" */;
+			buildPhases = (
+				05C0CE8B13119B8500FFB38D /* Sources */,
+				05C0CE8C13119B8500FFB38D /* Frameworks */,
+				05C0CE8D13119B8500FFB38D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = stretchrsdk;
+			productName = stretchrsdk;
+			productReference = 05C0CE8F13119B8500FFB38D /* libstretchrsdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		05C0CEA013119C2500FFB38D /* stretchrsdktests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05C0CEB213119C2500FFB38D /* Build configuration list for PBXNativeTarget "stretchrsdktests" */;
+			buildPhases = (
+				05C0CE9C13119C2500FFB38D /* Sources */,
+				05C0CE9D13119C2500FFB38D /* Frameworks */,
+				05C0CE9E13119C2500FFB38D /* Resources */,
+				05C0CE9F13119C2500FFB38D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = stretchrsdktests;
+			productName = stretchrsdktests;
+			productReference = 05C0CEA113119C2500FFB38D /* stretchrsdktests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05C0CE8613119B8500FFB38D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Borealis Web Ltd";
+			};
+			buildConfigurationList = 05C0CE8913119B8500FFB38D /* Build configuration list for PBXProject "stretchrsdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05C0CE8413119B8500FFB38D;
+			productRefGroup = 05C0CE9013119B8500FFB38D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05C0CE8E13119B8500FFB38D /* stretchrsdk */,
+				05C0CEA013119C2500FFB38D /* stretchrsdktests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05C0CE9E13119C2500FFB38D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05C0CEAC13119C2500FFB38D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C0CE9F13119C2500FFB38D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05C0CE8B13119B8500FFB38D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0548B7F213119E4C00C62F2B /* StretchrResource.m in Sources */,
+				0548B7F91311C6E800C62F2B /* StretchrContext.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05C0CE9C13119C2500FFB38D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0548B7F313119EBF00C62F2B /* StretchrResource.m in Sources */,
+				0548B7ED13119DA500C62F2B /* StretchrResourceTest.m in Sources */,
+				0548B7FA1311C6E800C62F2B /* StretchrContext.m in Sources */,
+				0548B7FD1311C70D00C62F2B /* StretchrContextTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05C0CEAA13119C2500FFB38D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05C0CEAB13119C2500FFB38D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05C0CE9713119B8500FFB38D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05C0CE9813119B8500FFB38D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		05C0CE9A13119B8500FFB38D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/stretchrsdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stretchrsdk/stretchrsdk-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05C0CE9B13119B8500FFB38D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/stretchrsdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stretchrsdk/stretchrsdk-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		05C0CEB313119C2500FFB38D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stretchrsdktests/stretchrsdktests-Prefix.pch";
+				INFOPLIST_FILE = "stretchrsdktests/stretchrsdktests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		05C0CEB413119C2500FFB38D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stretchrsdktests/stretchrsdktests-Prefix.pch";
+				INFOPLIST_FILE = "stretchrsdktests/stretchrsdktests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05C0CE8913119B8500FFB38D /* Build configuration list for PBXProject "stretchrsdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05C0CE9713119B8500FFB38D /* Debug */,
+				05C0CE9813119B8500FFB38D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05C0CE9913119B8500FFB38D /* Build configuration list for PBXNativeTarget "stretchrsdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05C0CE9A13119B8500FFB38D /* Debug */,
+				05C0CE9B13119B8500FFB38D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05C0CEB213119C2500FFB38D /* Build configuration list for PBXNativeTarget "stretchrsdktests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05C0CEB313119C2500FFB38D /* Debug */,
+				05C0CEB413119C2500FFB38D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05C0CE8613119B8500FFB38D /* Project object */;
+}
