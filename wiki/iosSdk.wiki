@@ -1,0 +1,3 @@
+#summary Overview of the ios SDK
+
+|| NOTE: The ios SDK is not yet ready for use, this documentation is intended primarily for design purposes ||
