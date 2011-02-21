@@ -51,6 +51,17 @@
   
 }
 
+#pragma mark - Properties
+
+- (void)testProperties {
+  
+  STAssertStringsEqual(testContext.dataType, @"json", @".dataType should default to json");
+  
+  testContext.dataType = @"xml";
+  STAssertStringsEqual(testContext.dataType, @"xml", @".dataType incorrect");
+  
+}
+
 #pragma mark - URLs
 
 - (void)testServerDomain {
@@ -69,10 +80,10 @@
   
   [testContext setUseSsl:NO];
   
-  STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
-  STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [resource release];
   
@@ -83,10 +94,10 @@
   StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/123/tags" andId:@"lemon"];
   
   [testContext setUseSsl:NO];
-  STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags/lemon", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags/lemon.json", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
-  STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags/lemon", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags/lemon.json", @"Return of urlForResource incorrect");
   
   [resource release];
   

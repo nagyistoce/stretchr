@@ -23,6 +23,7 @@
 @property (nonatomic, copy) NSString *publicKey;
 @property (nonatomic, copy) NSString *privateKey;
 @property (nonatomic, copy) NSString *domain;
+@property (nonatomic, copy) NSString *dataType;
 
 @property (assign) BOOL useSsl;
 

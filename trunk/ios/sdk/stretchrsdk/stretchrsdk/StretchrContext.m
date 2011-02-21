@@ -13,6 +13,7 @@
 @synthesize accountName, publicKey, privateKey;
 @synthesize domain;
 @synthesize useSsl;
+@synthesize dataType;
 
 #pragma mark - init
 
@@ -24,8 +25,9 @@
     self.publicKey = pubKey;
     self.privateKey = privKey;
     
-    // set the default domain
+    // set the defaults
     self.domain = @"stretchr.com";
+    self.dataType = @"json";
     
   }
   return self;
@@ -56,7 +58,7 @@
 
 - (NSString*)urlForResource:(StretchrHttpResource*)resource {
   
-  return [NSString stringWithFormat:@"%@%@", [self host], [resource fullRelativePath]];
+  return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePath], self.dataType];
   
 }
 
