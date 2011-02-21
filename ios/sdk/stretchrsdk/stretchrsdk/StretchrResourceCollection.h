@@ -13,4 +13,11 @@
   
 }
 
+#pragma mark - Properties
+
+@property (nonatomic, assign) NSUInteger totalLength;
+@property (nonatomic, assign) NSUInteger startIndex;
+@property (nonatomic, assign) NSUInteger endIndex;
+@property (nonatomic, retain) NSArray *resources;
+
 @end

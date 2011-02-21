@@ -11,4 +11,14 @@
 
 @implementation StretchrResourceCollection
 
+@synthesize totalLength, startIndex, endIndex;
+@synthesize resources;
+
+- (void)dealloc {
+  
+  self.resources = nil;
+  
+  [super dealloc];
+}
+
 @end
