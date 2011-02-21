@@ -56,4 +56,26 @@
 
 - (NSString*)httpMethodStringFromStretchrHttpMethod:(StretchrHttpMethod)httpMethod;
 
+#pragma mark - Creating fully configured NSURLRequest objects
+
+/**
+ Creates a fully configured NSURLRequest ready to create the specified resource.
+ */
+- (NSURLRequest*)createUrlRequestToCreateResource:(StretchrResource*)resource;
+
+/**
+ Creates a fully configured NSURLRequest ready to read the specified resource.
+ */
+- (NSURLRequest*)createUrlRequestToReadResource:(StretchrResource*)resource;
+
+/**
+ Creates a fully configured NSURLRequest ready to update the specified resource.
+ */
+- (NSURLRequest*)createUrlRequestToUpdateResource:(StretchrResource*)resource;
+
+/**
+ Creates a fully configured NSURLRequest ready to delete the specified resource.
+ */
+- (NSURLRequest*)createUrlRequestToDeleteResource:(StretchrResource*)resource;
+
 @end
