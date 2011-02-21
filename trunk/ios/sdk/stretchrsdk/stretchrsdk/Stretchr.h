@@ -1,4 +1,9 @@
+#pragma mark Context
 
 #import "StretchrContext.h"
-#import "StretchrResource.h"
 
+#pragma mark - Resources
+
+#import "StretchrHttpResource.h"
+#import "StretchrResource.h"
+#import "StretchrResourceCollection.h"

@@ -3,7 +3,6 @@
 //  stretchrsdk
 //
 //  Created by Mat Ryer on 20/Feb/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
 
 #import "StretchrContextTest.h"
@@ -24,7 +23,7 @@
 }
 
 - (void)tearDown {
-  
+
   [testContext release];
   testContext = nil;
   
@@ -57,10 +56,10 @@
 - (void)testServerDomain {
   
   [testContext setUseSsl:NO];
-  STAssertStringsEqual([testContext serverDomain], @"http://account-name.stretchr.com", @"Return of serverDomain incorrect (http)");
+  STAssertStringsEqual([testContext host], @"http://account-name.stretchr.com", @"Return of serverDomain incorrect (http)");
   
   [testContext setUseSsl:YES];
-  STAssertStringsEqual([testContext serverDomain], @"https://account-name.stretchr.com", @"Return of serverDomain incorrect (https)");
+  STAssertStringsEqual([testContext host], @"https://account-name.stretchr.com", @"Return of serverDomain incorrect (https)");
   
 }
 

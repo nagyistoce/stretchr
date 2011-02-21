@@ -3,7 +3,7 @@
 //  stretchrsdk
 //
 //  Created by Mat Ryer on 20/Feb/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
+//  Copyright 2011 Stretchr. All rights reserved.
 //
 
 #import "StretchrResourceTest.h"
@@ -75,5 +75,15 @@
   
 }
 
+
+- (void)testFullRelativePath {
+  
+  StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/1/groups" andId:@"123"];
+  STAssertStringsEqual([resource fullRelativePath], @"/people/1/groups/123", @"resource fullRelativePath incorrect");
+  
+  StretchrResource *resource2 = [[StretchrResource alloc] initWithPath:@"/people/1/groups"];
+  STAssertStringsEqual([resource2 fullRelativePath], @"/people/1/groups", @"resource fullRelativePath incorrect");
+  
+}
 
 @end
