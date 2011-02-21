@@ -1,4 +1,9 @@
-#pragma mark Context
+
+#pragma mark Misc
+
+#import "StretchrHttpMethod.h"
+
+#pragma mark - Context
 
 #import "StretchrContext.h"
 
@@ -7,3 +12,7 @@
 #import "StretchrHttpResource.h"
 #import "StretchrResource.h"
 #import "StretchrResourceCollection.h"
+
+#pragma mark - IO
+
+#import "StretchrRequest.h"
