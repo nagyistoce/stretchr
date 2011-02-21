@@ -3,12 +3,11 @@
 //  stretchrsdk
 //
 //  Created by Mat Ryer on 20/Feb/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
+//  Copyright 2011 Stretchr. All rights reserved.
 //
 
 #import "StretchrContext.h"
-#import "StretchrResource.h"
-#import "StretchrConstants.h"
+#import "StretchrHttpResource.h"
 
 @implementation StretchrContext
 @synthesize accountName, publicKey, privateKey;
@@ -38,6 +37,7 @@
   self.accountName = nil;
   self.privateKey = nil;
   self.publicKey = nil;
+  self.domain = nil;
   
   [super dealloc];
   
@@ -45,7 +45,7 @@
 
 #pragma mark - URLs
 
-- (NSString*)serverDomain {
+- (NSString*)host {
   
   return [NSString stringWithFormat:@"%@://%@.%@",
           self.useSsl ? @"https" : @"http",
@@ -54,15 +54,9 @@
   
 }
 
-- (NSString*)urlForResource:(StretchrResource*)resource {
+- (NSString*)urlForResource:(StretchrHttpResource*)resource {
   
-  NSString *idBit = @"";
-  
-  if ([resource exists]) {
-    idBit = [NSString stringWithFormat:@"/%@", resource.resourceId];
-  }
-  
-  return [NSString stringWithFormat:@"%@%@%@", [self serverDomain], resource.path, idBit];
+  return [NSString stringWithFormat:@"%@%@", [self host], [resource fullRelativePath]];
   
 }
 

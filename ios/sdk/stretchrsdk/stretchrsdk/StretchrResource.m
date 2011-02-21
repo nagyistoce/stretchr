@@ -3,15 +3,16 @@
 //  stretchrsdk
 //
 //  Created by Mat Ryer on 20/Feb/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
+//  Copyright 2011 Stretchr. All rights reserved.
 //
 
 #import "StretchrResource.h"
 
 @implementation StretchrResource
 @synthesize resourceId;
-@synthesize path;
 @synthesize properties;
+
+#pragma mark - init
 
 - (id)initWithPath:(NSString*)resourcePath {
 
@@ -42,10 +43,9 @@
 
 - (id)initWithPath:(NSString*)resourcePath andProperties:(NSMutableDictionary*)props andId:(NSString *)resId {
   
-  if ((self = [self init])) {
+  if ((self = [super initWithPath:resourcePath])) {
     
     self.resourceId = resId;
-    self.path = resourcePath;
     
     // make sure we have a properties dictionary
     if (props == nil) {
@@ -62,8 +62,9 @@
 }
 
 - (void)dealloc {
-  
-  self.path = nil;
+
+  self.properties = nil;
+  self.resourceId = nil;
   
   [super dealloc];
 }
@@ -73,6 +74,18 @@
 - (BOOL)exists {
   
   return self.resourceId != nil;
+  
+}
+
+- (NSString*)fullRelativePath {
+  
+  NSString *idBit = @"";
+  
+  if ([self exists]) {
+    idBit = [NSString stringWithFormat:@"/%@", self.resourceId];
+  }
+  
+  return [NSString stringWithFormat:@"%@%@", [super fullRelativePath], idBit];
   
 }
 

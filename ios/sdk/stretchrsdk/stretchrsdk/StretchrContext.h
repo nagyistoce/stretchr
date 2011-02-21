@@ -3,12 +3,15 @@
 //  stretchrsdk
 //
 //  Created by Mat Ryer on 20/Feb/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
+//  Copyright 2011 Stretchr. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-@class StretchrResource;
+@class StretchrHttpResource;
 
+/**
+ Manages the context under which Stretchr is communicated with
+ */
 @interface StretchrContext : NSObject {
     
 }
@@ -30,13 +33,13 @@
 #pragma mark - URLs
 
 /**
- Gets the server domain
+ Gets the host
  */
-- (NSString*)serverDomain;
+- (NSString*)host;
 
 /**
- 
+ Gets the full URL for the specified resource
  */
-- (NSString*)urlForResource:(StretchrResource*)resource;
+- (NSString*)urlForResource:(StretchrHttpResource*)resource;
 
 @end

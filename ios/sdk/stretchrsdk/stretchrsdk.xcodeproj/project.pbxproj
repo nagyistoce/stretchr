@@ -15,8 +15,15 @@
 		0548B7F91311C6E800C62F2B /* StretchrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F71311C6E800C62F2B /* StretchrContext.m */; };
 		0548B7FA1311C6E800C62F2B /* StretchrContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7F71311C6E800C62F2B /* StretchrContext.m */; };
 		0548B7FD1311C70D00C62F2B /* StretchrContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */; };
-		0548B8031311D7D900C62F2B /* Stretchr.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B8021311D7D900C62F2B /* Stretchr.h */; };
-		0548B8051311DBA500C62F2B /* StretchrConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B8041311DBA500C62F2B /* StretchrConstants.h */; };
+		0548B80B131273FB00C62F2B /* StretchrResourceCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B809131273FA00C62F2B /* StretchrResourceCollection.h */; };
+		0548B80C131273FB00C62F2B /* StretchrResourceCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B80A131273FA00C62F2B /* StretchrResourceCollection.m */; };
+		0548B80D131273FB00C62F2B /* StretchrResourceCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B80A131273FA00C62F2B /* StretchrResourceCollection.m */; };
+		0548B8101312741500C62F2B /* StretchrResourceCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B80F1312741500C62F2B /* StretchrResourceCollectionTest.m */; };
+		0548B8121312746500C62F2B /* Stretchr.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B8111312746500C62F2B /* Stretchr.h */; };
+		0548B815131275A700C62F2B /* StretchrHttpResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B813131275A500C62F2B /* StretchrHttpResource.h */; };
+		0548B816131275A700C62F2B /* StretchrHttpResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B814131275A600C62F2B /* StretchrHttpResource.m */; };
+		0548B817131275A700C62F2B /* StretchrHttpResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B814131275A600C62F2B /* StretchrHttpResource.m */; };
+		0548B81A131276ED00C62F2B /* StretchrHttpResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B819131276ED00C62F2B /* StretchrHttpResourceTest.m */; };
 		05C0CE9313119B8500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
 		05C0CEA313119C2500FFB38D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CEA213119C2500FFB38D /* UIKit.framework */; };
 		05C0CEA413119C2500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
@@ -34,8 +41,15 @@
 		0548B7FB1311C70D00C62F2B /* StretchrContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContextTest.h; sourceTree = "<group>"; };
 		0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrContextTest.m; sourceTree = "<group>"; };
 		0548B7FF1311CF7500C62F2B /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
-		0548B8021311D7D900C62F2B /* Stretchr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stretchr.h; sourceTree = "<group>"; };
-		0548B8041311DBA500C62F2B /* StretchrConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrConstants.h; sourceTree = "<group>"; };
+		0548B809131273FA00C62F2B /* StretchrResourceCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrResourceCollection.h; sourceTree = "<group>"; };
+		0548B80A131273FA00C62F2B /* StretchrResourceCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrResourceCollection.m; sourceTree = "<group>"; };
+		0548B80E1312741500C62F2B /* StretchrResourceCollectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrResourceCollectionTest.h; sourceTree = "<group>"; };
+		0548B80F1312741500C62F2B /* StretchrResourceCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrResourceCollectionTest.m; sourceTree = "<group>"; };
+		0548B8111312746500C62F2B /* Stretchr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stretchr.h; sourceTree = "<group>"; };
+		0548B813131275A500C62F2B /* StretchrHttpResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrHttpResource.h; sourceTree = "<group>"; };
+		0548B814131275A600C62F2B /* StretchrHttpResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrHttpResource.m; sourceTree = "<group>"; };
+		0548B818131276EC00C62F2B /* StretchrHttpResourceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrHttpResourceTest.h; sourceTree = "<group>"; };
+		0548B819131276ED00C62F2B /* StretchrHttpResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrHttpResourceTest.m; sourceTree = "<group>"; };
 		05C0CE8F13119B8500FFB38D /* libstretchrsdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libstretchrsdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C0CE9213119B8500FFB38D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05C0CE9613119B8500FFB38D /* stretchrsdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stretchrsdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -72,12 +86,10 @@
 		0548B7EE13119E3600C62F2B /* Stretchr */ = {
 			isa = PBXGroup;
 			children = (
-				0548B7EF13119E4C00C62F2B /* StretchrResource.h */,
-				0548B7F013119E4C00C62F2B /* StretchrResource.m */,
-				0548B7F61311C6E800C62F2B /* StretchrContext.h */,
-				0548B7F71311C6E800C62F2B /* StretchrContext.m */,
-				0548B8021311D7D900C62F2B /* Stretchr.h */,
-				0548B8041311DBA500C62F2B /* StretchrConstants.h */,
+				0548B81C1312798C00C62F2B /* Context */,
+				0548B81B1312797A00C62F2B /* Resources */,
+				0548B81F131279EF00C62F2B /* IO */,
+				0548B8111312746500C62F2B /* Stretchr.h */,
 			);
 			name = Stretchr;
 			sourceTree = "<group>";
@@ -85,12 +97,69 @@
 		0548B7F51311C37800C62F2B /* Stretchr */ = {
 			isa = PBXGroup;
 			children = (
-				0548B7EB13119DA500C62F2B /* StretchrResourceTest.h */,
-				0548B7EC13119DA500C62F2B /* StretchrResourceTest.m */,
+				0548B81E131279A500C62F2B /* Resources */,
+				0548B81D1312799B00C62F2B /* Context */,
+				0548B820131279FB00C62F2B /* IO */,
+			);
+			name = Stretchr;
+			sourceTree = "<group>";
+		};
+		0548B81B1312797A00C62F2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7EF13119E4C00C62F2B /* StretchrResource.h */,
+				0548B7F013119E4C00C62F2B /* StretchrResource.m */,
+				0548B809131273FA00C62F2B /* StretchrResourceCollection.h */,
+				0548B80A131273FA00C62F2B /* StretchrResourceCollection.m */,
+				0548B813131275A500C62F2B /* StretchrHttpResource.h */,
+				0548B814131275A600C62F2B /* StretchrHttpResource.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0548B81C1312798C00C62F2B /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7F61311C6E800C62F2B /* StretchrContext.h */,
+				0548B7F71311C6E800C62F2B /* StretchrContext.m */,
+			);
+			name = Context;
+			sourceTree = "<group>";
+		};
+		0548B81D1312799B00C62F2B /* Context */ = {
+			isa = PBXGroup;
+			children = (
 				0548B7FB1311C70D00C62F2B /* StretchrContextTest.h */,
 				0548B7FC1311C70D00C62F2B /* StretchrContextTest.m */,
 			);
-			name = Stretchr;
+			name = Context;
+			sourceTree = "<group>";
+		};
+		0548B81E131279A500C62F2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0548B7EB13119DA500C62F2B /* StretchrResourceTest.h */,
+				0548B7EC13119DA500C62F2B /* StretchrResourceTest.m */,
+				0548B80E1312741500C62F2B /* StretchrResourceCollectionTest.h */,
+				0548B80F1312741500C62F2B /* StretchrResourceCollectionTest.m */,
+				0548B818131276EC00C62F2B /* StretchrHttpResourceTest.h */,
+				0548B819131276ED00C62F2B /* StretchrHttpResourceTest.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0548B81F131279EF00C62F2B /* IO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		0548B820131279FB00C62F2B /* IO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IO;
 			sourceTree = "<group>";
 		};
 		05C0CE8413119B8500FFB38D = {
@@ -168,8 +237,9 @@
 			files = (
 				0548B7F113119E4C00C62F2B /* StretchrResource.h in Headers */,
 				0548B7F81311C6E800C62F2B /* StretchrContext.h in Headers */,
-				0548B8031311D7D900C62F2B /* Stretchr.h in Headers */,
-				0548B8051311DBA500C62F2B /* StretchrConstants.h in Headers */,
+				0548B80B131273FB00C62F2B /* StretchrResourceCollection.h in Headers */,
+				0548B8121312746500C62F2B /* Stretchr.h in Headers */,
+				0548B815131275A700C62F2B /* StretchrHttpResource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +341,8 @@
 			files = (
 				0548B7F213119E4C00C62F2B /* StretchrResource.m in Sources */,
 				0548B7F91311C6E800C62F2B /* StretchrContext.m in Sources */,
+				0548B80C131273FB00C62F2B /* StretchrResourceCollection.m in Sources */,
+				0548B816131275A700C62F2B /* StretchrHttpResource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +354,10 @@
 				0548B7ED13119DA500C62F2B /* StretchrResourceTest.m in Sources */,
 				0548B7FA1311C6E800C62F2B /* StretchrContext.m in Sources */,
 				0548B7FD1311C70D00C62F2B /* StretchrContextTest.m in Sources */,
+				0548B80D131273FB00C62F2B /* StretchrResourceCollection.m in Sources */,
+				0548B8101312741500C62F2B /* StretchrResourceCollectionTest.m in Sources */,
+				0548B817131275A700C62F2B /* StretchrHttpResource.m in Sources */,
+				0548B81A131276ED00C62F2B /* StretchrHttpResourceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
