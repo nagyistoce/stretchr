@@ -2,6 +2,28 @@
 
 = `webdo` =
 
+== What is `webdo`? ==
+
+We needed a way to test our RESTful API from a totally external point of view.  So we wrote this simple little ruby script that makes it very easy to run real world tests against the real web.
+
+== A simple example? ==
+
+Webdo lets you write tests like this:
+
+{{{
+test "Google homepage mentions 'Google'" do
+  
+  web do
+    get
+    url "http://www.google.com/"
+  end
+  
+  assert_success
+  assert_response_contains "Google"
+  
+end
+}}}
+
 == Source code ==
 
 Get the source here: http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo
