@@ -7,6 +7,6 @@ test "Searching for @matryer on Twitter" do
   end
   
   assert_success
-  assert_equal json_response[:query], "%40matryer2"
+  assert_equal json_response[:query], "%40matryer"
   
 end

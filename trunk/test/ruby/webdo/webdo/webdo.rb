@@ -1,4 +1,10 @@
 #!/usr/bin/env ruby
+
+#
+# For information on how to use webdo
+# visit http://code.google.com/p/stretchr/wiki/webdo
+#
+
 puts "webdo - External RESTful API testing framework"
 puts "by Mat Ryer - http://code.google.com/p/stretchr/wiki/webdo"
 puts ""
@@ -18,6 +24,7 @@ require 'json'
 @successful_tests = 0
 @success = true
 @number_of_web_requests = 0
+@reported_current_test = false
 
 @last_response = nil
 
@@ -26,6 +33,7 @@ def test(name, &block)
   print "."
     
   # new test
+  @reported_current_test = false
   @success = true
   @current_test_name = name
   @total_tests = @total_tests + 1
@@ -38,6 +46,9 @@ def test(name, &block)
   else
     @successful_tests = @successful_tests + 1
   end
+  
+  $stdout.flush
+  sleep(0.2)
   
 end
 
@@ -63,18 +74,22 @@ def web(&block)
   case @current_request[:http_method]
   when :get
     req = Net::HTTP::Get.new(uri.path)
-    req.set_form_data(@current_request[:params])
-    req = Net::HTTP::Get.new( uri.path+ '?' + req.body )
+    unless @current_request[:params].nil?
+      req.set_form_data(@current_request[:params])
+      req = Net::HTTP::Get.new( uri.path+ '?' + req.body )
+    end
   when :put
     req = Net::HTTP::Put.new(uri.path)
-    req.set_form_data(@current_request[:params])
+    req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
   when :post
     req = Net::HTTP::Post.new(uri.path)
-    req.set_form_data(@current_request[:params])
+    req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
   when :delete
     req = Net::HTTP::Delete.new(uri.path)
-    req.set_form_data(@current_request[:params])
-    req = Net::HTTP::Delete.new( uri.path + '?' + req.body )
+    unless @current_request[:params].nil?
+      req.set_form_data(@current_request[:params])
+      req = Net::HTTP::Delete.new( uri.path + '?' + req.body )
+    end
   end
   
   @last_response = http.request(req)
@@ -108,6 +123,8 @@ def print_last_request
     end
   end
   
+  puts ""
+  
 end
 
 # METHODS
@@ -136,10 +153,12 @@ end
 def fail(m)
   @success = false
   
-  print_last_request
-  puts ""
+  if @reported_current_test == false
+    print_last_request
+    @reported_current_test = true
+  end
+
   puts "Failed :-( - #{m}"
-  puts ""
   
 end
 def assert(e, m = nil)
@@ -183,12 +202,14 @@ def print_results
   
   tests_success_percentage = 0
   if (@successful_tests > 0)
-    tests_success_percentage = 100 / (@total_tests / @successful_tests)
+    tests_success_percentage = (100 / (Float(@total_tests) / Float(@successful_tests)))
+    tests_success_percentage = (tests_success_percentage * 100).round / 100
   end
   
   assertions_success_percentage = 0
   if (@successful_assertions > 0)
-    assertions_success_percentage = 100 / (@total_assertions / @successful_assertions)
+    assertions_success_percentage = (100 / (Float(@total_assertions) / Float(@successful_assertions)))
+    assertions_success_percentage = (assertions_success_percentage * 100).round / 100
   end
   
   puts ""; puts ""
