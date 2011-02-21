@@ -118,6 +118,9 @@
  Configures an existing NSURLRequest object to read the given resource
  */
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toReadResource:(StretchrResource*)resource {
+ 
+  [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodGET]];
+  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
   
 }
 
@@ -136,6 +139,9 @@
  Configures an existing NSURLRequest object to delete the given resource
  */
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toDeleteResource:(StretchrResource*)resource {
+  
+  [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodDELETE]];
+  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
   
 }
 
