@@ -99,7 +99,18 @@
 - (NSMutableURLRequest*)stretchrContext:(StretchrContext*)context urlRequestForResource:(StretchrResource*)resource {
   
   NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+  
+  // set common headers
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+  
   return request;
+  
+}
+
+- (void)stretchrContext:(StretchrContext*)context finishConfigurationForRequest:(NSMutableURLRequest*)urlRequest {
+  
+  // set the content length header
+  [urlRequest setValue:[NSString stringWithFormat:@"%d", [urlRequest.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
   
 }
 
@@ -111,7 +122,7 @@
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodPOST]];
   [urlRequest setURL:[NSURL URLWithString:[context urlPathForResource:resource]]];
   [urlRequest setHTTPBody:[[resource postBodyStringIncludingId:YES] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
-  
+
 }
 
 /**
@@ -133,6 +144,9 @@
   [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
   [urlRequest setHTTPBody:[[resource postBodyStringIncludingId:NO] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
   
+  // set the content length header
+  [urlRequest setValue:[NSString stringWithFormat:@"%d", [urlRequest.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
+  
 }
 
 /**
@@ -143,24 +157,6 @@
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodDELETE]];
   [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
   
-}
-
-#pragma mark - creating UrlRequests
-
-- (NSURLRequest*)urlRequestToCreateResource:(StretchrResource*)resource {
-  return nil;
-}
-
-- (NSURLRequest*)urlRequestToReadResource:(StretchrResource*)resource {
-  return nil;
-}
-
-- (NSURLRequest*)urlRequestToUpdateResource:(StretchrResource*)resource {
-  return nil;
-}
-
-- (NSURLRequest*)urlRequestToDeleteResource:(StretchrResource*)resource {
-  return nil;
 }
 
 @end
