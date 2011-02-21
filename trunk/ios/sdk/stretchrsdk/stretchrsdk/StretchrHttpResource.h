@@ -28,8 +28,8 @@
 #pragma mark - URLs
 
 /**
- Gets the full path (relative to the domain) for this resource.
+ Gets the full path (relative to the domain) to the path of this resource.
  */
-- (NSString*)fullRelativePath;
+- (NSString*)fullRelativePathUrl;
 
 @end

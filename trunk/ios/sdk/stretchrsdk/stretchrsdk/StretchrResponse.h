@@ -16,8 +16,8 @@
 #pragma mark - Properties
 
 @property (nonatomic, assign) BOOL worked;
-@property (nonatomic, assign) NSInteger status;
 @property (nonatomic, copy) NSString *context;
+@property (nonatomic, assign) NSInteger status;
 @property (nonatomic, retain) NSArray *errors;
 @property (nonatomic, retain) id response;
 

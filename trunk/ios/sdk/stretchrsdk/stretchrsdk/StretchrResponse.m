@@ -12,4 +12,12 @@
 @implementation StretchrResponse
 @synthesize worked, status, context, errors, response;
 
+- (void)dealloc {
+  
+  self.errors = nil;
+  self.context = nil;
+  
+  [super dealloc];
+}
+
 @end

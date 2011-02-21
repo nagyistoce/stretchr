@@ -12,7 +12,7 @@
 #import "Stretchr.h"
 
 @interface StretchrResourceTest : SenTestCase {
-
+  StretchrResource *testResource;
 }
 
 

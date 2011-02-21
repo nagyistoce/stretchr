@@ -18,4 +18,6 @@
   StretchrContext *testContext;
 }
 
+- (StretchrResource*)createTestResource;
+
 @end

@@ -19,10 +19,10 @@
   
 }
 
-- (void)testFullRelativePath {
+- (void)testFullRelativeUrls {
   
   StretchrHttpResource *resource = [[StretchrHttpResource alloc] initWithPath:@"/people/something-else"];
-  STAssertStringsEqual([resource fullRelativePath], @"/people/something-else", @"Resource path incorrect");
+  STAssertStringsEqual([resource fullRelativePathUrl], @"/people/something-else", @"Resource path incorrect");
   [resource release];
   
 }

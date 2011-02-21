@@ -15,5 +15,4 @@
 
 #pragma mark - IO
 
-#import "StretchrRequest.h"
 #import "StretchrResponse.h"

@@ -17,7 +17,7 @@
 
 - (id)initWithPath:(NSString*)httpResourcePath {
   
-  if ((self = [self init])) {
+  if ((self = [super init])) {
     self.path = httpResourcePath;
   }
   
@@ -32,7 +32,7 @@
 
 #pragma mark - URLs
 
-- (NSString*)fullRelativePath {
+- (NSString*)fullRelativePathUrl {
   return self.path;
 }
 
