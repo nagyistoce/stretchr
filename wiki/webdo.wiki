@@ -1,3 +1,7 @@
 #summary Overview of webdo - Ruby RESTful API testing framework
 
 = `webdo` =
+
+== Source code ==
+
+Get the source here: http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo
