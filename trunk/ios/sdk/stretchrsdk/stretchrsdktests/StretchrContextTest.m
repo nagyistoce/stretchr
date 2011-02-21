@@ -213,8 +213,7 @@
   
   // check the headers
   STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
-  
-  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+
   
 }
 - (void)testConfigureRequestToDeleteResource {
@@ -263,6 +262,86 @@
   
   // check the headers
   STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+  
+}
+
+#pragma mark - Creating NSURLRequest objects
+
+- (void)testCreatingRequestForCreate {
+  
+  StretchrResource *resource = [self createTestResource];
+  NSURLRequest *request = [testContext createUrlRequestToCreateResource:resource];
+  
+  STAssertNotNil(request, @"request shouldn't be nil");
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"POST", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json", @"request.URL was wrong");
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+  
+}
+
+- (void)testCreatingRequestForRead {
+  
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"246"];
+  NSURLRequest *request = [testContext createUrlRequestToReadResource:resource];
+  
+  STAssertNotNil(request, @"request shouldn't be nil");
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/246.json", @"request.URL was wrong");
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+  
+}
+
+- (void)testCreatingRequestForUpdate {
+  
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"357"];
+  NSURLRequest *request = [testContext createUrlRequestToUpdateResource:resource];
+  
+  STAssertNotNil(request, @"request shouldn't be nil");
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"PUT", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/357.json", @"request.URL was wrong");
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+  
+}
+
+- (void)testCreatingRequestForDelete {
+  
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"2468"];
+  NSURLRequest *request = [testContext createUrlRequestToDeleteResource:resource];
+  
+  STAssertNotNil(request, @"request shouldn't be nil");
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"DELETE", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/2468.json", @"request.URL was wrong");
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
   
 }
 

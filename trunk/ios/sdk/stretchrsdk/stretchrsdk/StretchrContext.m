@@ -94,6 +94,72 @@
   return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePathUrl], self.dataType];
 }
 
+#pragma mark - Creating NSURLRequest objects
+
+- (NSURLRequest*)createUrlRequestToCreateResource:(StretchrResource*)resource {
+  
+  // create the request
+  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  
+  // configure it
+  [self.delegate stretchrContext:self configureUrlRequest:request toCreateResource:resource];
+  
+  // finish configuring it
+  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  
+  // return it
+  return request;
+  
+}
+
+- (NSURLRequest*)createUrlRequestToReadResource:(StretchrResource*)resource {
+
+  // create the request
+  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  
+  // configure it
+  [self.delegate stretchrContext:self configureUrlRequest:request toReadResource:resource];
+  
+  // finish configuring it
+  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  
+  // return it
+  return request;
+  
+}
+
+- (NSURLRequest*)createUrlRequestToUpdateResource:(StretchrResource*)resource {
+
+  // create the request
+  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  
+  // configure it
+  [self.delegate stretchrContext:self configureUrlRequest:request toUpdateResource:resource];
+  
+  // finish configuring it
+  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  
+  // return it
+  return request;
+  
+}
+
+- (NSURLRequest*)createUrlRequestToDeleteResource:(StretchrResource*)resource {
+
+  // create the request
+  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  
+  // configure it
+  [self.delegate stretchrContext:self configureUrlRequest:request toDeleteResource:resource];
+  
+  // finish configuring it
+  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  
+  // return it
+  return request;
+  
+}
+
 #pragma mark - StretchrContextRequestDelegate method
 
 - (NSMutableURLRequest*)stretchrContext:(StretchrContext*)context urlRequestForResource:(StretchrResource*)resource {
