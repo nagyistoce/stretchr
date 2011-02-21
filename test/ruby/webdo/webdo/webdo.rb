@@ -13,6 +13,7 @@ require 'net/http'
 require 'rubygems'
 require 'json'
 
+@starttime = Time.now
 @current_file = nil
 @current_test_name = nil
 @current_request = nil
@@ -215,6 +216,8 @@ def print_results
   puts ""; puts ""
   puts "Tests:\t\tTotal: #{@total_tests}\tSuccess: #{@successful_tests} \tFailed: #{@failed_tests}\t(#{tests_success_percentage}% success)"
   puts "Assertions:\tTotal: #{@total_assertions}\tSuccess: #{@successful_assertions}\tFailed: #{@failed_assertions}\t(#{assertions_success_percentage}% success)"
+  puts ""
+  puts "(Finished in #{Time.now - @starttime} seconds)"
   puts ""
   if @failed_assertions > 0
     puts "FAILED!"
