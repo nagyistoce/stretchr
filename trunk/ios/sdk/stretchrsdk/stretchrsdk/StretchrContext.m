@@ -12,6 +12,7 @@
 
 @implementation StretchrContext
 @synthesize accountName, publicKey, privateKey;
+@synthesize domain;
 @synthesize useSsl;
 
 #pragma mark - init
@@ -23,6 +24,9 @@
     self.accountName = accName;
     self.publicKey = pubKey;
     self.privateKey = privKey;
+    
+    // set the default domain
+    self.domain = @"stretchr.com";
     
   }
   return self;
@@ -46,7 +50,7 @@
   return [NSString stringWithFormat:@"%@://%@.%@",
           self.useSsl ? @"https" : @"http",
           self.accountName,
-          STRETCHR_DOMAIN];
+          self.domain];
   
 }
 

@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *accountName;
 @property (nonatomic, copy) NSString *publicKey;
 @property (nonatomic, copy) NSString *privateKey;
+@property (nonatomic, copy) NSString *domain;
 
 @property (assign) BOOL useSsl;
 
@@ -28,7 +29,14 @@
 
 #pragma mark - URLs
 
+/**
+ Gets the server domain
+ */
 - (NSString*)serverDomain;
+
+/**
+ 
+ */
 - (NSString*)urlForResource:(StretchrResource*)resource;
 
 @end
