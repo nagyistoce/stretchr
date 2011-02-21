@@ -30,6 +30,8 @@
   
 }
 
+#pragma mark - Tests
+
 - (void)testInit {
   
   NSString *accountName = @"account-name";
@@ -43,6 +45,8 @@
   STAssertStringsEqual(context.accountName, accountName, @"context.accountName incorrect");
   STAssertStringsEqual(context.publicKey, publicKey, @"context.publicKey incorrect");
   STAssertStringsEqual(context.privateKey, privateKey, @"context.privateKey incorrect");
+  
+  STAssertStringsEqual(context.domain, @"stretchr.com", @"context.domain incorrect");
   
   [context release];
   
@@ -65,7 +69,7 @@
   StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/123/tags"];
   
   [testContext setUseSsl:NO];
-  NSLog([testContext urlForResource:resource]);
+  
   STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
