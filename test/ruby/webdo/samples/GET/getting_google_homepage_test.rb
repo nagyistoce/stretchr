@@ -6,6 +6,6 @@ test "Getting Google Homepage" do
     with_param "q", "matryer"
   end
   
-  assert_not_found
+  assert_success
   
 end
