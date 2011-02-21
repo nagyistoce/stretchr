@@ -166,9 +166,26 @@
   [postDataString release];
   
 }
+
 - (void)testConfigureRequestToReadResource {
   
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"123"];
+  
+  NSMutableURLRequest *request = [testContext stretchrContext:testContext urlRequestForResource:resource];
+  
+  [testContext stretchrContext:testContext configureUrlRequest:request toReadResource:resource];
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
+  
+  STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
+  
 }
+
 - (void)testConfigureRequestToUpdateResource {
   
   StretchrResource *resource = [self createTestResource];
@@ -192,6 +209,21 @@
   
 }
 - (void)testConfigureRequestToDeleteResource {
+
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"123"];
+  
+  NSMutableURLRequest *request = [testContext stretchrContext:testContext urlRequestForResource:resource];
+  
+  [testContext stretchrContext:testContext configureUrlRequest:request toDeleteResource:resource];
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"DELETE", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
+  
+  STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
   
 }
 
