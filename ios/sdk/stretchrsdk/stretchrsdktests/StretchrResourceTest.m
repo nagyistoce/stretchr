@@ -123,9 +123,7 @@
   [testResource.properties setValue:@"Ryer" forKey:@"surname"];
   [testResource.properties setValue:@"28" forKey:@"age"];
   [testResource.properties setValue:@"123" forKey:StretchrResourceIdPropertyKey];
-  
-  MRLog([testResource postBodyStringIncludingId:YES]);
-  
+    
   STAssertStringsEqual([testResource postBodyStringIncludingId:YES], @"age=28&name=Mat&id=123&surname=Ryer", @"postBodyString incorrect.");
   
   STAssertStringsEqual([testResource postBodyStringIncludingId:NO], @"age=28&name=Mat&surname=Ryer", @"postBodyString incorrect.");

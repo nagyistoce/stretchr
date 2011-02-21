@@ -97,9 +97,7 @@
   StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/123/tags"];
   
   [testContext setUseSsl:NO];
-  
-  MRLog([testContext urlForResource:resource]);
-  
+    
   STAssertStringsEqual([testContext urlPathForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
@@ -184,7 +182,6 @@
   STAssertStringsEqual([request HTTPMethod], @"PUT", @"HTTPMethod incorrect.");
   
   // check the URL
-  MRLog([request.URL absoluteString]);
   STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
   
   // check the request body data
