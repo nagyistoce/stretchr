@@ -56,26 +56,4 @@
 
 - (NSString*)httpMethodStringFromStretchrHttpMethod:(StretchrHttpMethod)httpMethod;
 
-#pragma mark - creating UrlRequests
-
-/**
- Creates a new NSURLRequest object to create the given resource
- */
-- (NSURLRequest*)urlRequestToCreateResource:(StretchrResource*)resource;
-
-/**
- Creates a new NSURLRequest object to read the given resource
- */
-- (NSURLRequest*)urlRequestToReadResource:(StretchrResource*)resource;
-
-/**
- Creates a new NSURLRequest object to update the given resource
- */
-- (NSURLRequest*)urlRequestToUpdateResource:(StretchrResource*)resource;
-
-/**
- Creates a new NSURLRequest object to delete the given resource
- */
-- (NSURLRequest*)urlRequestToDeleteResource:(StretchrResource*)resource;
-
 @end

@@ -24,6 +24,11 @@
 - (NSMutableURLRequest*)stretchrContext:(StretchrContext*)context urlRequestForResource:(StretchrResource*)resource;
 
 /**
+ Finalises any configuration for every kind of NSURLRequest
+ */
+- (void)stretchrContext:(StretchrContext*)context finishConfigurationForRequest:(NSMutableURLRequest*)urlRequest;
+
+/**
  Configures an existing NSURLRequest object to create the given resource
  */
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toCreateResource:(StretchrResource*)resource;

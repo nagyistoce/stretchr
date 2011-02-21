@@ -165,6 +165,9 @@
   STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
   [postDataString release];
   
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  
 }
 
 - (void)testConfigureRequestToReadResource {
@@ -183,6 +186,7 @@
   STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
+
   
 }
 
@@ -207,6 +211,11 @@
   STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
   [postDataString release];
   
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
+  
 }
 - (void)testConfigureRequestToDeleteResource {
 
@@ -224,6 +233,36 @@
   STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  
+  
+}
+
+- (void)testFinishConfigurationForRequest {
+  
+  StretchrResource *resource = [self createTestResource];
+  NSMutableURLRequest *request = [testContext stretchrContext:testContext urlRequestForResource:resource];
+  
+  [testContext stretchrContext:testContext configureUrlRequest:request toCreateResource:resource];
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"POST", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json", @"request.URL was wrong");
+  
+  // check the request body data
+  
+  NSString *postDataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+  STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
+  [postDataString release];
+  
+  [testContext stretchrContext:testContext finishConfigurationForRequest:request];
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
   
 }
 
