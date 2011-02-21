@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+puts "webdo - External RESTful API testing framework"
+puts "by Mat Ryer - http://code.google.com/p/stretchr/wiki/webdo"
+puts ""
+
 require 'net/http'
 require 'rubygems'
 require 'json'
