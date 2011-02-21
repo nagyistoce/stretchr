@@ -16,7 +16,6 @@
     
 }
 
-@property (nonatomic, copy) NSString *resourceId;
 @property (nonatomic, retain) NSMutableDictionary *properties;
 
 #pragma mark - init
@@ -44,9 +43,26 @@
 #pragma mark - State
 
 /**
+ Gets the ID for this resource
+ */
+- (NSString*)resourceId; 
+
+/**
+ Sets the ID for this resource
+ */
+- (void)setResourceId:(NSString*)resId;
+
+/**
  Checks whether the resource exists or not (locally)
  I.e. does it have an ID value
  */
 - (BOOL)exists;
+
+#pragma mark - Data
+
+/**
+ Gets the HTTP post body style string representing the properties
+ */
+- (NSString*)postBodyStringIncludingId:(BOOL)includeId;
 
 @end

@@ -7,13 +7,12 @@
 //
 
 #import "StretchrContext.h"
-#import "StretchrHttpResource.h"
+#import "StretchrResource.h"
 
 @implementation StretchrContext
+@synthesize delegate;
 @synthesize accountName, publicKey, privateKey;
-@synthesize domain;
-@synthesize useSsl;
-@synthesize dataType;
+@synthesize domain, useSsl, dataType;
 
 #pragma mark - init
 
@@ -21,6 +20,7 @@
   
   if ((self = [self init])) {
     
+    // set properties
     self.accountName = accName;
     self.publicKey = pubKey;
     self.privateKey = privKey;
@@ -28,6 +28,7 @@
     // set the defaults
     self.domain = @"stretchr.com";
     self.dataType = @"json";
+    self.delegate = self;
     
   }
   return self;
@@ -45,6 +46,35 @@
   
 }
 
+#pragma mark - Http
+
+- (NSString*)httpMethodStringFromStretchrHttpMethod:(StretchrHttpMethod)httpMethod {
+  
+  static NSString *postHttpMethod = @"POST";
+  static NSString *putHttpMethod = @"PUT";
+  static NSString *deleteHttpMethod = @"DELETE";
+  static NSString *getHttpMethod = @"GET";
+  
+  switch (httpMethod) {
+    case StretchrHttpMethodPOST:
+      return postHttpMethod;
+      break;
+    case StretchrHttpMethodGET:
+      return getHttpMethod;
+      break;
+    case StretchrHttpMethodPUT:
+      return putHttpMethod;
+      break;
+    case StretchrHttpMethodDELETE:
+      return deleteHttpMethod;
+      break;
+  }
+  
+  [NSException raise:@"UnknownHttpMethod" format:@"Unknown HTTP method."];
+  return nil;
+  
+}
+
 #pragma mark - URLs
 
 - (NSString*)host {
@@ -56,10 +86,75 @@
   
 }
 
-- (NSString*)urlForResource:(StretchrHttpResource*)resource {
+- (NSString*)urlForResource:(StretchrResource*)resource {
+  return [NSString stringWithFormat:@"%@%@/%@.%@", [self host], [resource fullRelativePathUrl], [resource resourceId], self.dataType];
+}
+
+- (NSString*)urlPathForResource:(StretchrResource*)resource {
+  return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePathUrl], self.dataType];
+}
+
+#pragma mark - StretchrContextRequestDelegate method
+
+- (NSMutableURLRequest*)stretchrContext:(StretchrContext*)context urlRequestForResource:(StretchrResource*)resource {
   
-  return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePath], self.dataType];
+  NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+  return request;
   
+}
+
+/**
+ Configures an existing NSURLRequest object to create the given resource
+ */
+- (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toCreateResource:(StretchrResource*)resource {
+  
+  [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodPOST]];
+  [urlRequest setURL:[NSURL URLWithString:[context urlPathForResource:resource]]];
+  [urlRequest setHTTPBody:[[resource postBodyStringIncludingId:YES] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
+  
+}
+
+/**
+ Configures an existing NSURLRequest object to read the given resource
+ */
+- (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toReadResource:(StretchrResource*)resource {
+  
+}
+
+/**
+ Configures an existing NSURLRequest object to update the given resource
+ */
+- (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toUpdateResource:(StretchrResource*)resource {
+  
+  [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodPUT]];
+  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
+  [urlRequest setHTTPBody:[[resource postBodyStringIncludingId:NO] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
+  
+}
+
+/**
+ Configures an existing NSURLRequest object to delete the given resource
+ */
+- (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toDeleteResource:(StretchrResource*)resource {
+  
+}
+
+#pragma mark - creating UrlRequests
+
+- (NSURLRequest*)urlRequestToCreateResource:(StretchrResource*)resource {
+  return nil;
+}
+
+- (NSURLRequest*)urlRequestToReadResource:(StretchrResource*)resource {
+  return nil;
+}
+
+- (NSURLRequest*)urlRequestToUpdateResource:(StretchrResource*)resource {
+  return nil;
+}
+
+- (NSURLRequest*)urlRequestToDeleteResource:(StretchrResource*)resource {
+  return nil;
 }
 
 @end

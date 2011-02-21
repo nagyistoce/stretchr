@@ -1,0 +1,2 @@
+
+#define StretchrResourceIdPropertyKey @"id"

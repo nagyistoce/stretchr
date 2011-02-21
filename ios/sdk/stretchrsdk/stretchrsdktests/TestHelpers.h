@@ -9,3 +9,9 @@
 
 // Asserts two strings are the same using isEqualToString
 #define STAssertStringsEqual(s1, s2, m) STAssertTrue([s1 isEqualToString:s2], m)
+
+// Logs out with border so it's easy to see in the test output
+#define MRLog(what) NSLog(@"------------------------------------------");   \
+                    NSLog(@"Output: %@", what);                             \
+                    NSLog(@"------------------------------------------")
+
