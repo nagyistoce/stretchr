@@ -3,7 +3,7 @@ test "Searching for @matryer on Twitter" do
   web do
     get
     url "http://search.twitter.com/search.json"
-    with_param "q", "@matryer"
+    with_param "q", "@matryerx"
   end
   
   assert_success

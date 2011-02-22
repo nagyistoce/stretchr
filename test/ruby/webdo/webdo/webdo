@@ -41,8 +41,13 @@ end
 
 def test(name, &block)
   
+  # if the last test failed, put some spacing lines in
+  unless @success
+    puts ""
+  end
+  
   print "."
-    
+
   # new test
   @reported_current_test = false
   @success = true
@@ -58,14 +63,13 @@ def test(name, &block)
     @successful_tests = @successful_tests + 1
   end
   
+  # print to the output
   $stdout.flush
   sleep(0.2)
   
 end
 
 def web(&block)
-  
-  print "^"
   
   @number_of_web_requests = @number_of_web_requests + 1
   
@@ -129,7 +133,7 @@ end
 def print_last_request
   
   # request
-  puts ""
+  puts ""; puts ""
   puts "#{@failed_tests+1})\t#{@current_test_name} (#{@current_file})"
   print "\t"
   print @request[:http_method].to_s.upcase
@@ -250,6 +254,8 @@ def print_results
   end
   
   puts "";
+  puts "-----";
+  puts "";
   puts "Tests:\t\tTotal: #{@total_tests}\tSuccess: #{@successful_tests} \tFailed: #{@failed_tests}\t(#{tests_success_percentage}% success)"
   puts "Assertions:\tTotal: #{@total_assertions}\tSuccess: #{@successful_assertions}\tFailed: #{@failed_assertions}\t(#{assertions_success_percentage}% success)"
   puts ""
@@ -257,11 +263,12 @@ def print_results
   puts ""
   if @failed_assertions > 0
     puts "FAILED! :-("
-    puts ""
   else
     puts "SUCCESS! :-)"
-    puts ""
   end
+  puts "";
+  puts "-----";
+  puts "";
 end
 
 @working_directory = ARGV[0] || "."
