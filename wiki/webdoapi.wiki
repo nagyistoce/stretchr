@@ -189,7 +189,7 @@ For example:
 001_delete_resource_test.rb
 002_create_new_resource_test.rb
 003_get_created_resource_test.rb
-]}}
+}}}
 
 === Other file types ===
 
