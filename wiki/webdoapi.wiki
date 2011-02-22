@@ -129,11 +129,19 @@ assert_nil obj, "Honestly, obj should be nil!"
 
 The `assert_nil` method checks that a value is `nil` and fails if it is not.
 
-=== `assert_success` ===
+=== `assert_true` ===
 
 {{{
-assert_success
+assert_true something, "Something should be true, I'm sure of it"
 }}}
+
+=== `assert_false` ===
+
+{{{
+assert_false something, "something should be false"
+}}}
+
+=== `assert_success` ===
 
 Asserts that the response came back with a `200 OK` HTTP status.
 
