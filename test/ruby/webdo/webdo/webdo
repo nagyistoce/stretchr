@@ -10,6 +10,7 @@ puts "by Mat Ryer - v0.2 - http://code.google.com/p/stretchr/wiki/webdo"
 puts ""
 
 require 'net/http'
+require 'net/https'
 require 'rubygems'
 require 'json'
 
@@ -74,6 +75,11 @@ def web(&block)
     # perform the request
     uri = URI.parse(@current_request[:url])
     http = Net::HTTP.new(uri.host, uri.port)
+    
+    if uri.scheme == "https"
+      http.use_ssl = true
+    end
+    
     case @current_request[:http_method]
     when :get
       req = Net::HTTP::Get.new(uri.path)
@@ -124,13 +130,11 @@ def print_last_request
     puts ""
     puts "\tParameters:"
     @current_request[:params].each do | k, v |
-      
       if k.downcase.include?('password')
         puts "\t  #{k}=********"
       else
         puts "\t  #{k}=#{v}"
       end
-      
     end
   end
   
