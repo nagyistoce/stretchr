@@ -18,7 +18,7 @@ end
 
 The test method performs a webdo test when run.  Your test code is usually made up of one or more `web do` calls, followed by a number of assertions.
 
-== `web do` commands ==
+== `web do` commands - Making web requests ==
 
 The `web do`...`end` block allows you to specify a web request to make.  For example, the following code will make a GET request on `http://www.google.co.uk/search?q=webdo`:
 
