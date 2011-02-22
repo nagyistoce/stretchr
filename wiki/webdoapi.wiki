@@ -75,6 +75,10 @@ Along the way, you will have access to a number of useful helper methods that sh
 
 Returns the response of the last web request as an object.  Will fail if invalid JSON is returned from the server.
 
+=== `@request` ===
+
+The most recent (or current) request object.  This must be manipulated within the `web do`...`end` block. although can be read afterwards.  This object is actually a subclass of the [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPRequest.html HTTPRequest ruby object].
+
 === `@response` ===
 
 The most recent HTTP response.  This is actually a [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPResponse.html HTTPResponse ruby object].
