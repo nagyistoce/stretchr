@@ -34,7 +34,7 @@ Assertions:	Total: 2	Success: 2	Failed: 0	(100% success)
 
 == Get the source ==
 
-Get the source here: http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo
+  * Feel free to [http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo get the source code]
 
 == Get started ==
 
