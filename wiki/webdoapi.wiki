@@ -2,7 +2,7 @@
 
 = `webdo` =
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="3" />
 
 == Anatomy of test suites and tests ==
 
