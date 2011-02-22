@@ -192,7 +192,7 @@ def fail(m)
     @reported_current_test = true
   end
 
-  puts "Failed: #{m}"
+  puts "  Failed: #{m}"
   
 end
 def assert(e, m = nil)
