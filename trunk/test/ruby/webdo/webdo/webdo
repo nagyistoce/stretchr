@@ -41,7 +41,7 @@ end
 
 def test(name, &block)
   
-  # if the last test failed, put some spacing lines in
+  # if the last test _failed, put some spacing lines in
   unless @success
     puts ""
     puts ""
@@ -127,11 +127,12 @@ def web(&block)
     @response = http.request(req)
   
   rescue Exception => e
-    fail("EXCEPTION: #{e.message}")
+
+    _fail("EXCEPTION: (#{e.class}) #{e.message}", true)
     
     # write the backtrace
     e.backtrace.each do | b |
-      puts "\t\t\t#{b}"
+      puts "\tfrom #{b}"
     end
     
   end
@@ -192,11 +193,21 @@ end
 
 # RESPONSE
 def json_response
-  JSON.parse(@response.body, { :symbolize_names => true })  
+  
+  if @response.nil?
+    @total_assertions = @total_assertions + 1
+    _fail("Cannot parse the JSON response when the @response is nil.")
+  else
+    JSON.parse(@response.body, { :symbolize_names => true })  
+  end
+  
 end
 
 # ASSERTIONS
-def fail(m)
+def _fail(m, dontcount = false)
+  
+  @failed_assertions = @failed_assertions + 1 unless dontcount
+  
   @success = false
   
   if @reported_current_test == false
@@ -207,13 +218,16 @@ def fail(m)
   puts "  Failed: #{m}"
   
 end
+def fail(m)
+  @total_assertions = @total_assertions + 1
+  _fail(m)
+end
 def assert(e, m = nil)
   @total_assertions = @total_assertions + 1
   if e
     @successful_assertions = @successful_assertions + 1
   else
-    @failed_assertions = @failed_assertions + 1
-    fail(m)
+    _fail(m)
   end
 end
 def assert_has_response
@@ -238,7 +252,14 @@ def assert_false(a, m=nil)
   assert_equal(a, true, "#{m} (Expected to be false)");
 end
 def assert_status(s)
-  assert_equal(@response.code.to_s, s.to_s, " Status should be #{s}")
+  
+  if @response.nil?
+    @total_assertions = @total_assertions + 1
+    _fail("Status should be #{s} but response was nil.")
+  else
+    assert_equal(@response.code.to_s, s.to_s, " Status should be #{s}")
+  end
+  
 end
 def assert_success
   assert_status(200)
@@ -289,6 +310,16 @@ def print_results
 end
 
 @working_directory = ARGV[0] || "."
+
+Dir.glob("#{@working_directory}/**/*_config.rb").each do | file |
+  @current_file = file
+  require file
+end
+
+Dir.glob("#{@working_directory}/**/*_setup.rb").each do | file |
+  @current_file = file
+  require file
+end
 
 Dir.glob("#{@working_directory}/**/*_test.rb").each do | file |
   @current_file = file
