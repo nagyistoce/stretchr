@@ -25,11 +25,11 @@ test "Google search for webdo" do
 end
 }}}
 
-== Source code ==
+== Get the source ==
 
 Get the source here: http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo
 
-== See also ==
+== Get started ==
 
-  * [webdoapi Webdo API Documentation]
   * [webdoGettingStarted Getting Started with Webdo]
+  * [webdoapi Webdo API Documentation]
