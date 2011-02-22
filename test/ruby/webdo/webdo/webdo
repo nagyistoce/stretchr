@@ -17,7 +17,7 @@ require 'json'
 @starttime = Time.now
 @current_file = nil
 @current_test_name = nil
-@current_request = nil
+@request = nil
 @total_tests = 0
 @total_assertions = 0
 @failed_assertions = 0
@@ -28,7 +28,7 @@ require 'json'
 @number_of_web_requests = 0
 @reported_current_test = false
 
-@last_response = nil
+@response = nil
 
 def test(name, &block)
   
@@ -59,7 +59,7 @@ def web(&block)
   @number_of_web_requests = @number_of_web_requests + 1
   
   # new request
-  @current_request = {
+  @request = {
     :http_method => :none,
     :url => nil,
     :headers => nil,
@@ -73,35 +73,35 @@ def web(&block)
   begin
   
     # perform the request
-    uri = URI.parse(@current_request[:url])
+    uri = URI.parse(@request[:url])
     http = Net::HTTP.new(uri.host, uri.port)
     
     if uri.scheme == "https"
       http.use_ssl = true
     end
     
-    case @current_request[:http_method]
+    case @request[:http_method]
     when :get
       req = Net::HTTP::Get.new(uri.path)
-      unless @current_request[:params].nil?
-        req.set_form_data(@current_request[:params])
+      unless @request[:params].nil?
+        req.set_form_data(@request[:params])
         req = Net::HTTP::Get.new( uri.path+ '?' + req.body )
       end
     when :put
       req = Net::HTTP::Put.new(uri.path)
-      req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
+      req.set_form_data(@request[:params]) unless @request[:params].nil?
     when :post
       req = Net::HTTP::Post.new(uri.path)
-      req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
+      req.set_form_data(@request[:params]) unless @request[:params].nil?
     when :delete
       req = Net::HTTP::Delete.new(uri.path)
-      unless @current_request[:params].nil?
-        req.set_form_data(@current_request[:params])
+      unless @request[:params].nil?
+        req.set_form_data(@request[:params])
         req = Net::HTTP::Delete.new( uri.path + '?' + req.body )
       end
     end
     
-    @last_response = http.request(req)
+    @response = http.request(req)
   
   rescue Exception => e
     fail("EXCEPTION: #{e.message}")
@@ -121,15 +121,15 @@ def print_last_request
   puts ""
   puts "#{@failed_tests+1})\t#{@current_test_name} (#{@current_file})"
   print "\t"
-  print @current_request[:http_method].to_s.upcase
+  print @request[:http_method].to_s.upcase
   print " "
-  print @current_request[:url]
+  print @request[:url]
 
   # parameters
-  if @current_request[:params]
+  if @request[:params]
     puts ""
     puts "\tParameters:"
-    @current_request[:params].each do | k, v |
+    @request[:params].each do | k, v |
       if k.downcase.include?('password')
         puts "\t  #{k}=********"
       else
@@ -138,10 +138,10 @@ def print_last_request
     end
   end
   
-  if @current_request[:headers]
+  if @request[:headers]
     puts ""
     puts "\tHeaders:"
-    @current_request[:headers].each do | k, v |
+    @request[:headers].each do | k, v |
       puts "\t  #{k}=#{v}"
     end
   end
@@ -151,25 +151,25 @@ def print_last_request
 end
 
 # METHODS
-def get ; @current_request[:http_method] = :get ; end
-def delete ; @current_request[:http_method] = :delete ; end
-def put ; @current_request[:http_method] = :put ; end
-def post ; @current_request[:http_method] = :post ; end
+def get ; @request[:http_method] = :get ; end
+def delete ; @request[:http_method] = :delete ; end
+def put ; @request[:http_method] = :put ; end
+def post ; @request[:http_method] = :post ; end
 
 # PROPERTIES
-def url(u); @current_request[:url] = u ; end
+def url(u); @request[:url] = u ; end
 def with_header(h, v)
-  @current_request[:headers] ||= {}
-  @current_request[:headers][h] = v;
+  @request[:headers] ||= {}
+  @request[:headers][h] = v;
 end
 def with_param(h, v)
-  @current_request[:params] ||= {}
-  @current_request[:params][h] = v;
+  @request[:params] ||= {}
+  @request[:params][h] = v;
 end
 
 # RESPONSE
 def json_response
-  JSON.parse(@last_response.body, { :symbolize_names => true })  
+  JSON.parse(@response.body, { :symbolize_names => true })  
 end
 
 # ASSERTIONS
@@ -194,7 +194,7 @@ def assert(e, m = nil)
   end
 end
 def assert_has_response
-  assert(@last_response != nil, " Must perform a 'web do' before making such assertions")
+  assert(@response != nil, " Must perform a 'web do' before making such assertions")
 end
 def assert_equal(b,a,m=nil)
   assert(a == b, "#{m} (Expected \"#{a}\" but was \"#{b}\")")
@@ -209,7 +209,7 @@ def assert_not_nil(a, m=nil)
   assert_not_equal(a, nil, "#{m} (Expected NOT to be nil)")
 end
 def assert_status(s)
-  assert_equal(@last_response.code.to_s, s.to_s, " Status should be #{s}")
+  assert_equal(@response.code.to_s, s.to_s, " Status should be #{s}")
 end
 def assert_success
   assert_status(200)
@@ -218,7 +218,7 @@ def assert_not_found
   assert_status(404)
 end
 def assert_response_contains(what)
-  assert(@last_response.body.include?(what), "The response should contain \"#{what}\" but doesn't");
+  assert(@response.body.include?(what), "The response should contain \"#{what}\" but doesn't");
 end
 
 def print_results
