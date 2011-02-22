@@ -25,6 +25,17 @@ test "Google search for webdo" do
 end
 }}}
 
+=== and the output ===
+
+{{{
+webdo - External RESTful API testing framework
+by Mat Ryer - http://code.google.com/p/stretchr/wiki/webdo
+
+..
+Tests:		Total: 2	Success: 2 	Failed: 0	(100% success)
+Assertions:	Total: 4	Success: 4	Failed: 0	(100% success)
+}}}
+
 == Get the source ==
 
 Get the source here: http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo
