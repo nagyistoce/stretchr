@@ -99,6 +99,12 @@ def web(&block)
   
   rescue Exception => e
     fail("EXCEPTION: #{e.message}")
+    
+    # write the backtrace
+    e.backtrace.each do | b |
+      puts "\t\t\t#{b}"
+    end
+    
   end
   
 end
@@ -118,7 +124,13 @@ def print_last_request
     puts ""
     puts "\tParameters:"
     @current_request[:params].each do | k, v |
-      puts "\t  #{k}=#{v}"
+      
+      if k.downcase.include?('password')
+        puts "\t  #{k}=********"
+      else
+        puts "\t  #{k}=#{v}"
+      end
+      
     end
   end
   
