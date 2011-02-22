@@ -11,7 +11,7 @@
 @class StretchrContext;
 
 /**
- Protocol describing the interface for an object responsible for configuring
+ Protocol describing the interface for an object responsible for creating and configuring
  NSURLRequest objects on behalf of the StretchrContext.
  */
 @protocol StretchrContextRequestDelegate <NSObject>

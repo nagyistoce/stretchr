@@ -14,7 +14,9 @@
 #import <UIKit/UIKit.h>
 #import "Stretchr.h"
 
-@interface StretchrContextTest : SenTestCase {
+#define TEST_HOST_VALUE @"http://www.google.com"
+
+@interface StretchrContextTest : SenTestCase <StretchrContextDelegate> {
   StretchrContext *testContext;
 }
 

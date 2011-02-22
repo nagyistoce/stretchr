@@ -8,15 +8,16 @@
 
 #import "StretchrContext.h"
 #import "StretchrResource.h"
+#import "StretchrResponse.h"
 
 @implementation StretchrContext
-@synthesize delegate;
+@synthesize delegate, requestDelegate, connectionDelegate;
 @synthesize accountName, publicKey, privateKey;
 @synthesize domain, useSsl, dataType;
 
 #pragma mark - init
 
-- initWithAccountName:(NSString*)accName publicKey:(NSString*)pubKey privateKey:(NSString*)privKey {
+- initWithDelegate:(id<StretchrContextDelegate>)contextDelegate AccountName:(NSString*)accName publicKey:(NSString*)pubKey privateKey:(NSString*)privKey {
   
   if ((self = [self init])) {
     
@@ -28,7 +29,14 @@
     // set the defaults
     self.domain = @"stretchr.com";
     self.dataType = @"json";
-    self.delegate = self;
+    
+    // set default delegate to self
+    self.delegate = contextDelegate;
+    self.requestDelegate = self;
+    self.connectionDelegate = self;
+    
+    // empty holder for response data
+    currentResponseData_ = [[NSMutableData alloc] init];
     
   }
   return self;
@@ -37,10 +45,19 @@
 
 - (void)dealloc {
   
+  [currentResponseData_ release];
+  currentResponseData_ = nil;
+  [currentConnection_ release];
+  currentConnection_ = nil;
+  
   self.accountName = nil;
   self.privateKey = nil;
   self.publicKey = nil;
   self.domain = nil;
+  self.dataType = nil;
+  
+  self.requestDelegate = nil;
+  self.connectionDelegate = nil;
   
   [super dealloc];
   
@@ -79,15 +96,32 @@
 
 - (NSString*)host {
   
-  return [NSString stringWithFormat:@"%@://%@.%@",
+  NSString *host = [NSString stringWithFormat:@"%@://%@.%@",
           self.useSsl ? @"https" : @"http",
           self.accountName,
           self.domain];
   
+  // allow the delegate to change the host if they wish
+  if ([self.delegate respondsToSelector:@selector(stretchrContext:willUseHost:)]) {
+    host = [self.delegate stretchrContext:self willUseHost:host];
+  }
+  
+  return host;
+  
 }
 
 - (NSString*)urlForResource:(StretchrResource*)resource {
-  return [NSString stringWithFormat:@"%@%@/%@.%@", [self host], [resource fullRelativePathUrl], [resource resourceId], self.dataType];
+  
+  if ([resource exists]) {
+    
+    return [NSString stringWithFormat:@"%@%@/%@.%@", [self host], [resource fullRelativePathUrl], [resource resourceId], self.dataType];
+    
+  } else {
+    
+    return [self urlPathForResource:resource];
+    
+  }
+  
 }
 
 - (NSString*)urlPathForResource:(StretchrResource*)resource {
@@ -99,13 +133,13 @@
 - (NSURLRequest*)createUrlRequestToCreateResource:(StretchrResource*)resource {
   
   // create the request
-  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  NSMutableURLRequest *request = [self.requestDelegate stretchrContext:self urlRequestForResource:resource];
   
   // configure it
-  [self.delegate stretchrContext:self configureUrlRequest:request toCreateResource:resource];
+  [self.requestDelegate stretchrContext:self configureUrlRequest:request toCreateResource:resource];
   
   // finish configuring it
-  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  [self.requestDelegate stretchrContext:self finishConfigurationForRequest:request];
   
   // return it
   return request;
@@ -115,13 +149,13 @@
 - (NSURLRequest*)createUrlRequestToReadResource:(StretchrResource*)resource {
 
   // create the request
-  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  NSMutableURLRequest *request = [self.requestDelegate stretchrContext:self urlRequestForResource:resource];
   
   // configure it
-  [self.delegate stretchrContext:self configureUrlRequest:request toReadResource:resource];
+  [self.requestDelegate stretchrContext:self configureUrlRequest:request toReadResource:resource];
   
   // finish configuring it
-  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  [self.requestDelegate stretchrContext:self finishConfigurationForRequest:request];
   
   // return it
   return request;
@@ -131,13 +165,13 @@
 - (NSURLRequest*)createUrlRequestToUpdateResource:(StretchrResource*)resource {
 
   // create the request
-  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  NSMutableURLRequest *request = [self.requestDelegate stretchrContext:self urlRequestForResource:resource];
   
   // configure it
-  [self.delegate stretchrContext:self configureUrlRequest:request toUpdateResource:resource];
+  [self.requestDelegate stretchrContext:self configureUrlRequest:request toUpdateResource:resource];
   
   // finish configuring it
-  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  [self.requestDelegate stretchrContext:self finishConfigurationForRequest:request];
   
   // return it
   return request;
@@ -147,20 +181,20 @@
 - (NSURLRequest*)createUrlRequestToDeleteResource:(StretchrResource*)resource {
 
   // create the request
-  NSMutableURLRequest *request = [self.delegate stretchrContext:self urlRequestForResource:resource];
+  NSMutableURLRequest *request = [self.requestDelegate stretchrContext:self urlRequestForResource:resource];
   
   // configure it
-  [self.delegate stretchrContext:self configureUrlRequest:request toDeleteResource:resource];
+  [self.requestDelegate stretchrContext:self configureUrlRequest:request toDeleteResource:resource];
   
   // finish configuring it
-  [self.delegate stretchrContext:self finishConfigurationForRequest:request];
+  [self.requestDelegate stretchrContext:self finishConfigurationForRequest:request];
   
   // return it
   return request;
   
 }
 
-#pragma mark - StretchrContextRequestDelegate method
+#pragma mark - StretchrContextRequestDelegate methods
 
 - (NSMutableURLRequest*)stretchrContext:(StretchrContext*)context urlRequestForResource:(StretchrResource*)resource {
   
@@ -222,6 +256,119 @@
   
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodDELETE]];
   [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
+  
+}
+
+#pragma mark - StretchrContextConnectionDelegate methods
+
+- (NSURLConnection*)stretchrContext:(StretchrContext*)context needsConnectionForRequest:(NSURLRequest*)request {
+  
+  if (currentConnection_ != nil) {
+    [currentConnection_ release];
+    currentConnection_ = nil;
+  }
+  
+  currentConnection_ = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+  
+  if (!currentConnection_) {
+    
+    // TODO: Fix this implemntation
+    // connection failed :-(
+    abort();
+    
+  } else {
+    
+    // start loading new data
+    [currentResponseData_ setLength:0];
+    
+  }
+  
+  return currentConnection_;
+  
+}
+
+#pragma mark - NSURLConnectionDelegate methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+  
+  // reset the length, as the data will be passed in its entireity
+  [currentResponseData_ setLength:0];
+  
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+  
+  // add the data we just got
+  [currentResponseData_ appendData:data];
+  
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+  
+  // no longer busy
+  isWorking_ = NO;
+  
+  // build the response
+  StretchrResponse *response = [[StretchrResponse alloc] init];
+  
+  // TODO: read the data and build the response
+  NSLog(@"TODO: Read and process: %@", [currentResponseData_ description]);
+  
+  [self.delegate stretchrContext:self connectionDidFinishLoading:connection withResponse:(StretchrResponse*)response];
+  
+  // clean up objects
+  [response release];
+  [currentResponseData_ release];
+  [currentConnection_ release];
+  
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+  
+  // no longer busy
+  isWorking_ = NO;
+  
+  // tell the delegate about the error
+  [self.delegate stretchrContext:self connection:currentConnection_ didFailWithError:error];
+  
+  // clean up objects
+  [currentResponseData_ release];
+  [currentConnection_ release];
+  
+}
+
+#pragma mark - Resource CRUD actions
+
+- (NSURLConnection *)startConnectionToCreateResource:(StretchrResource*)resource {
+  
+  isWorking_ = YES;
+  
+  NSURLRequest *request = [self createUrlRequestToCreateResource:resource];
+  return [self.connectionDelegate stretchrContext:self needsConnectionForRequest:request];
+  
+}
+
+- (NSURLConnection *)startConnectionToReadResource:(StretchrResource*)resource {
+  
+  isWorking_ = YES;
+  
+  NSURLRequest *request = [self createUrlRequestToReadResource:resource];
+  return [self.connectionDelegate stretchrContext:self needsConnectionForRequest:request];
+  
+}
+
+- (NSURLConnection *)startConnectionToUpdateResource:(StretchrResource*)resource {
+  
+  isWorking_ = YES;
+  
+  NSURLRequest *request = [self createUrlRequestToUpdateResource:resource];
+  return [self.connectionDelegate stretchrContext:self needsConnectionForRequest:request];
+  
+}
+
+- (NSURLConnection *)startConnectionToDeleteResource:(StretchrResource*)resource {
+  
+  isWorking_ = YES;
+  
+  NSURLRequest *request = [self createUrlRequestToDeleteResource:resource];
+  return [self.connectionDelegate stretchrContext:self needsConnectionForRequest:request];
   
 }
 
