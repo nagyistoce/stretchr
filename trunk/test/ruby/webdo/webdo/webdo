@@ -217,6 +217,9 @@ end
 def assert_not_found
   assert_status(404)
 end
+def assert_redirect
+  assert_status(302)
+end
 def assert_response_contains(what)
   assert(@response.body.include?(what), "The response should contain \"#{what}\" but doesn't");
 end
