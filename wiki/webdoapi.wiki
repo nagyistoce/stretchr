@@ -77,7 +77,7 @@ Returns the response of the last web request as an object.  Will fail if invalid
 
 === `@response` ===
 
-The most recent HTTP response.  This is actually of [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPResponse.html HTTPResponse ruby object].
+The most recent HTTP response.  This is actually a [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPResponse.html HTTPResponse ruby object].
 
 == Assertion methods ==
 
