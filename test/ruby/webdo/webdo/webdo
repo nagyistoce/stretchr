@@ -6,7 +6,7 @@
 #
 
 puts "webdo - External RESTful API testing framework"
-puts "by Mat Ryer - http://code.google.com/p/stretchr/wiki/webdo"
+puts "by Mat Ryer - v0.2 - http://code.google.com/p/stretchr/wiki/webdo"
 puts ""
 
 require 'net/http'
@@ -69,32 +69,38 @@ def web(&block)
   
   req = nil
   
-  # perform the request
-  uri = URI.parse(@current_request[:url])
-  http = Net::HTTP.new(uri.host, uri.port)
-  case @current_request[:http_method]
-  when :get
-    req = Net::HTTP::Get.new(uri.path)
-    unless @current_request[:params].nil?
-      req.set_form_data(@current_request[:params])
-      req = Net::HTTP::Get.new( uri.path+ '?' + req.body )
+  begin
+  
+    # perform the request
+    uri = URI.parse(@current_request[:url])
+    http = Net::HTTP.new(uri.host, uri.port)
+    case @current_request[:http_method]
+    when :get
+      req = Net::HTTP::Get.new(uri.path)
+      unless @current_request[:params].nil?
+        req.set_form_data(@current_request[:params])
+        req = Net::HTTP::Get.new( uri.path+ '?' + req.body )
+      end
+    when :put
+      req = Net::HTTP::Put.new(uri.path)
+      req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
+    when :post
+      req = Net::HTTP::Post.new(uri.path)
+      req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
+    when :delete
+      req = Net::HTTP::Delete.new(uri.path)
+      unless @current_request[:params].nil?
+        req.set_form_data(@current_request[:params])
+        req = Net::HTTP::Delete.new( uri.path + '?' + req.body )
+      end
     end
-  when :put
-    req = Net::HTTP::Put.new(uri.path)
-    req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
-  when :post
-    req = Net::HTTP::Post.new(uri.path)
-    req.set_form_data(@current_request[:params]) unless @current_request[:params].nil?
-  when :delete
-    req = Net::HTTP::Delete.new(uri.path)
-    unless @current_request[:params].nil?
-      req.set_form_data(@current_request[:params])
-      req = Net::HTTP::Delete.new( uri.path + '?' + req.body )
-    end
+    
+    @last_response = http.request(req)
+  
+  rescue Exception => e
+    fail("EXCEPTION: #{e.message}")
   end
   
-  @last_response = http.request(req)
-
 end
 
 def print_last_request
