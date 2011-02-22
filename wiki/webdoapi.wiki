@@ -67,6 +67,18 @@ with_header "Accept", "application/json"
 
 The `with_header` parameter specifies a header to use when making the request.  For a full list of available options, see http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
+== Helper methods and objects ==
+
+Along the way, you will have access to a number of useful helper methods that should make writing tests easier.
+
+=== `json_response` ===
+
+Returns the response of the last web request as an object.  Will fail if invalid JSON is returned from the server.
+
+=== `@response` ===
+
+The most recent HTTP response.  This is actually of [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPResponse.html HTTPResponse ruby object].
+
 == Assertion methods ==
 
 After your `web do`...`end` block, you usually want to make assertions about the response that was returned.
