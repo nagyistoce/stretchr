@@ -7,3 +7,11 @@
 == 1. Install Ruby ==
 
   * `webdo` requires [http://www.ruby-lang.org/en/downloads/ Ruby]
+
+== 2. Create a project directory ==
+
+  * Create a new directory where your test files will live.  For example, `webtests`
+
+== 3. Download `webdo` ==
+
+  * Download the [http://code.google.com/p/stretchr/source/browse/trunk/test/ruby/webdo/webdo/webdo.rb webdo.rb] file into a subfolder called `webdo`.
