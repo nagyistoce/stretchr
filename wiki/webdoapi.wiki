@@ -32,7 +32,7 @@ The `web do`...`end` block allows you to specify a web request to make.  For exa
 
 All requests must have at least a `url`.
 
-=== Methods ===
+=== `get`, `put`, `post`, `delete` (HTTP methods) ===
 
 You can use any one of the four main RESTful HTTP methods:
 
