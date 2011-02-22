@@ -173,7 +173,34 @@ assert_response_contains "John Smith", "Logged in name was not present in the re
 
 The `assert_response_contains` method allows you to check whether a string is present in the response body or not.  If it is not, the assertion will fail.
 
+== Files and the naming convention ==
 
+Webdo follows a simple naming convention when looking for test files.  Following the ruby style, all test files must end in `_test.rb`.  For example:
+
+{{{
+ensure_posting_not_allowed_test.rb
+}}}
+
+Webdo will find and run files in alphabetical order, so it makes sense to use a number prefix system if the order of requests matters to you.
+
+For example:
+
+{{{
+001_delete_resource_test.rb
+002_create_new_resource_test.rb
+003_get_created_resource_test.rb
+]}}
+
+=== Other file types ===
+
+You may also specify `_config.rb`, `_setup.rb` and `_cleanup.rb` files that allow you to run any configuration, setup before the tests or cleanup after the tests are processed.
+
+Files are processed in this order:
+
+|| Config files || `_config.rb` ||
+|| Setup files || `_setup.rb` ||
+|| Test files || `_test.rb` ||
+|| Cleanup files || `_cleanup.rb` ||
 
 == Global variables ==
 
