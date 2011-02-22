@@ -42,7 +42,7 @@
 - (StretchrResource*)createTestResource {
   
   NSString *path = @"/tests/1/resources";
-  NSMutableDictionary *properties = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"name", @"Mat", @"language", @"en", nil];
+  NSMutableDictionary *properties = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Mat", @"name", @"en", @"language", nil];
   
   StretchrResource *resource = [[[StretchrResource alloc] initWithPath:path andProperties:properties] autorelease];
   
@@ -72,7 +72,9 @@
   STAssertStringsEqual(context.domain, @"stretchr.com", @"context.domain incorrect");
   
   // check initial delegate value is self
-  STAssertEquals(context.requestDelegate, context, @".delegate should be set to self initially");
+  STAssertEquals(context.delegate, self, @".delegate should be set by initWithDelegate method");
+  STAssertEquals(context.requestDelegate, context, @".requestDelegate should be set to self initially");
+  STAssertEquals(context.connectionDelegate, context, @".connectionDelegate should be set to self initially");
   
   [context release];
   
@@ -203,7 +205,7 @@
   // check the request body data
   
   NSString *postDataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-  STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
+  STAssertStringsEqual(postDataString, @"language=en&name=Mat", @"HTTPBody incorrect");
   [postDataString release];
   
   // check the headers
@@ -224,7 +226,8 @@
   STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
+  MRLog([request.URL absoluteString]);
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json?language=en&name=Mat", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
   
@@ -243,7 +246,7 @@
   STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json", @"request.URL was wrong");
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json?language=en&name=Mat", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
   
@@ -268,7 +271,7 @@
   // check the request body data
   
   NSString *postDataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-  STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
+  STAssertStringsEqual(postDataString, @"language=en&name=Mat", @"HTTPBody incorrect");
   [postDataString release];
   
   // check the headers
@@ -289,7 +292,7 @@
   STAssertStringsEqual([request HTTPMethod], @"DELETE", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json?language=en&name=Mat", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
   
@@ -315,7 +318,7 @@
   // check the request body data
   
   NSString *postDataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-  STAssertStringsEqual(postDataString, @"Mat=name&en=language", @"HTTPBody incorrect");
+  STAssertStringsEqual(postDataString, @"language=en&name=Mat", @"HTTPBody incorrect");
   [postDataString release];
   
   [testContext stretchrContext:testContext finishConfigurationForRequest:request];
@@ -359,7 +362,7 @@
   STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/246.json", @"request.URL was wrong");
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/246.json?language=en&name=Mat", @"request.URL was wrong");
   
   // check the headers
   STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
@@ -377,7 +380,7 @@
   STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json", @"request.URL was wrong");
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources.json?language=en&name=Mat", @"request.URL was wrong");
   
   // check the headers
   STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
@@ -416,7 +419,7 @@
   STAssertStringsEqual([request HTTPMethod], @"DELETE", @"HTTPMethod incorrect.");
   
   // check the URL
-  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/2468.json", @"request.URL was wrong");
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/2468.json?language=en&name=Mat", @"request.URL was wrong");
   
   // check the headers
   STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Length"], ([NSString stringWithFormat:@"%d", [request.HTTPBody length]]), @"Content-Length header incorrect");
@@ -438,7 +441,9 @@
                                             initWithPath:@"/search"
                                            andProperties:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"q", @"monkey", nil]];
   
-  [context startConnectionToReadResource:googleSearchResource];
+  NSURLConnection *connection = [context startConnectionToReadResource:googleSearchResource];
+  
+  MRLog([connection description]);
   
 }
 

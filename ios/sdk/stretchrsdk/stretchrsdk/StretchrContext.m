@@ -128,6 +128,7 @@
   return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePathUrl], self.dataType];
 }
 
+
 #pragma mark - Creating NSURLRequest objects
 
 - (NSURLRequest*)createUrlRequestToCreateResource:(StretchrResource*)resource {
@@ -231,7 +232,9 @@
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toReadResource:(StretchrResource*)resource {
  
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodGET]];
-  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
+  NSURL *url = [NSURL URLWithString:[context urlForResource:resource]];
+  url = [NSURL URLWithString:[NSString stringWithFormat:@"?%@", [resource postBodyStringIncludingId:NO]] relativeToURL:url];  
+  [urlRequest setURL:url];
   
 }
 
@@ -255,7 +258,9 @@
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toDeleteResource:(StretchrResource*)resource {
   
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodDELETE]];
-  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
+  NSURL *url = [NSURL URLWithString:[context urlForResource:resource]];
+  url = [NSURL URLWithString:[NSString stringWithFormat:@"?%@", [resource postBodyStringIncludingId:NO]] relativeToURL:url];  
+  [urlRequest setURL:url];
   
 }
 
@@ -275,11 +280,6 @@
     // TODO: Fix this implemntation
     // connection failed :-(
     abort();
-    
-  } else {
-    
-    // start loading new data
-    [currentResponseData_ setLength:0];
     
   }
   

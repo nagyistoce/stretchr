@@ -39,6 +39,8 @@
 
 @property (assign) BOOL useSsl;
 
+#pragma mark - init
+
 /**
  Initialises the context object with relevant settings and delegate object
  */
