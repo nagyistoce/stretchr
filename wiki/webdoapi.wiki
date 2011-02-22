@@ -145,6 +145,10 @@ Asserts that the response came back with a `404 Not Found` HTTP status.
 
 Asserts that the response came back with a `302 Redirected` HTTP status.
 
+=== `assert_created` ===
+
+Asserts that the response came back with a `201 Created` HTTP status.
+
 === `assert_status` ===
 
 {{{
