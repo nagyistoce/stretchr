@@ -2,6 +2,8 @@
 
 = `webdo` =
 
+<wiki:toc max_depth="1" />
+
 == Anatomy of test suites and tests ==
 
 A webdo test suite is a single ruby (`.rb`) file that contains one or more `test` method calls.
