@@ -2,8 +2,41 @@
 
 = `webdo` =
 
-== Anatomy of a test ==
+== Anatomy of test suites and tests ==
 
 A webdo test suite is a single ruby (`.rb`) file that contains one or more `test` method calls.
+
+=== the `test` method ===
+
+{{{
+test "Name your test" do
+  # test code
+end
+}}}
+
+The test method performs a webdo test when run.  Your test code is usually made up of one or more `web do` calls, followed by a number of assertions.
+
+== `web do` commands ==
+
+The `web do`...`end` block allows you to specify a web request to make.  For example, the following code will make a GET request on `http://www.google.co.uk/search?q=webdo`:
+
+{{{
+  web do
+    get
+    url "http://www.google.co.uk/search"
+    with_param "q", "webdo"
+  end
+}}}
+
+=== Methods ===
+
+You can use any one of the four main RESTful HTTP methods:
+
+  * `get`
+  * `put`
+  * `post`
+  * `delete`
+
+The default is `get`.
 
 == Assertion methods ===
