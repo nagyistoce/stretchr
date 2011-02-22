@@ -137,6 +137,14 @@ assert_success
 
 Asserts that the response came back with a `200 OK` HTTP status.
 
+=== `assert_not_found` ===
+
+Asserts that the response came back with a `404 Not Found` HTTP status.
+
+=== `assert_redirect` ===
+
+Asserts that the response came back with a `302 Redirected` HTTP status.
+
 === `assert_status` ===
 
 {{{
