@@ -223,6 +223,12 @@ end
 def assert_not_nil(a, m=nil)
   assert_not_equal(a, nil, "#{m} (Expected NOT to be nil)")
 end
+def assert_true(a, m=nil)
+  assert_equal(a, true, "#{m} (Expected to be true)");
+end
+def assert_false(a, m=nil)
+  assert_equal(a, true, "#{m} (Expected to be false)");
+end
 def assert_status(s)
   assert_equal(@response.code.to_s, s.to_s, " Status should be #{s}")
 end
