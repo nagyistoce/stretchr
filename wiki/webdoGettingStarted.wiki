@@ -10,8 +10,8 @@
 
 == 2. Download `webdo` ==
 
-  * Download the [http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo webdo] folder
-  * Optionally add webdo to your `$PATH` to make using it easier
+  * Download the [http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo webdo] folder from the [http://code.google.com/p/stretchr/downloads/list Downloads] section
+  * Optional:  Add webdo to your `$PATH` to make using it easier
 
 == 3. Create a folder for your tests ==
 
