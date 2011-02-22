@@ -1,0 +1,9 @@
+#summary API Documentation for webdo
+
+= `webdo` =
+
+== Anatomy of a test ==
+
+A webdo test suite is a single ruby (`.rb`) file that contains one or more `test` method calls.
+
+== Assertion methods ===
