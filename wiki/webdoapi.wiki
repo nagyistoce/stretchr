@@ -28,6 +28,8 @@ The `web do`...`end` block allows you to specify a web request to make.  For exa
   end
 }}}
 
+All requests must have at least a `url`.
+
 === Methods ===
 
 You can use any one of the four main RESTful HTTP methods:
@@ -38,5 +40,29 @@ You can use any one of the four main RESTful HTTP methods:
   * `delete`
 
 The default is `get`.
+
+=== `url` ===
+
+{{{
+url "http://www.google.co.uk/search"
+}}}
+
+The `url` method specifies the URL (protocol, domain, path and filename) of the request to make.  Query string parameters are included with the `with_param` method.
+
+=== `with_param` ===
+
+{{{
+with_param "q", "webdo"
+}}}
+
+The `with_param` method specifies a parameter to use when making the request.  `get` and `delete` requests will include these parameters in the querystring (after the `?` in the URL), whereas `post` and `put` requests will send it in the request body.
+
+=== `with_header` ===
+
+{{{
+with_header "Accept", "application/json"
+}}}
+
+The `with_header` parameter specifies a header to use when making the request.  For a full list of available options, see http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
 == Assertion methods ===
