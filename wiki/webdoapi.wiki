@@ -77,7 +77,9 @@ Returns the response of the last web request as an object.  Will fail if invalid
 
 === `@request` ===
 
-The most recent (or current) request object.  This must be manipulated within the `web do`...`end` block. although can be read afterwards.  This object is actually a subclass of the [http://www.ensta.fr/~diam/ruby/online/ruby-doc-stdlib/libdoc/net/http/rdoc/classes/Net/HTTPRequest.html HTTPRequest ruby object].
+The most recent (or current) request object.  This must be manipulated within the `web do`...`end` block. although can be read afterwards. 
+
+NOTE: This is NOT a HTTPRequest ruby object, instead it is a plain object containing the settings for the request that gets generated when the `web do`...`end` block closes.
 
 === `@response` ===
 
