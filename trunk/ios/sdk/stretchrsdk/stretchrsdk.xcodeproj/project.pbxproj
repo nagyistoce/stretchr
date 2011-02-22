@@ -32,6 +32,8 @@
 		0548B8351312A40600C62F2B /* StretchrResponseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0548B8341312A40500C62F2B /* StretchrResponseTest.m */; };
 		0548B83E1312AFF800C62F2B /* StretchrContextRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B83D1312AFF700C62F2B /* StretchrContextRequestDelegate.h */; };
 		0548B8441312C02800C62F2B /* StretchrConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B8431312C02200C62F2B /* StretchrConstants.h */; };
+		0548B84D1313E75600C62F2B /* StretchrContextConnectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B84C1313E75500C62F2B /* StretchrContextConnectionDelegate.h */; };
+		0548B8501313EC3100C62F2B /* StretchrContextDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0548B84F1313EC3000C62F2B /* StretchrContextDelegate.h */; };
 		05C0CE9313119B8500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
 		05C0CEA313119C2500FFB38D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CEA213119C2500FFB38D /* UIKit.framework */; };
 		05C0CEA413119C2500FFB38D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C0CE9213119B8500FFB38D /* Foundation.framework */; };
@@ -67,6 +69,8 @@
 		0548B8341312A40500C62F2B /* StretchrResponseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrResponseTest.m; sourceTree = "<group>"; };
 		0548B83D1312AFF700C62F2B /* StretchrContextRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContextRequestDelegate.h; sourceTree = "<group>"; };
 		0548B8431312C02200C62F2B /* StretchrConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrConstants.h; sourceTree = "<group>"; };
+		0548B84C1313E75500C62F2B /* StretchrContextConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContextConnectionDelegate.h; sourceTree = "<group>"; };
+		0548B84F1313EC3000C62F2B /* StretchrContextDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrContextDelegate.h; sourceTree = "<group>"; };
 		05C0CE8F13119B8500FFB38D /* libstretchrsdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libstretchrsdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C0CE9213119B8500FFB38D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05C0CE9613119B8500FFB38D /* stretchrsdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stretchrsdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				0548B7F61311C6E800C62F2B /* StretchrContext.h */,
 				0548B7F71311C6E800C62F2B /* StretchrContext.m */,
 				0548B83D1312AFF700C62F2B /* StretchrContextRequestDelegate.h */,
+				0548B84C1313E75500C62F2B /* StretchrContextConnectionDelegate.h */,
+				0548B84F1313EC3000C62F2B /* StretchrContextDelegate.h */,
 			);
 			name = Context;
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 				0548B8301312A3F700C62F2B /* StretchrResponse.h in Headers */,
 				0548B83E1312AFF800C62F2B /* StretchrContextRequestDelegate.h in Headers */,
 				0548B8441312C02800C62F2B /* StretchrConstants.h in Headers */,
+				0548B84D1313E75600C62F2B /* StretchrContextConnectionDelegate.h in Headers */,
+				0548B8501313EC3100C62F2B /* StretchrContextDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,20 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StretchrContextDelegate.h"
 #import "StretchrContextRequestDelegate.h"
+#import "StretchrContextConnectionDelegate.h"
 #import "StretchrHttpMethod.h"
 @class StretchrHttpResource;
 
 /**
  Manages the context under which Stretchr is communicated with
  */
-@interface StretchrContext : NSObject <StretchrContextRequestDelegate> {
+@interface StretchrContext : NSObject <StretchrContextRequestDelegate, StretchrContextConnectionDelegate> {
     
+  // buffer for holding response data
+  NSMutableData *currentResponseData_;
+  NSURLConnection *currentConnection_;
+  BOOL isWorking_;
+  
 }
 
 #pragma mark - Properties
 
-@property (assign) id<StretchrContextRequestDelegate> delegate;
+@property (assign) id<StretchrContextDelegate> delegate;
+@property (assign) id<StretchrContextRequestDelegate> requestDelegate;
+@property (assign) id<StretchrContextConnectionDelegate> connectionDelegate;
 
 @property (nonatomic, copy) NSString *accountName;
 @property (nonatomic, copy) NSString *publicKey;
@@ -31,9 +40,9 @@
 @property (assign) BOOL useSsl;
 
 /**
- Initialises the context object with relevant settings
+ Initialises the context object with relevant settings and delegate object
  */
-- (id)initWithAccountName:(NSString*)account publicKey:(NSString*)pubKey privateKey:(NSString*)privKey;
+- initWithDelegate:(id<StretchrContextDelegate>)contextDelegate AccountName:(NSString*)accName publicKey:(NSString*)pubKey privateKey:(NSString*)privKey;
 
 #pragma mark - URLs
 
@@ -55,6 +64,28 @@
 #pragma mark - Http
 
 - (NSString*)httpMethodStringFromStretchrHttpMethod:(StretchrHttpMethod)httpMethod;
+
+#pragma mark - Resource CRUD actions
+
+/**
+ Creates a new NSURLConnection and starts creating the specified resource
+ */
+- (NSURLConnection *)startConnectionToCreateResource:(StretchrResource*)resource;
+
+/**
+ Creates a new NSURLConnection and starts reading the specified resource
+ */
+- (NSURLConnection *)startConnectionToReadResource:(StretchrResource*)resource;
+
+/**
+ Creates a new NSURLConnection and starts updating the specified resource
+ */
+- (NSURLConnection *)startConnectionToUpdateResource:(StretchrResource*)resource;
+
+/**
+ Creates a new NSURLConnection and starts deleting the specified resource
+ */
+- (NSURLConnection *)startConnectionToDeleteResource:(StretchrResource*)resource;
 
 #pragma mark - Creating fully configured NSURLRequest objects
 
