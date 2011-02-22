@@ -6,7 +6,7 @@
 #
 
 puts "webdo - External RESTful API testing framework"
-puts "by Mat Ryer - v0.2 - http://code.google.com/p/stretchr/wiki/webdo"
+puts "by Mat Ryer - v0.3 - http://code.google.com/p/stretchr/wiki/webdo"
 puts ""
 
 require 'net/http'
@@ -322,6 +322,11 @@ Dir.glob("#{@working_directory}/**/*_setup.rb").each do | file |
 end
 
 Dir.glob("#{@working_directory}/**/*_test.rb").each do | file |
+  @current_file = file
+  require file
+end
+
+Dir.glob("#{@working_directory}/**/*_cleanup.rb").each do | file |
   @current_file = file
   require file
 end
