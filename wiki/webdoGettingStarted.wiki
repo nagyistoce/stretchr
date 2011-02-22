@@ -41,7 +41,7 @@ end
 In terminal, navigate to your webdo folder and type:
 
 {{{
-webdo {path-to-test-folder}
+./webdo {path-to-test-folder}
 }}}
 
 alternatively, navigate to your test folder and type:
