@@ -173,3 +173,4 @@ While writing your `web do`...`end` blocks, or your assertions (or any other cod
 || `@success` || Whether the current test is successful so far or not ||
 || `@number_of_web_requests` || The total number of web requests made so far ||
 || `@reported_current_test` || (internal) Whether the current test has been printed out to the user or not ||
+|| `@working_directory` || The directory where webdo started its work ||
