@@ -14,4 +14,19 @@
 
 == 3. Download `webdo` ==
 
-  * Download the [http://code.google.com/p/stretchr/source/browse/trunk/test/ruby/webdo/webdo/webdo.rb webdo.rb] file into a subfolder called `webdo`.
+  * Download the [http://code.google.com/p/stretchr/source/browse/#svn%2Ftrunk%2Ftest%2Fruby%2Fwebdo%2Fwebdo webdo] folder into your project folder
+
+== 4. Create a folder for your tests ==
+
+  * Create a new folder alongside the `webdo` folder called `tests`
+ 
+== 5. Make your `run` script ==
+
+  * Either download the [http://code.google.com/p/stretchr/source/browse/trunk/test/ruby/webdo/samples/run.rb run.rb] file into your `tests` folder,
+  * or make a new file called `run.rb` and add the following code to it:
+
+{{{
+require "../webdo/webdo"
+}}}
+
+== 6. Add tests to your project ==
