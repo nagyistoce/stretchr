@@ -213,7 +213,7 @@ def print_results
     assertions_success_percentage = (assertions_success_percentage * 100).round / 100
   end
   
-  puts ""; puts ""
+  puts "";
   puts "Tests:\t\tTotal: #{@total_tests}\tSuccess: #{@successful_tests} \tFailed: #{@failed_tests}\t(#{tests_success_percentage}% success)"
   puts "Assertions:\tTotal: #{@total_assertions}\tSuccess: #{@successful_assertions}\tFailed: #{@failed_assertions}\t(#{assertions_success_percentage}% success)"
   puts ""
@@ -228,7 +228,9 @@ def print_results
   end
 end
 
-Dir.glob("**/*_test.rb").each do | file |
+@working_directory = ARGV[0] || "."
+
+Dir.glob("#{@working_directory}/**/*_test.rb").each do | file |
   @current_file = file
   require file
 end
