@@ -1,0 +1,7 @@
+#summary Get started with webdo
+
+= Getting started with `webdo` =
+
+== Install Ruby ==
+
+  * `webdo` requires [http://www.ruby-lang.org/en/downloads/ Ruby]
