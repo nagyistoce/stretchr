@@ -192,7 +192,7 @@ def fail(m)
     @reported_current_test = true
   end
 
-  puts "Failed :-( - #{m}"
+  puts "Failed: #{m}"
   
 end
 def assert(e, m = nil)
@@ -253,13 +253,13 @@ def print_results
   puts "Tests:\t\tTotal: #{@total_tests}\tSuccess: #{@successful_tests} \tFailed: #{@failed_tests}\t(#{tests_success_percentage}% success)"
   puts "Assertions:\tTotal: #{@total_assertions}\tSuccess: #{@successful_assertions}\tFailed: #{@failed_assertions}\t(#{assertions_success_percentage}% success)"
   puts ""
-  puts "(Finished in #{Time.now - @starttime} seconds)"
+  puts "(Made #{@number_of_web_requests} web request(s) in #{Time.now - @starttime} seconds)"
   puts ""
   if @failed_assertions > 0
-    puts "FAILED!"
+    puts "FAILED! :-("
     puts ""
   else
-    puts "SUCCESS!"
+    puts "SUCCESS! :-)"
     puts ""
   end
 end
