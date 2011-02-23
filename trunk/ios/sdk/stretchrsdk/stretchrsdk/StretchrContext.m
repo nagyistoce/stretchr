@@ -112,22 +112,22 @@
 
 - (NSString*)urlForResource:(StretchrResource*)resource {
   
+  NSString *url;
+  
   if ([resource exists]) {
-    
-    return [NSString stringWithFormat:@"%@%@/%@.%@", [self host], [resource fullRelativePathUrl], [resource resourceId], self.dataType];
-    
+    url = [NSString stringWithFormat:@"%@%@/%@.%@", [self host], [resource fullRelativePathUrl], [resource resourceId], self.dataType];
   } else {
-    
-    return [self urlPathForResource:resource];
-    
+    url = [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePathUrl], self.dataType];
   }
   
+  // allow the delegate the chance to modify the URL if it wishes
+  if ([self.delegate respondsToSelector:@selector(stretchrContext:urlForResource:willUseUrl:)]) {
+    url = [self.delegate stretchrContext:self urlForResource:resource willUseUrl:url];
+  }
+  
+  return url;
+  
 }
-
-- (NSString*)urlPathForResource:(StretchrResource*)resource {
-  return [NSString stringWithFormat:@"%@%@.%@", [self host], [resource fullRelativePathUrl], self.dataType];
-}
-
 
 #pragma mark - Creating NSURLRequest objects
 
@@ -221,7 +221,7 @@
 - (void)stretchrContext:(StretchrContext*)context configureUrlRequest:(NSMutableURLRequest*)urlRequest toCreateResource:(StretchrResource*)resource {
   
   [urlRequest setHTTPMethod:[context httpMethodStringFromStretchrHttpMethod:StretchrHttpMethodPOST]];
-  [urlRequest setURL:[NSURL URLWithString:[context urlPathForResource:resource]]];
+  [urlRequest setURL:[NSURL URLWithString:[context urlForResource:resource]]];
   [urlRequest setHTTPBody:[[resource postBodyStringIncludingId:YES] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
 
 }
@@ -273,7 +273,8 @@
     currentConnection_ = nil;
   }
   
-  currentConnection_ = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+  NSURLRequest *activeRequest = [NSURLRequest requestWithURL:[request URL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+  currentConnection_ = [[NSURLConnection alloc] initWithRequest:activeRequest delegate:self];
   
   if (!currentConnection_) {
     

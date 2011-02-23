@@ -49,7 +49,7 @@
 #pragma mark - URLs
 
 /**
- Gets the host
+ Gets the host for this context
  */
 - (NSString*)host;
 
@@ -57,11 +57,6 @@
  Gets the full URL for the specified resource
  */
 - (NSString*)urlForResource:(StretchrResource*)resource;
-
-/**
- Gets the full URL path for the specified resource
- */
-- (NSString*)urlPathForResource:(StretchrResource*)resource;
 
 #pragma mark - Http
 

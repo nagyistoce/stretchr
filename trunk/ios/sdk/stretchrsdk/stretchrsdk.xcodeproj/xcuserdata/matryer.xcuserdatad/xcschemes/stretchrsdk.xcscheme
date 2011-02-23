@@ -6,7 +6,7 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
@@ -16,6 +16,20 @@
                BlueprintIdentifier = "05C0CE8E13119B8500FFB38D"
                BuildableName = "libstretchrsdk.a"
                BlueprintName = "stretchrsdk"
+               ReferencedContainer = "container:stretchrsdk.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "05C0CEA013119C2500FFB38D"
+               BuildableName = "stretchrsdktests.octest"
+               BlueprintName = "stretchrsdktests"
                ReferencedContainer = "container:stretchrsdk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class StretchrContext;
 @class StretchrResponse;
+@class StretchrResource;
 
 @protocol StretchrContextDelegate <NSObject>
 
@@ -21,6 +22,12 @@
  instead of the generated host parameter.
  */
 - (NSString*)stretchrContext:(StretchrContext*)context willUseHost:(NSString*)host;
+
+/**
+ (Optional)
+ Called when the context needs to resolve a the URL for a resource
+ */
+- (NSString*)stretchrContext:(StretchrContext*)context urlForResource:(StretchrResource*)resource willUseUrl:(NSString*)url;
 
 @required
 
