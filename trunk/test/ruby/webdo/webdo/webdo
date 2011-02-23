@@ -27,6 +27,7 @@ end
 @current_file = nil
 @current_test_name = nil
 @request = nil
+@total_errors = 0
 @total_tests = 0
 @total_assertions = 0
 @failed_assertions = 0
@@ -59,9 +60,21 @@ def test(name, &block)
   $stdout.flush
   sleep(0.2)
   
-  # run the block
-  yield block
-  
+  begin
+    # run the block
+    yield block
+  rescue Exception => e
+
+    @total_errors = @total_errors + 1
+    _fail("EXCEPTION: (#{e.class}) #{e.message}", true)
+    
+    # write the backtrace
+    e.backtrace.each do | b |
+      puts "\tfrom #{b}"
+    end
+    
+  end
+
   if !@success
     @failed_tests = @failed_tests + 1
   else
@@ -127,7 +140,8 @@ def web(&block)
     @response = http.request(req)
   
   rescue Exception => e
-
+    
+    @total_errors = @total_errors + 1
     _fail("EXCEPTION: (#{e.class}) #{e.message}", true)
     
     # write the backtrace
@@ -298,6 +312,9 @@ def print_results
   puts "";
   puts "Tests:\t\tTotal: #{@total_tests}\tSuccess: #{@successful_tests} \tFailed: #{@failed_tests}\t(#{tests_success_percentage}% success)"
   puts "Assertions:\tTotal: #{@total_assertions}\tSuccess: #{@successful_assertions}\tFailed: #{@failed_assertions}\t(#{assertions_success_percentage}% success)"
+  if @total_errors > 0
+    puts "Errors:\t\t#{@total_errors} error(s) prevented these tests from running smoothly"
+  end
   puts ""
   puts "(Made #{@number_of_web_requests} web request(s) in #{Time.now - @starttime} seconds)"
   puts ""
