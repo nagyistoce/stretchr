@@ -6,7 +6,7 @@
 #
 
 puts "webdo - External RESTful API testing framework"
-puts "by Mat Ryer - v0.3 - http://code.google.com/p/stretchr/wiki/webdo"
+puts "by Mat Ryer - v0.2 - http://code.google.com/p/stretchr/wiki/webdo"
 puts ""
 
 require 'net/http'
@@ -276,7 +276,9 @@ end
 def assert_response_contains(what)
   assert(@response.body.include?(what), "The response should contain \"#{what}\" but doesn't");
 end
-
+def assert_forbidden
+  assert_status(403)
+end
 def print_results
   
   tests_success_percentage = 0
