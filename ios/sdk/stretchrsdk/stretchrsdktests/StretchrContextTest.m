@@ -119,16 +119,17 @@
   return TEST_HOST_VALUE;
 }
 
+
 - (void)testUrlForResourceWithNewResource { 
   
   StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/123/tags"];
   
   [testContext setUseSsl:NO];
     
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
+  STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [resource release];
   
@@ -141,11 +142,9 @@
   [testContext setUseSsl:NO];
   
   STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags/lemon.json", @"Return of urlForResource incorrect");
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [testContext setUseSsl:YES];
   STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags/lemon.json", @"Return of urlForResource incorrect");
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
   
   [resource release];
   
@@ -158,14 +157,32 @@
   [testContext setUseSsl:NO];
   
   STAssertStringsEqual([testContext urlForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"http://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
-  
+
   [testContext setUseSsl:YES];
   STAssertStringsEqual([testContext urlForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
-  STAssertStringsEqual([testContext urlPathForResource:resource], @"https://account-name.stretchr.com/people/123/tags.json", @"Return of urlForResource incorrect");
+
+  [resource release];
+  
+}
+
+- (void)testUrlForResourceWithExistingResourceWhereDelegateTakesOver { 
+  
+  StretchrContext *context = [[StretchrContext alloc] initWithDelegate:self AccountName:@"" publicKey:@"" privateKey:@""];
+  StretchrResource *resource = [[StretchrResource alloc] initWithPath:@"/people/123/tags" andId:@"lemon"];
+  
+  [context setUseSsl:NO];
+  
+  STAssertStringsEqual([context urlForResource:resource], @"http://search.twitter.com/search.json?q=:)", @"Return of urlForResource incorrect");
+  
+  [context setUseSsl:YES];
+  STAssertStringsEqual([context urlForResource:resource], @"http://search.twitter.com/search.json?q=:)", @"Return of urlForResource incorrect");
   
   [resource release];
   
+}
+
+- (NSString *)stretchrContext:(StretchrContext *)context urlForResource:(StretchrResource *)resource willUseUrl:(NSString *)url {
+  return @"http://search.twitter.com/search.json?q=:)";
 }
 
 #pragma mark - Configuring NSURLRequest objects
@@ -213,6 +230,31 @@
   
 }
 
+- (void)testConfigureRequestToCreateResourceWithSpecificId {
+  
+  StretchrResource *resource = [self createTestResource];
+  [resource setResourceId:@"123"];
+  NSMutableURLRequest *request = [testContext stretchrContext:testContext urlRequestForResource:resource];
+  
+  [testContext stretchrContext:testContext configureUrlRequest:request toCreateResource:resource];
+  
+  // check the http method
+  STAssertStringsEqual([request HTTPMethod], @"POST", @"HTTPMethod incorrect.");
+  
+  // check the URL
+  STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json", @"request.URL was wrong");
+  
+  // check the request body data
+  
+  NSString *postDataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
+  STAssertStringsEqual(postDataString, @"language=en&name=Mat&id=123", @"HTTPBody incorrect");
+  [postDataString release];
+  
+  // check the headers
+  STAssertStringsEqual([request.allHTTPHeaderFields objectForKey:@"Content-Type"], @"application/x-www-form-urlencoded", @" Content-Type Header incorrect.");
+  
+}
+
 - (void)testConfigureRequestToReadResource {
   
   StretchrResource *resource = [self createTestResource];
@@ -226,7 +268,6 @@
   STAssertStringsEqual([request HTTPMethod], @"GET", @"HTTPMethod incorrect.");
   
   // check the URL
-  MRLog([request.URL absoluteString]);
   STAssertStringsEqual([request.URL absoluteString], @"http://account-name.stretchr.com/tests/1/resources/123.json?language=en&name=Mat", @"request.URL was wrong");
   
   STAssertNil(request.HTTPBody, @"HTTPBody should be nil for GET requests (read)");
@@ -431,8 +472,13 @@
 - (void)testRealRESTfulAPICalls {
   
   /*
-   NOTE: using self as the delegate will cause StretchrContext to use the stretchrContext:willUseHost: method of this class
-   which uses TEST_HOST_VALUE instead.
+   NOTE: using self as the delegate will cause StretchrContext to use the stretchrContext:urlForResource:willUseUrl:
+   method instead of its built in stuff, we we have overridden for test purposes to return:
+   
+     http://search.twitter.com/search.json?q=:)
+   
+   (Why not use stretchr I hear you ask?  Well it isn't built as this code is being written!)
+   
    */
   
   StretchrContext *context = [[StretchrContext alloc] initWithDelegate:self AccountName:@"mat" publicKey:@"pub" privateKey:@"priv"];
