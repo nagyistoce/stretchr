@@ -61,8 +61,15 @@ def test(name, &block)
   sleep(0.2)
   
   begin
+    
     # run the block
     yield block
+
+  rescue JSON::ParserError => e
+    
+    @total_errors = @total_errors + 1
+    _fail("Response expected to be a JSON object but is not: #{e.message}", true)
+
   rescue Exception => e
 
     @total_errors = @total_errors + 1
@@ -138,7 +145,7 @@ def web(&block)
     end
     
     @response = http.request(req)
-  
+
   rescue Exception => e
     
     @total_errors = @total_errors + 1
