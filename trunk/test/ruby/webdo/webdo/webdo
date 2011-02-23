@@ -76,9 +76,7 @@ def test(name, &block)
     _fail("EXCEPTION: (#{e.class}) #{e.message}", true)
     
     # write the backtrace
-    e.backtrace.each do | b |
-      puts "\tfrom #{b}"
-    end
+    print_nice_backtrace e.backtrace
     
   end
 
@@ -152,9 +150,7 @@ def web(&block)
     _fail("EXCEPTION: (#{e.class}) #{e.message}", true)
     
     # write the backtrace
-    e.backtrace.each do | b |
-      puts "\tfrom #{b}"
-    end
+    print_nice_backtrace e.backtrace
     
   end
   
@@ -333,6 +329,13 @@ def print_results
   puts "";
   puts "-----";
   puts "";
+end
+def print_nice_backtrace backtrace
+  backtrace.each do | b |
+    unless ["/Library/Ruby", ":in `test'", "Ruby.framework", "webdo:"].any? { |i| b.downcase.include?(i.downcase) }
+      puts "\tfrom #{b}"
+    end
+  end
 end
 
 @working_directory = ARGV[0] || "."
