@@ -15,9 +15,9 @@
 
 @implementation SRRequestSigner
 
-- (void)addSignParameterToRequest:(SRRequest*)request {
+- (void)configureSignParameterOnRequest:(SRRequest*)request {
   NSString *signature = [self generatorSignatureFromRequest:request];
-  [request.parameters addValue:signature forKey:SIGN_PARAMETER_KEY];  
+  [request.parameters setSingleValue:signature forKey:SIGN_PARAMETER_KEY];
 }
 
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request {

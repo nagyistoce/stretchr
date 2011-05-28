@@ -9,6 +9,7 @@
 #import "SRRequest.h"
 #import "SRCredentials.h"
 #import "SRParameter.h"
+#import "SRRequestSigner.h"
 
 @implementation SRRequest
 @synthesize url;
@@ -49,6 +50,23 @@
   self.credentials = nil;
   
   [super dealloc];
+}
+
+#pragma mark - NSURLRequest integration
+
+- (NSURLRequest*)makeSignedUrlRequest {
+  
+  // sign the request
+  SRRequestSigner *signer = [[SRRequestSigner alloc] init];
+  [signer configureSignParameterOnRequest:self];
+  [signer release];
+  
+  // build the NSURLRequest
+  NSURLRequest *urlRequest = [[[NSURLRequest alloc] initWithURL:self.url] autorelease];
+  
+  // return the new request
+  return urlRequest;
+  
 }
 
 #pragma mark - Parameters

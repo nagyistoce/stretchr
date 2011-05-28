@@ -78,5 +78,26 @@
   
 }
 
+- (void)testMakeSignedUrlRequest {
+  
+  NSURL *url = [NSURL URLWithString:TEST_URL];
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
+  SRRequest *request = [[SRRequest alloc] initWithUrl:url method:SRRequestMethodPOST credentials:creds];
+  
+  NSURLRequest *urlRequest = [request makeSignedUrlRequest];
+  
+  // check the URL
+  NSString *actualUrl = [urlRequest.URL absoluteString];
+  NSString *expectedUrl = [url absoluteString];
+  STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
+  
+  // check the HTTP body
+  
+  
+  [creds release];
+  [request release];
+  
+}
+
 
 @end
