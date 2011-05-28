@@ -64,10 +64,27 @@
   // build the NSURLRequest
   NSMutableURLRequest *urlRequest = [[[NSMutableURLRequest alloc] initWithURL:self.url] autorelease];
   
+  // set the correct HTTP method
+  switch ([self method]) {
+    case SRRequestMethodGET:
+      [urlRequest setHTTPMethod:GET_HTTP_METHOD];
+      break;
+    case SRRequestMethodPOST:
+      [urlRequest setHTTPMethod:POST_HTTP_METHOD];
+      break;
+    case SRRequestMethodPUT:
+      [urlRequest setHTTPMethod:PUT_HTTP_METHOD];
+      break;
+    case SRRequestMethodDELETE:
+      [urlRequest setHTTPMethod:DELETE_HTTP_METHOD];
+      break;  
+  }
+  
   // add the data
   NSString *postDataString = [self.parameters orderedParameterString];
   NSData *postData = [postDataString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
   [urlRequest setHTTPBody:postData];
+  
   
   // return the new request
   return urlRequest;

@@ -14,9 +14,6 @@
 
 @implementation SRRequestTest
 
-
-
-
 - (void)testInit {
   
   SRRequest *request = [[SRRequest alloc] init];
@@ -103,6 +100,9 @@
   NSString *postDataString = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
   
   STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_POST_DATA], @"Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
+  
+  // check the HTTP method
+  STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"POST"], @"HTTPMethod should be POST");
   
   [postDataString release];
   
