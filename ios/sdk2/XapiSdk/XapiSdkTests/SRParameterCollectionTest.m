@@ -41,4 +41,32 @@
   
 }
 
+- (void)testOrderedParameterString {
+  
+  SRParameterCollection *params = [[SRParameterCollection alloc] init];
+  
+  // add the parameters (in a strange order)
+  [params addValue:PARAM3_VALUE forKey:PARAM3_KEY];
+  [params addValue:PARAM2_VALUE forKey:PARAM2_KEY];
+  [params addValue:KEYPARAM_VALUE forKey:KEYPARAM_KEY];
+  [params addValue:PARAM5_VALUE forKey:PARAM5_KEY];
+  [params addValue:PARAM4_VALUE forKey:PARAM4_KEY];
+  [params addValue:PARAM1_VALUE forKey:PARAM1_KEY];
+  
+  // add another one with illegal characters in it
+  [params addValue:@"Mat&Grant/Ryer&Edd" forKey:@"~z"];
+  
+  NSString *paramString = [params orderedParameterString];
+  
+  /*
+  NSLog(@"------------------------------------------------------------");
+  NSLog(@"Expected: %@", EXPECTED_PARAMETER_STRING);
+  NSLog(@"Actual:   %@", paramString);
+  NSLog(@"------------------------------------------------------------");
+  */
+  
+  STAssertTrue([paramString isEqualToString:EXPECTED_PARAMETER_STRING], @"orderedParameterString incorrect.");
+  
+}
+
 @end

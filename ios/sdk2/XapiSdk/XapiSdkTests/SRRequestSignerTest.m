@@ -50,14 +50,26 @@
 }
 
 - (void)testInit {
-
   STAssertNotNil(signer, @"Signer shouldn't be nil");
+}
+
+- (void)testOrderedParameterStringWithSecretForRequest {
+  
+  NSString *orderedParameterString = [self.signer orderedParameterStringWithSecretForRequest:self.request];
+  
+  /*
+  NSLog(@"---------------------------------");
+  NSLog(@"orderedParameterString: %@", orderedParameterString);
+  NSLog(@"---------------------------------");
+  */
+  
+  STAssertTrue([orderedParameterString isEqualToString:EXPECTED_PARAMETER_STRING_WITH_SECRET], @"orderedParameterStringWithSecret incorrect");
   
 }
 
 - (void)testGenerateSignatureForRequest {
   
-  NSString *signature = [self.signer generatorSignatureFromRequest:request];
+  NSString *signature = [self.signer generatorSignatureFromRequest:self.request];
   
   STAssertNotNil(signature, @"Signature should not be nil");
   STAssertFalse([signature isEqualToString:@""], @"signature should not be empty");
@@ -72,12 +84,51 @@
   
 }
 
-- (void)testUrlEncodedString {
+- (void)testUnencodedSignatureStringForRequest {
   
-  NSString *unencoded = @"http://edd-test-domain.xapi.co/groups/1/people";
-  NSString *expected = @"http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople";
+  NSString *signatureString = [self.signer unencodedSignatureStringForRequest:self.request];
   
-  STAssertTrue([expected isEqualToString:[self.signer urlEncodedString:unencoded]], @"urlEncodedString incorrect");
+  NSLog(@"---------------------------------");
+  NSLog(@"signatureString: %@", signatureString);
+  NSLog(@"---------------------------------");
+  
+  STAssertTrue([signatureString isEqualToString:EXPECTED_UNENCODED_SIGNATURE_STRING], @"unencodedSignatureString incorrect.");
+  
+}
+
+- (void)testUppercaseProtocolForRequest {
+  
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
+  
+  SRRequest *aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodGET credentials:creds];
+  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"GET"], @"GET expected");
+  [aRequest release];
+  
+  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodPUT credentials:creds];
+  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"PUT"], @"PUT expected");
+  [aRequest release];
+  
+  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodDELETE credentials:creds];
+  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"DELETE"], @"DELETE expected");
+  [aRequest release];
+  
+  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodPOST credentials:creds];
+  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"POST"], @"POST expected");
+  [aRequest release];
+  
+  [creds release];
+  
+}
+
+- (void)testHMAC_SHA1SignatureForText {
+  
+  NSString *plain = @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue";
+  NSString *secret = @"thisIsMySecretValue";
+  NSString *expectedSignature = @"bc32e193e0fbe8f7dc81b11fdc5a90d2b52a3b7c";
+  
+  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain usingSecret:secret];
+  
+  STAssertTrue([actualSignature isEqualToString:expectedSignature], @"Signature incorrect.  Expected: '%@' but was '%@'.", expectedSignature, actualSignature);
   
 }
 

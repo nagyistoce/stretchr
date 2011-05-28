@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define KEY_PARAMETER_KEY @"~key"
+#define SECRET_PARAMETER_KEY @"~secret"
+#define SIGN_PARAMETER_KEY @"~sign"
 
 @interface SRParameter : NSObject {
     
@@ -17,6 +20,8 @@
 @property (nonatomic, copy) NSString *value;
 
 - (id)initWithKey:(NSString*)key andValue:(NSString*)value;
+
+- (NSString *)URLEncodedParameterString;
 
 - (NSComparisonResult)compare:(id)object;
 

@@ -7,7 +7,7 @@
 //
 
 #import "SRParameter.h"
-
+#import "NSString+URLEncoding.h"
 
 @implementation SRParameter
 @synthesize key, value;
@@ -26,6 +26,13 @@
   self.value = nil;
   
   [super dealloc];
+}
+
+- (NSString *)URLEncodedParameterString {
+  
+	return [NSString stringWithFormat:@"%@=%@", [self.key urlEncoded], self.value ? [self.value urlEncoded] : @""];
+  
+  //return [NSString stringWithFormat:@"%@=%@", [self.key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];  
 }
 
 - (NSComparisonResult)compare:(id)inObject {

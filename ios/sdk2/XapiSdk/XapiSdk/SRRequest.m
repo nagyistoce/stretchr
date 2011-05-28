@@ -8,6 +8,7 @@
 
 #import "SRRequest.h"
 #import "SRCredentials.h"
+#import "SRParameter.h"
 
 @implementation SRRequest
 @synthesize url;
@@ -31,6 +32,11 @@
     self.url = theUrl;
     self.method = theMethod;
     self.credentials = theCredentials;
+    
+    // TODO: make creds read only
+    
+    // add key parameter
+    [self.parameters addValue:self.credentials.key forKey:KEY_PARAMETER_KEY];
     
   }
   return self;
