@@ -24,6 +24,10 @@
 
 - (id)initWithUrl:(NSURL*)url method:(SRRequestMethod)method credentials:(SRCredentials*)credentials;
 
+#pragma mark - NSURLRequest integration
+
+- (NSURLRequest*)makeSignedUrlRequest;
+
 #pragma mark - Parameters
 
 - (BOOL)hasParameters;

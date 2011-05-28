@@ -18,7 +18,7 @@
     
 }
 
-- (void)addSignParameterToRequest:(SRRequest*)request;
+- (void)configureSignParameterOnRequest:(SRRequest*)request;
 
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request;
 

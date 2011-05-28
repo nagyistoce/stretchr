@@ -15,7 +15,11 @@
 
 @property (nonatomic, retain) NSMutableArray *parameters;
 
+#pragma mark - Content management
+
+- (SRParameter*)firstParameterWithKey:(NSString*)key;
 - (void)addValue:(NSString*)value forKey:(NSString*)key;
+- (void)setSingleValue:(NSString*)value forKey:(NSString*)key;
 
 #pragma mark - Parameter string
 

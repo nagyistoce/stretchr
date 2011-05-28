@@ -52,9 +52,9 @@
   STAssertNotNil(signer, @"Signer shouldn't be nil");
 }
 
-- (void)testAddSignParameterToRequest {
+- (void)testConfigureSignParameterOnRequest {
   
-  [self.signer addSignParameterToRequest:self.request];
+  [self.signer configureSignParameterOnRequest:self.request];
   
   // check the sign parameter
   BOOL found = NO;
@@ -71,6 +71,19 @@
   }
   
   STAssertTrue(found, @"No %@ parameter found.", SIGN_PARAMETER_KEY);
+  
+  
+  // make sure it doesn't appear twice
+  [self.signer configureSignParameterOnRequest:self.request];
+  
+  NSInteger countOfSignParams = 0;
+  for (SRParameter *param in self.request.parameters.parameters) {
+    if ([param.key isEqualToString:SIGN_PARAMETER_KEY]) {
+      countOfSignParams++;
+    }
+  }
+  
+  STAssertEquals(1, countOfSignParams, @"%@ parameter shouldn't appear more than once with multiple calls to configureSignParameterOnRequest", SIGN_PARAMETER_KEY);
   
 }
 

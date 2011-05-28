@@ -57,11 +57,39 @@
   
 }
 
+- (SRParameter*)firstParameterWithKey:(NSString*)key {
+  
+  for (SRParameter *param in self.parameters) {
+   
+    if ([param.key isEqualToString:key])
+      return param;
+    
+  }
+  
+  return nil;
+  
+}
+
 - (void)addValue:(NSString*)value forKey:(NSString*)key {
   
   SRParameter *newParam = [[SRParameter alloc] initWithKey:key andValue:value];
   [self.parameters addObject:newParam];
   [newParam release];
+  
+}
+
+- (void)setSingleValue:(NSString*)value forKey:(NSString*)key {
+  
+  // does a parameter for this key already exist?
+  SRParameter *existingParam = [self firstParameterWithKey:key];
+  
+  if (existingParam == nil) {
+    // add it fresh
+    [self addValue:value forKey:key];
+  } else {
+    // modify the value
+    [existingParam setValue:value];
+  }
   
 }
 

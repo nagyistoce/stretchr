@@ -58,12 +58,43 @@
   
   NSString *paramString = [params orderedParameterString];
   
+  /*
   NSLog(@"------------------------------------------------------------");
   NSLog(@"Expected: %@", EXPECTED_PARAMETER_STRING);
   NSLog(@"Actual:   %@", paramString);
   NSLog(@"------------------------------------------------------------");
+  */
   
   STAssertTrue([paramString isEqualToString:EXPECTED_PARAMETER_STRING], @"orderedParameterString incorrect.");
+  
+}
+
+- (void)testFirstParameterWithKey {
+  
+  SRParameterCollection *params = [[SRParameterCollection alloc] init];
+  
+  [params addValue:@"value1" forKey:@"key1"];
+  [params addValue:@"value2" forKey:@"key2"];
+  [params addValue:@"value3" forKey:@"key3"];
+  
+  SRParameter *param = [params firstParameterWithKey:@"key2"];
+  STAssertNotNil(param, @"firstParameterWithKey should return something");
+  STAssertTrue([param.value isEqualToString:@"value2"], @"Value doesn't exist");
+  
+  STAssertNil([params firstParameterWithKey:@"no-such-key"], @"If no key is found, it should return nil.");
+  
+}
+
+- (void)testSetSingleValueForKey {
+  
+  SRParameterCollection *params = [[SRParameterCollection alloc] init];
+  
+  [params setSingleValue:@"value1" forKey:@"key1"];
+  [params setSingleValue:@"value2" forKey:@"key1"];
+  [params setSingleValue:@"value3" forKey:@"key1"];
+  
+  STAssertEquals((NSUInteger)1, [params count], @"There should still be one parameter (when using setSingleValue:forKey:");
+  STAssertTrue([[params objectAtIndex:0].value isEqualToString:@"value3"], @"value should be latest");
   
 }
 
