@@ -78,11 +78,18 @@
   
 }
 
-- (void)testMakeSignedUrlRequest {
+- (void)testMakeSignedUrlRequestForPOST {
   
   NSURL *url = [NSURL URLWithString:TEST_URL];
   SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
   SRRequest *request = [[SRRequest alloc] initWithUrl:url method:SRRequestMethodPOST credentials:creds];
+  
+  // add the parameters
+  [request.parameters addValue:PARAM1_VALUE forKey:PARAM1_KEY];
+  [request.parameters addValue:PARAM2_VALUE forKey:PARAM2_KEY];
+  [request.parameters addValue:PARAM3_VALUE forKey:PARAM3_KEY];
+  [request.parameters addValue:PARAM4_VALUE forKey:PARAM4_KEY];
+  [request.parameters addValue:PARAM5_VALUE forKey:PARAM5_KEY];
   
   NSURLRequest *urlRequest = [request makeSignedUrlRequest];
   
@@ -92,7 +99,12 @@
   STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
   
   // check the HTTP body
+  NSData *postData = [urlRequest HTTPBody];
+  NSString *postDataString = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
   
+  STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_POST_DATA], @"Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
+  
+  [postDataString release];
   
   [creds release];
   [request release];
