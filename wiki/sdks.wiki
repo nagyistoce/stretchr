@@ -1,0 +1,5 @@
+#summary Homepage for Stretchr SDKs
+
+= SDKs =
+
+  * [iossdk Objective-c - for iOS iPhone/iPad/iPod Touch and Mac OS X platforms]
