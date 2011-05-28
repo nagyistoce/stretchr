@@ -28,4 +28,16 @@
   [super dealloc];
 }
 
+- (NSComparisonResult)compare:(id)inObject {
+  
+	NSComparisonResult result = [self.key compare:[(SRParameter *)inObject key]];
+	
+	if (result == NSOrderedSame) {
+		result = [self.value compare:[(SRParameter *)inObject value]];
+	}
+  
+	return result;
+  
+}
+
 @end

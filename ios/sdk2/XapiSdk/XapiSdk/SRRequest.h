@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "SRRequestMethod.h"
+#import "SRParameterCollection.h"
 @class SRCredentials;
 
 @interface SRRequest : NSObject {
-  NSMutableDictionary *parameters_;
+  SRParameterCollection *parameters_;
 }
 
 @property (nonatomic, retain) NSURL *url;
-@property (nonatomic, retain) NSMutableDictionary *parameters;
+@property (nonatomic, retain) SRParameterCollection *parameters;
 @property (assign) SRRequestMethod method;
 @property (nonatomic, retain) SRCredentials *credentials;
 

@@ -8,10 +8,14 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
-
+@class SRRequest;
+@class SRRequestSigner;
 
 @interface SRRequestSignerTest : SenTestCase {
     
 }
+
+@property (nonatomic, retain) SRRequestSigner *signer;
+@property (nonatomic, retain) SRRequest *request;
 
 @end

@@ -18,4 +18,6 @@
 
 - (id)initWithKey:(NSString*)key andValue:(NSString*)value;
 
+- (NSComparisonResult)compare:(id)object;
+
 @end

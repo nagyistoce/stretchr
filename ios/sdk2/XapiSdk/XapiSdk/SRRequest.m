@@ -50,13 +50,13 @@
 /**
  Gets (or creates) dictionary to hold parameters
  */
-- (NSMutableDictionary*)parameters {
+- (SRParameterCollection*)parameters {
   
   if (parameters_ == nil) {
     
-    NSMutableDictionary *parametersDictionay = [[NSMutableDictionary alloc] init];
-    self.parameters = parametersDictionay;
-    [parametersDictionay release];
+    SRParameterCollection *parametersCollection = [[SRParameterCollection alloc] init];
+    self.parameters = parametersCollection;
+    [parametersCollection release];
     
   }
   
