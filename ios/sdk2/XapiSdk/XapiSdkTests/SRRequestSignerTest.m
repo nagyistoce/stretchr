@@ -34,7 +34,6 @@
   [aRequest release];
   [creds release];
   
-  
   SRRequestSigner *aSigner = [[SRRequestSigner alloc] init];
   self.signer = aSigner;
   [aSigner release];
@@ -65,7 +64,7 @@
       // found it
       found = YES;
       
-      STAssertTrue([EXPECTED_SIGNATURE isEqualToString:param.value], @"Found signature parameter, but it is incorrect.");
+      STAssertTrue([EXPECTED_SIGNATURE isEqualToString:param.value], @"Found signature parameter, but it is incorrect.  Expected \"%@\" but got \"%@\".", EXPECTED_SIGNATURE, param.value);
       
       break;
     }
@@ -83,11 +82,11 @@
   
   NSString *orderedParameterString = [self.signer orderedParameterStringWithSecretForRequest:self.request];
   
-  /*
+  
   NSLog(@"---------------------------------");
   NSLog(@"orderedParameterString: %@", orderedParameterString);
   NSLog(@"---------------------------------");
-  */
+  
   
   STAssertTrue([orderedParameterString isEqualToString:EXPECTED_PARAMETER_STRING_WITH_SECRET], @"orderedParameterStringWithSecret incorrect");
   
