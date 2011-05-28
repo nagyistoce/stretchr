@@ -28,7 +28,7 @@
   SRParameter *param1 = [[SRParameter alloc] initWithKey:@"~z" andValue:@"Mat&Grant/Ryer&Edd"];
   NSString *encodedParamString = [param1 URLEncodedParameterString];
   
-  STAssertTrue([encodedParamString isEqualToString:@"~z=Mat%26Grant%2FRyer%26Edd"], @"URLEncodedParameterString incorrect");
+  STAssertTrue([encodedParamString isEqualToString:@"~z=Mat&Grant/Ryer&Edd"], @"URLEncodedParameterString incorrect");
   
   [param1 release];
   

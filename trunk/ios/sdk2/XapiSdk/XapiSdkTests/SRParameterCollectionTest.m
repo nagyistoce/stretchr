@@ -58,12 +58,10 @@
   
   NSString *paramString = [params orderedParameterString];
   
-  /*
   NSLog(@"------------------------------------------------------------");
   NSLog(@"Expected: %@", EXPECTED_PARAMETER_STRING);
   NSLog(@"Actual:   %@", paramString);
   NSLog(@"------------------------------------------------------------");
-  */
   
   STAssertTrue([paramString isEqualToString:EXPECTED_PARAMETER_STRING], @"orderedParameterString incorrect.");
   
