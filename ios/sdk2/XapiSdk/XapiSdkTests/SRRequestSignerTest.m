@@ -53,6 +53,32 @@
   STAssertNotNil(signer, @"Signer shouldn't be nil");
 }
 
+- (void)testAddSignParameterToRequest {
+  
+  [self.signer addSignParameterToRequest:self.request];
+  
+  // check the sign parameter
+  BOOL found = NO;
+  for (SRParameter *param in self.request.parameters.parameters) {
+    if ([param.key isEqualToString:SIGN_PARAMETER_KEY]) {
+      
+      // found it
+      found = YES;
+      
+      STAssertTrue([EXPECTED_SIGNATURE isEqualToString:param.value], @"Found signature parameter, but it is incorrect.");
+      
+      break;
+    }
+  }
+  
+  STAssertTrue(found, @"No %@ parameter found.", SIGN_PARAMETER_KEY);
+  
+}
+
+
+
+
+
 - (void)testOrderedParameterStringWithSecretForRequest {
   
   NSString *orderedParameterString = [self.signer orderedParameterStringWithSecretForRequest:self.request];

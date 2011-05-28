@@ -18,6 +18,8 @@
     
 }
 
+- (void)addSignParameterToRequest:(SRRequest*)request;
+
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request;
 
 - (NSString*)stringLowercaseUrl:(NSURL*)url;

@@ -16,6 +16,14 @@
 
 @implementation SRRequestSigner
 
+- (void)addSignParameterToRequest:(SRRequest*)request {
+  
+  NSString *signature = [self generatorSignatureFromRequest:request];
+  [request.parameters addValue:signature forKey:SIGN_PARAMETER_KEY];
+  
+}
+
+
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request {
   return [self HMAC_SHA1SignatureForText:[self unencodedSignatureStringForRequest:request] usingSecret:request.credentials.secret];
 }
