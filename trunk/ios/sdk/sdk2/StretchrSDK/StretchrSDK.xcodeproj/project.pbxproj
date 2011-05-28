@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05B219BB13913B65003AD114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BA13913B65003AD114 /* UIKit.framework */; };
+		05B219BD13913B65003AD114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BC13913B65003AD114 /* Foundation.framework */; };
+		05B219BF13913B65003AD114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BE13913B65003AD114 /* CoreGraphics.framework */; };
+		05B219C513913B65003AD114 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B219C313913B65003AD114 /* InfoPlist.strings */; };
+		05B219C813913B65003AD114 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219C713913B65003AD114 /* main.m */; };
+		05B219CB13913B65003AD114 /* StretchrSDKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */; };
+		05B219CE13913B66003AD114 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B219CC13913B66003AD114 /* MainWindow.xib */; };
+		05B219D513913B66003AD114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BA13913B65003AD114 /* UIKit.framework */; };
+		05B219D613913B66003AD114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BC13913B65003AD114 /* Foundation.framework */; };
+		05B219D713913B66003AD114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BE13913B65003AD114 /* CoreGraphics.framework */; };
+		05B219DF13913B66003AD114 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B219DD13913B66003AD114 /* InfoPlist.strings */; };
+		05B219FB13913BA0003AD114 /* NSString+URLEncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */; };
+		05B219FC13913BA0003AD114 /* SRCredentialsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219F013913BA0003AD114 /* SRCredentialsTest.m */; };
+		05B219FD13913BA0003AD114 /* SRParameterCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219F213913BA0003AD114 /* SRParameterCollectionTest.m */; };
+		05B219FE13913BA0003AD114 /* SRParameterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219F413913BA0003AD114 /* SRParameterTest.m */; };
+		05B219FF13913BA0003AD114 /* SRRequestMethodTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219F613913BA0003AD114 /* SRRequestMethodTest.m */; };
+		05B21A0013913BA0003AD114 /* SRRequestSignerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219F813913BA0003AD114 /* SRRequestSignerTest.m */; };
+		05B21A0113913BA0003AD114 /* SRRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B219FA13913BA0003AD114 /* SRRequestTest.m */; };
+		05B21A1013913BC0003AD114 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */; };
+		05B21A1113913BC0003AD114 /* SRCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0613913BC0003AD114 /* SRCredentials.m */; };
+		05B21A1213913BC0003AD114 /* SRParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0813913BC0003AD114 /* SRParameter.m */; };
+		05B21A1313913BC0003AD114 /* SRParameterCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0A13913BC0003AD114 /* SRParameterCollection.m */; };
+		05B21A1413913BC0003AD114 /* SRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0C13913BC0003AD114 /* SRRequest.m */; };
+		05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0F13913BC0003AD114 /* SRRequestSigner.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05B219D813913B66003AD114 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B219AD13913B65003AD114 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B219B513913B65003AD114;
+			remoteInfo = StretchrSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05B219B613913B65003AD114 /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B219BA13913B65003AD114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		05B219BC13913B65003AD114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05B219BE13913B65003AD114 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		05B219C213913B65003AD114 /* StretchrSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StretchrSDK-Info.plist"; sourceTree = "<group>"; };
+		05B219C413913B65003AD114 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B219C613913B65003AD114 /* StretchrSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StretchrSDK-Prefix.pch"; sourceTree = "<group>"; };
+		05B219C713913B65003AD114 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05B219C913913B65003AD114 /* StretchrSDKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StretchrSDKAppDelegate.h; sourceTree = "<group>"; };
+		05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StretchrSDKAppDelegate.m; sourceTree = "<group>"; };
+		05B219CD13913B66003AD114 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		05B219D413913B66003AD114 /* StretchrSDKTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StretchrSDKTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B219DC13913B66003AD114 /* StretchrSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StretchrSDKTests-Info.plist"; sourceTree = "<group>"; };
+		05B219DE13913B66003AD114 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B219E013913B66003AD114 /* StretchrSDKTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StretchrSDKTests-Prefix.pch"; sourceTree = "<group>"; };
+		05B219ED13913BA0003AD114 /* NSString+URLEncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncodingTest.h"; sourceTree = "<group>"; };
+		05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncodingTest.m"; sourceTree = "<group>"; };
+		05B219EF13913BA0003AD114 /* SRCredentialsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCredentialsTest.h; sourceTree = "<group>"; };
+		05B219F013913BA0003AD114 /* SRCredentialsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCredentialsTest.m; sourceTree = "<group>"; };
+		05B219F113913BA0003AD114 /* SRParameterCollectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRParameterCollectionTest.h; sourceTree = "<group>"; };
+		05B219F213913BA0003AD114 /* SRParameterCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRParameterCollectionTest.m; sourceTree = "<group>"; };
+		05B219F313913BA0003AD114 /* SRParameterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRParameterTest.h; sourceTree = "<group>"; };
+		05B219F413913BA0003AD114 /* SRParameterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRParameterTest.m; sourceTree = "<group>"; };
+		05B219F513913BA0003AD114 /* SRRequestMethodTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestMethodTest.h; sourceTree = "<group>"; };
+		05B219F613913BA0003AD114 /* SRRequestMethodTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestMethodTest.m; sourceTree = "<group>"; };
+		05B219F713913BA0003AD114 /* SRRequestSignerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestSignerTest.h; sourceTree = "<group>"; };
+		05B219F813913BA0003AD114 /* SRRequestSignerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestSignerTest.m; sourceTree = "<group>"; };
+		05B219F913913BA0003AD114 /* SRRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestTest.h; sourceTree = "<group>"; };
+		05B219FA13913BA0003AD114 /* SRRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestTest.m; sourceTree = "<group>"; };
+		05B21A0213913BAF003AD114 /* TestValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestValues.h; sourceTree = "<group>"; };
+		05B21A0313913BC0003AD114 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		05B21A0513913BC0003AD114 /* SRCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCredentials.h; sourceTree = "<group>"; };
+		05B21A0613913BC0003AD114 /* SRCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCredentials.m; sourceTree = "<group>"; };
+		05B21A0713913BC0003AD114 /* SRParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRParameter.h; sourceTree = "<group>"; };
+		05B21A0813913BC0003AD114 /* SRParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRParameter.m; sourceTree = "<group>"; };
+		05B21A0913913BC0003AD114 /* SRParameterCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRParameterCollection.h; sourceTree = "<group>"; };
+		05B21A0A13913BC0003AD114 /* SRParameterCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRParameterCollection.m; sourceTree = "<group>"; };
+		05B21A0B13913BC0003AD114 /* SRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequest.h; sourceTree = "<group>"; };
+		05B21A0C13913BC0003AD114 /* SRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequest.m; sourceTree = "<group>"; };
+		05B21A0D13913BC0003AD114 /* SRRequestMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestMethod.h; sourceTree = "<group>"; };
+		05B21A0E13913BC0003AD114 /* SRRequestSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestSigner.h; sourceTree = "<group>"; };
+		05B21A0F13913BC0003AD114 /* SRRequestSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestSigner.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05B219B313913B65003AD114 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219BB13913B65003AD114 /* UIKit.framework in Frameworks */,
+				05B219BD13913B65003AD114 /* Foundation.framework in Frameworks */,
+				05B219BF13913B65003AD114 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B219D013913B66003AD114 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219D513913B66003AD114 /* UIKit.framework in Frameworks */,
+				05B219D613913B66003AD114 /* Foundation.framework in Frameworks */,
+				05B219D713913B66003AD114 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05B219AB13913B65003AD114 = {
+			isa = PBXGroup;
+			children = (
+				05B219C013913B65003AD114 /* StretchrSDK */,
+				05B219DA13913B66003AD114 /* StretchrSDKTests */,
+				05B219B913913B65003AD114 /* Frameworks */,
+				05B219B713913B65003AD114 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05B219B713913B65003AD114 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B219B613913B65003AD114 /* StretchrSDK.app */,
+				05B219D413913B66003AD114 /* StretchrSDKTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05B219B913913B65003AD114 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05B219BA13913B65003AD114 /* UIKit.framework */,
+				05B219BC13913B65003AD114 /* Foundation.framework */,
+				05B219BE13913B65003AD114 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05B219C013913B65003AD114 /* StretchrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A1613913BE2003AD114 /* Foundation */,
+				05B219C913913B65003AD114 /* StretchrSDKAppDelegate.h */,
+				05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */,
+				05B219CC13913B66003AD114 /* MainWindow.xib */,
+				05B219C113913B65003AD114 /* Supporting Files */,
+			);
+			path = StretchrSDK;
+			sourceTree = "<group>";
+		};
+		05B219C113913B65003AD114 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B219C213913B65003AD114 /* StretchrSDK-Info.plist */,
+				05B219C313913B65003AD114 /* InfoPlist.strings */,
+				05B219C613913B65003AD114 /* StretchrSDK-Prefix.pch */,
+				05B219C713913B65003AD114 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B219DA13913B66003AD114 /* StretchrSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A1713913BEC003AD114 /* Foundation */,
+				05B219DB13913B66003AD114 /* Supporting Files */,
+			);
+			path = StretchrSDKTests;
+			sourceTree = "<group>";
+		};
+		05B219DB13913B66003AD114 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B219DC13913B66003AD114 /* StretchrSDKTests-Info.plist */,
+				05B219DD13913B66003AD114 /* InfoPlist.strings */,
+				05B219E013913B66003AD114 /* StretchrSDKTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B21A1613913BE2003AD114 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A0313913BC0003AD114 /* NSString+URLEncoding.h */,
+				05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */,
+				05B21A0513913BC0003AD114 /* SRCredentials.h */,
+				05B21A0613913BC0003AD114 /* SRCredentials.m */,
+				05B21A0713913BC0003AD114 /* SRParameter.h */,
+				05B21A0813913BC0003AD114 /* SRParameter.m */,
+				05B21A0913913BC0003AD114 /* SRParameterCollection.h */,
+				05B21A0A13913BC0003AD114 /* SRParameterCollection.m */,
+				05B21A0B13913BC0003AD114 /* SRRequest.h */,
+				05B21A0C13913BC0003AD114 /* SRRequest.m */,
+				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
+				05B21A0E13913BC0003AD114 /* SRRequestSigner.h */,
+				05B21A0F13913BC0003AD114 /* SRRequestSigner.m */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		05B21A1713913BEC003AD114 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A0213913BAF003AD114 /* TestValues.h */,
+				05B219ED13913BA0003AD114 /* NSString+URLEncodingTest.h */,
+				05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */,
+				05B219EF13913BA0003AD114 /* SRCredentialsTest.h */,
+				05B219F013913BA0003AD114 /* SRCredentialsTest.m */,
+				05B219F113913BA0003AD114 /* SRParameterCollectionTest.h */,
+				05B219F213913BA0003AD114 /* SRParameterCollectionTest.m */,
+				05B219F313913BA0003AD114 /* SRParameterTest.h */,
+				05B219F413913BA0003AD114 /* SRParameterTest.m */,
+				05B219F513913BA0003AD114 /* SRRequestMethodTest.h */,
+				05B219F613913BA0003AD114 /* SRRequestMethodTest.m */,
+				05B219F713913BA0003AD114 /* SRRequestSignerTest.h */,
+				05B219F813913BA0003AD114 /* SRRequestSignerTest.m */,
+				05B219F913913BA0003AD114 /* SRRequestTest.h */,
+				05B219FA13913BA0003AD114 /* SRRequestTest.m */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05B219B513913B65003AD114 /* StretchrSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B219E713913B66003AD114 /* Build configuration list for PBXNativeTarget "StretchrSDK" */;
+			buildPhases = (
+				05B219B213913B65003AD114 /* Sources */,
+				05B219B313913B65003AD114 /* Frameworks */,
+				05B219B413913B65003AD114 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StretchrSDK;
+			productName = StretchrSDK;
+			productReference = 05B219B613913B65003AD114 /* StretchrSDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05B219D313913B66003AD114 /* StretchrSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B219EA13913B66003AD114 /* Build configuration list for PBXNativeTarget "StretchrSDKTests" */;
+			buildPhases = (
+				05B219CF13913B66003AD114 /* Sources */,
+				05B219D013913B66003AD114 /* Frameworks */,
+				05B219D113913B66003AD114 /* Resources */,
+				05B219D213913B66003AD114 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B219D913913B66003AD114 /* PBXTargetDependency */,
+			);
+			name = StretchrSDKTests;
+			productName = StretchrSDKTests;
+			productReference = 05B219D413913B66003AD114 /* StretchrSDKTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05B219AD13913B65003AD114 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Borealis Web Ltd";
+			};
+			buildConfigurationList = 05B219B013913B65003AD114 /* Build configuration list for PBXProject "StretchrSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05B219AB13913B65003AD114;
+			productRefGroup = 05B219B713913B65003AD114 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05B219B513913B65003AD114 /* StretchrSDK */,
+				05B219D313913B66003AD114 /* StretchrSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05B219B413913B65003AD114 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219C513913B65003AD114 /* InfoPlist.strings in Resources */,
+				05B219CE13913B66003AD114 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B219D113913B66003AD114 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219DF13913B66003AD114 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05B219D213913B66003AD114 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05B219B213913B65003AD114 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219C813913B65003AD114 /* main.m in Sources */,
+				05B219CB13913B65003AD114 /* StretchrSDKAppDelegate.m in Sources */,
+				05B21A1013913BC0003AD114 /* NSString+URLEncoding.m in Sources */,
+				05B21A1113913BC0003AD114 /* SRCredentials.m in Sources */,
+				05B21A1213913BC0003AD114 /* SRParameter.m in Sources */,
+				05B21A1313913BC0003AD114 /* SRParameterCollection.m in Sources */,
+				05B21A1413913BC0003AD114 /* SRRequest.m in Sources */,
+				05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B219CF13913B66003AD114 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B219FB13913BA0003AD114 /* NSString+URLEncodingTest.m in Sources */,
+				05B219FC13913BA0003AD114 /* SRCredentialsTest.m in Sources */,
+				05B219FD13913BA0003AD114 /* SRParameterCollectionTest.m in Sources */,
+				05B219FE13913BA0003AD114 /* SRParameterTest.m in Sources */,
+				05B219FF13913BA0003AD114 /* SRRequestMethodTest.m in Sources */,
+				05B21A0013913BA0003AD114 /* SRRequestSignerTest.m in Sources */,
+				05B21A0113913BA0003AD114 /* SRRequestTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05B219D913913B66003AD114 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B219B513913B65003AD114 /* StretchrSDK */;
+			targetProxy = 05B219D813913B66003AD114 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05B219C313913B65003AD114 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B219C413913B65003AD114 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05B219CC13913B66003AD114 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B219CD13913B66003AD114 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		05B219DD13913B66003AD114 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B219DE13913B66003AD114 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05B219E513913B66003AD114 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05B219E613913B66003AD114 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		05B219E813913B66003AD114 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StretchrSDK/StretchrSDK-Prefix.pch";
+				INFOPLIST_FILE = "StretchrSDK/StretchrSDK-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05B219E913913B66003AD114 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StretchrSDK/StretchrSDK-Prefix.pch";
+				INFOPLIST_FILE = "StretchrSDK/StretchrSDK-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		05B219EB13913B66003AD114 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StretchrSDK.app/StretchrSDK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StretchrSDKTests/StretchrSDKTests-Prefix.pch";
+				INFOPLIST_FILE = "StretchrSDKTests/StretchrSDKTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		05B219EC13913B66003AD114 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StretchrSDK.app/StretchrSDK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StretchrSDKTests/StretchrSDKTests-Prefix.pch";
+				INFOPLIST_FILE = "StretchrSDKTests/StretchrSDKTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05B219B013913B65003AD114 /* Build configuration list for PBXProject "StretchrSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B219E513913B66003AD114 /* Debug */,
+				05B219E613913B66003AD114 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B219E713913B66003AD114 /* Build configuration list for PBXNativeTarget "StretchrSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B219E813913B66003AD114 /* Debug */,
+				05B219E913913B66003AD114 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		05B219EA13913B66003AD114 /* Build configuration list for PBXNativeTarget "StretchrSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B219EB13913B66003AD114 /* Debug */,
+				05B219EC13913B66003AD114 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05B219AD13913B65003AD114 /* Project object */;
+}

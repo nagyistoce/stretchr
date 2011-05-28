@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'StretchrSDKTests' target in the 'StretchrSDKTests' project
+//
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+#endif
