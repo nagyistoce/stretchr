@@ -15,4 +15,8 @@
 
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request;
 
+- (NSString*)stringLowercaseUrl:(NSURL*)url;
+
+- (NSString*)urlEncodedString:(NSString*)unencodedString;
+
 @end
