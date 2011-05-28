@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'XapiSdkTests' target in the 'XapiSdkTests' project
+//
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+#endif
+
+
+#define TEST_URL @"http://EDD-test-domain.xapi.co/Groups/1/People"
+#define TEST_KEY @"abdh239d78c30f93jf88r0"
+#define TEST_SECRET @"thisIsMySecretValue"
+
