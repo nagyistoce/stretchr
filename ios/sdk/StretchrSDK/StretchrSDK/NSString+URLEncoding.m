@@ -14,11 +14,11 @@
 - (NSString*)urlEncoded {
   
   return (NSString *)CFURLCreateStringByAddingPercentEscapes(
-            NULL,
-            (CFStringRef)self,
-            NULL,
-            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-            kCFStringEncodingUTF8 );
+    NULL,
+    (CFStringRef)self,
+    NULL,
+    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+    kCFStringEncodingUTF8 );
   
 }
 
