@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		057F68D913911B7000885466 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F68D813911B7000885466 /* NSString+URLEncoding.m */; };
+		057F68DD13911BA700885466 /* NSString+URLEncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F68DC13911BA700885466 /* NSString+URLEncodingTest.m */; };
+		057F68E01391324600885466 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 057F68DE1391324600885466 /* Base64Transcoder.c */; };
 		05AEF1B81390F6CC00FD984C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AEF1B71390F6CC00FD984C /* UIKit.framework */; };
 		05AEF1BA1390F6CC00FD984C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AEF1B91390F6CC00FD984C /* Foundation.framework */; };
 		05AEF1BC1390F6CC00FD984C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AEF1BB1390F6CC00FD984C /* CoreGraphics.framework */; };
@@ -42,6 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		057F68D713911B7000885466 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		057F68D813911B7000885466 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		057F68DB13911BA700885466 /* NSString+URLEncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncodingTest.h"; sourceTree = "<group>"; };
+		057F68DC13911BA700885466 /* NSString+URLEncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncodingTest.m"; sourceTree = "<group>"; };
+		057F68DE1391324600885466 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		057F68DF1391324600885466 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		05AEF1B31390F6CC00FD984C /* XapiSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XapiSdk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AEF1B71390F6CC00FD984C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05AEF1B91390F6CC00FD984C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -211,6 +220,8 @@
 		05AEF2091391009500FD984C /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				057F68DE1391324600885466 /* Base64Transcoder.c */,
+				057F68DF1391324600885466 /* Base64Transcoder.h */,
 				05AEF20A139100AF00FD984C /* SRCredentials.h */,
 				05AEF20B139100AF00FD984C /* SRCredentials.m */,
 			);
@@ -233,6 +244,8 @@
 				05AEF2151391035400FD984C /* SRParameterCollection.m */,
 				05AEF21A1391038600FD984C /* SRParameter.h */,
 				05AEF21B1391038600FD984C /* SRParameter.m */,
+				057F68D713911B7000885466 /* NSString+URLEncoding.h */,
+				057F68D813911B7000885466 /* NSString+URLEncoding.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -244,6 +257,8 @@
 				05AEF2181391036300FD984C /* SRParameterCollectionTest.m */,
 				05AEF21D1391039400FD984C /* SRParameterTest.h */,
 				05AEF21E1391039400FD984C /* SRParameterTest.m */,
+				057F68DB13911BA700885466 /* NSString+URLEncodingTest.h */,
+				057F68DC13911BA700885466 /* NSString+URLEncodingTest.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -361,6 +376,8 @@
 				05AEF20C139100AF00FD984C /* SRCredentials.m in Sources */,
 				05AEF2161391035400FD984C /* SRParameterCollection.m in Sources */,
 				05AEF21C1391038700FD984C /* SRParameter.m in Sources */,
+				057F68D913911B7000885466 /* NSString+URLEncoding.m in Sources */,
+				057F68E01391324600885466 /* Base64Transcoder.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +391,7 @@
 				05AEF210139100C100FD984C /* SRCredentialsTest.m in Sources */,
 				05AEF2191391036300FD984C /* SRParameterCollectionTest.m in Sources */,
 				05AEF21F1391039400FD984C /* SRParameterTest.m in Sources */,
+				057F68DD13911BA700885466 /* NSString+URLEncodingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +556,7 @@
 				05AEF1E61390F6CC00FD984C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05AEF1E71390F6CC00FD984C /* Build configuration list for PBXNativeTarget "XapiSdkTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +565,7 @@
 				05AEF1E91390F6CC00FD984C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

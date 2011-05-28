@@ -30,6 +30,33 @@
   [super dealloc];
 }
 
+- (NSString*)orderedParameterString {
+  
+  // sort the parameters
+  [self.parameters sortUsingSelector:@selector(compare:)];
+  
+  // generate the string
+  NSMutableString *paramString = [[[NSMutableString alloc] init] autorelease];
+  
+  NSInteger i = 0;
+  NSInteger l = [self.parameters count];
+  SRParameter *param = nil;
+  
+  for (; i < l; i++) {
+    
+    param = [self.parameters objectAtIndex:i];
+    
+    [paramString appendString:[param URLEncodedParameterString]];
+    
+    if (i < l-1) {
+      [paramString appendString:@"&"];
+    }
+  }
+  
+  return paramString;
+  
+}
+
 - (void)addValue:(NSString*)value forKey:(NSString*)key {
   
   SRParameter *newParam = [[SRParameter alloc] initWithKey:key andValue:value];

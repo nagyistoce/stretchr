@@ -17,6 +17,10 @@
 
 - (void)addValue:(NSString*)value forKey:(NSString*)key;
 
+#pragma mark - Parameter string
+
+- (NSString*)orderedParameterString;
+
 #pragma mark - Normal NSArray methods
 
 - (SRParameter*)objectAtIndex:(NSUInteger)index;

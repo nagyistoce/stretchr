@@ -23,6 +23,17 @@
   
 }
 
+- (void)testUrlEncodedParameterString {
+  
+  SRParameter *param1 = [[SRParameter alloc] initWithKey:@"~z" andValue:@"Mat&Grant/Ryer&Edd"];
+  NSString *encodedParamString = [param1 URLEncodedParameterString];
+  
+  STAssertTrue([encodedParamString isEqualToString:@"~z=Mat%26Grant%2FRyer%26Edd"], @"URLEncodedParameterString incorrect");
+  
+  [param1 release];
+  
+}
+
 - (void)testCompareSimple {
   
   SRParameter *param1 = [[SRParameter alloc] initWithKey:@"a" andValue:@"a"];
@@ -59,6 +70,14 @@
   
   [param1 release];
   [param2 release];
+  
+}
+
+- (void)testParameterNames {
+  
+  STAssertTrue([KEY_PARAMETER_KEY isEqualToString:@"~key"], @"~key incorrect");
+  STAssertTrue([SECRET_PARAMETER_KEY isEqualToString:@"~secret"], @"~key incorrect");
+  STAssertTrue([SIGN_PARAMETER_KEY isEqualToString:@"~sign"], @"~key incorrect");
   
 }
 
