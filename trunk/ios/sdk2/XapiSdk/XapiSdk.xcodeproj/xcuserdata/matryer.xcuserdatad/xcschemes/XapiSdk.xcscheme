@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05AEF1B21390F6CC00FD984C"
                BuildableName = "XapiSdk.app"
-               BlueprintName = "XapiSdk"
+               BlueprintName = "StretchrSDK"
                ReferencedContainer = "container:XapiSdk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,7 +33,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05AEF1D01390F6CC00FD984C"
                BuildableName = "XapiSdkTests.octest"
-               BlueprintName = "XapiSdkTests"
+               BlueprintName = "StretchrSDKTests"
                ReferencedContainer = "container:XapiSdk.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -52,7 +52,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "05AEF1B21390F6CC00FD984C"
             BuildableName = "XapiSdk.app"
-            BlueprintName = "XapiSdk"
+            BlueprintName = "StretchrSDK"
             ReferencedContainer = "container:XapiSdk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "05AEF1B21390F6CC00FD984C"
             BuildableName = "XapiSdk.app"
-            BlueprintName = "XapiSdk"
+            BlueprintName = "StretchrSDK"
             ReferencedContainer = "container:XapiSdk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

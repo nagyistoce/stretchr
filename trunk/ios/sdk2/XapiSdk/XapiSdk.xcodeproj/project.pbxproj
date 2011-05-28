@@ -51,7 +51,7 @@
 		057F68DC13911BA700885466 /* NSString+URLEncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncodingTest.m"; sourceTree = "<group>"; };
 		057F68DE1391324600885466 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		057F68DF1391324600885466 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		05AEF1B31390F6CC00FD984C /* XapiSdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XapiSdk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AEF1B31390F6CC00FD984C /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AEF1B71390F6CC00FD984C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05AEF1B91390F6CC00FD984C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05AEF1BB1390F6CC00FD984C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +116,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		057F68E11391382D00885466 /* StretchrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				057F68E31391388500885466 /* Foundation */,
+			);
+			name = StretchrSDK;
+			sourceTree = "<group>";
+		};
+		057F68E21391383A00885466 /* StretchrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				057F68E41391389600885466 /* Foundation */,
+			);
+			name = StretchrSDK;
+			sourceTree = "<group>";
+		};
+		057F68E31391388500885466 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				05AEF2121391033B00FD984C /* Data */,
+				05AEF2091391009500FD984C /* Security */,
+				05AEF1F91390F8F300FD984C /* Requests */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		057F68E41391389600885466 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				05AEF2131391034000FD984C /* Data */,
+				05AEF20D139100B300FD984C /* Security */,
+				05AEF2041390FB0800FD984C /* Requests */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
 		05AEF1A81390F6CC00FD984C = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +165,7 @@
 		05AEF1B41390F6CC00FD984C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05AEF1B31390F6CC00FD984C /* XapiSdk.app */,
+				05AEF1B31390F6CC00FD984C /* StretchrSDK.app */,
 				05AEF1D11390F6CC00FD984C /* XapiSdkTests.octest */,
 			);
 			name = Products;
@@ -148,9 +184,7 @@
 		05AEF1BD1390F6CC00FD984C /* XapiSdk */ = {
 			isa = PBXGroup;
 			children = (
-				05AEF2121391033B00FD984C /* Data */,
-				05AEF2091391009500FD984C /* Security */,
-				05AEF1F91390F8F300FD984C /* Requests */,
+				057F68E11391382D00885466 /* StretchrSDK */,
 				05AEF1C61390F6CC00FD984C /* XapiSdkAppDelegate.h */,
 				05AEF1C71390F6CC00FD984C /* XapiSdkAppDelegate.m */,
 				05AEF1C91390F6CC00FD984C /* MainWindow.xib */,
@@ -173,9 +207,7 @@
 		05AEF1D71390F6CC00FD984C /* XapiSdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				05AEF2131391034000FD984C /* Data */,
-				05AEF20D139100B300FD984C /* Security */,
-				05AEF2041390FB0800FD984C /* Requests */,
+				057F68E21391383A00885466 /* StretchrSDK */,
 				05AEF1D81390F6CC00FD984C /* Supporting Files */,
 				05AEF211139102C700FD984C /* TestValues.h */,
 			);
@@ -266,9 +298,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05AEF1B21390F6CC00FD984C /* XapiSdk */ = {
+		05AEF1B21390F6CC00FD984C /* StretchrSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05AEF1E41390F6CC00FD984C /* Build configuration list for PBXNativeTarget "XapiSdk" */;
+			buildConfigurationList = 05AEF1E41390F6CC00FD984C /* Build configuration list for PBXNativeTarget "StretchrSDK" */;
 			buildPhases = (
 				05AEF1AF1390F6CC00FD984C /* Sources */,
 				05AEF1B01390F6CC00FD984C /* Frameworks */,
@@ -278,14 +310,14 @@
 			);
 			dependencies = (
 			);
-			name = XapiSdk;
+			name = StretchrSDK;
 			productName = XapiSdk;
-			productReference = 05AEF1B31390F6CC00FD984C /* XapiSdk.app */;
+			productReference = 05AEF1B31390F6CC00FD984C /* StretchrSDK.app */;
 			productType = "com.apple.product-type.application";
 		};
-		05AEF1D01390F6CC00FD984C /* XapiSdkTests */ = {
+		05AEF1D01390F6CC00FD984C /* StretchrSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05AEF1E71390F6CC00FD984C /* Build configuration list for PBXNativeTarget "XapiSdkTests" */;
+			buildConfigurationList = 05AEF1E71390F6CC00FD984C /* Build configuration list for PBXNativeTarget "StretchrSDKTests" */;
 			buildPhases = (
 				05AEF1CC1390F6CC00FD984C /* Sources */,
 				05AEF1CD1390F6CC00FD984C /* Frameworks */,
@@ -297,7 +329,7 @@
 			dependencies = (
 				05AEF1D61390F6CC00FD984C /* PBXTargetDependency */,
 			);
-			name = XapiSdkTests;
+			name = StretchrSDKTests;
 			productName = XapiSdkTests;
 			productReference = 05AEF1D11390F6CC00FD984C /* XapiSdkTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -322,8 +354,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05AEF1B21390F6CC00FD984C /* XapiSdk */,
-				05AEF1D01390F6CC00FD984C /* XapiSdkTests */,
+				05AEF1B21390F6CC00FD984C /* StretchrSDK */,
+				05AEF1D01390F6CC00FD984C /* StretchrSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -400,7 +432,7 @@
 /* Begin PBXTargetDependency section */
 		05AEF1D61390F6CC00FD984C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 05AEF1B21390F6CC00FD984C /* XapiSdk */;
+			target = 05AEF1B21390F6CC00FD984C /* StretchrSDK */;
 			targetProxy = 05AEF1D51390F6CC00FD984C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -549,7 +581,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05AEF1E41390F6CC00FD984C /* Build configuration list for PBXNativeTarget "XapiSdk" */ = {
+		05AEF1E41390F6CC00FD984C /* Build configuration list for PBXNativeTarget "StretchrSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05AEF1E51390F6CC00FD984C /* Debug */,
@@ -558,7 +590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05AEF1E71390F6CC00FD984C /* Build configuration list for PBXNativeTarget "XapiSdkTests" */ = {
+		05AEF1E71390F6CC00FD984C /* Build configuration list for PBXNativeTarget "StretchrSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05AEF1E81390F6CC00FD984C /* Debug */,
