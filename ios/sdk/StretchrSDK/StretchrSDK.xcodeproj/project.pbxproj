@@ -127,22 +127,22 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		05150FB713913FA100CD2520 /* SDK */ = {
+		05150FB713913FA100CD2520 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
 				05150FB513913F8E00CD2520 /* Resources */,
 				05B21A1613913BE2003AD114 /* Foundation */,
 			);
-			name = SDK;
+			name = StretchrSDK;
 			sourceTree = "<group>";
 		};
-		05150FB813913FA900CD2520 /* SDK */ = {
+		05150FB813913FA900CD2520 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
 				05150FB613913F9500CD2520 /* Resources */,
 				05B21A1713913BEC003AD114 /* Foundation */,
 			);
-			name = SDK;
+			name = StretchrSDK;
 			sourceTree = "<group>";
 		};
 		05B219AB13913B65003AD114 = {
@@ -177,7 +177,7 @@
 		05B219C013913B65003AD114 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
-				05150FB713913FA100CD2520 /* SDK */,
+				05150FB713913FA100CD2520 /* StretchrSDK */,
 				05B219C913913B65003AD114 /* StretchrSDKAppDelegate.h */,
 				05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */,
 				05B219CC13913B66003AD114 /* MainWindow.xib */,
@@ -200,7 +200,7 @@
 		05B219DA13913B66003AD114 /* StretchrSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				05150FB813913FA900CD2520 /* SDK */,
+				05150FB813913FA900CD2520 /* StretchrSDK */,
 				05B219DB13913B66003AD114 /* Supporting Files */,
 			);
 			path = StretchrSDKTests;
