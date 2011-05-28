@@ -62,7 +62,12 @@
   [signer release];
   
   // build the NSURLRequest
-  NSURLRequest *urlRequest = [[[NSURLRequest alloc] initWithURL:self.url] autorelease];
+  NSMutableURLRequest *urlRequest = [[[NSMutableURLRequest alloc] initWithURL:self.url] autorelease];
+  
+  // add the data
+  NSString *postDataString = [self.parameters orderedParameterString];
+  NSData *postData = [postDataString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+  [urlRequest setHTTPBody:postData];
   
   // return the new request
   return urlRequest;
