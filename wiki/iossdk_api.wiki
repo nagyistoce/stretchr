@@ -1,1 +1,23 @@
 #summary API for Stretchr iOS SDK
+
+== Using the Stretchr iOS SDK ==
+
+=== Setting your `key` and `secret` ===
+
+In order to authenticate with Stretchr, you must set your key and secret.
+
+{{{
+[SRContext setKey:@"your-key" andSecret:@"your-secret"];
+}}}
+
+`your-key` - Your unique key provided by Stretchr
+
+`your-secret` - Your secret string provided by Stretchr
+
+=== Creating a new resource ===
+
+{{{
+SRResource *resource = [SRResource create];
+
+[resource save];
+}}}
