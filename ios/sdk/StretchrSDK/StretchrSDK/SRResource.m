@@ -48,4 +48,20 @@
   [self.parameters addValue:value forKey:key];
 }
 
+- (void)setParameterValue:(NSString*)value forKey:(NSString*)key {
+  [self.parameters setSingleValue:value forKey:key];
+}
+
+- (NSString*)firstValueForKey:(NSString*)key {
+  
+  SRParameter *param = [self.parameters firstParameterWithKey:key];
+  
+  if (param) {
+    return param.value;
+  } else {
+    return nil;
+  }
+  
+}
+
 @end
