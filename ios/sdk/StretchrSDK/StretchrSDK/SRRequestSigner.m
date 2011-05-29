@@ -12,6 +12,7 @@
 #import "SRParameterCollection.h"
 #import "SRCredentials.h"
 #import "NSString+URLEncoding.h"
+#import "SRHttpHelper.h"
 
 @implementation SRRequestSigner
 
@@ -21,33 +22,25 @@
 }
 
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request {
+  
+  /*
+  NSLog(@"Before: %@", [self unencodedSignatureStringForRequest:request]);
+  NSLog(@"After: %@", [self HMAC_SHA1SignatureForText:[self unencodedSignatureStringForRequest:request]]);
+  NSLog(@"--------");
+  */
+  
   return [self HMAC_SHA1SignatureForText:[self unencodedSignatureStringForRequest:request]];
 }
 
 - (NSString*)unencodedSignatureStringForRequest:(SRRequest*)request {
-  return [NSString stringWithFormat:@"%@&%@&%@", [self uppercaseProtocolForRequest:request], [[self stringLowercaseUrl:request.url] urlEncoded], [self orderedParameterStringWithSecretForRequest:request]];
+  return [NSString stringWithFormat:@"%@&%@&%@", [SRHttpHelper methodStringForMethod:request.method], [[self stringLowercaseUrl:request.url] urlEncoded], [self orderedParameterStringWithSecretForRequest:request]];
 }
 
 - (NSString*)orderedParameterStringWithSecretForRequest:(SRRequest*)request {
   return [[NSString stringWithFormat:@"%@&%@=%@", [request.parameters orderedParameterString], SECRET_PARAMETER_KEY, request.credentials.secret] urlEncoded];
 }
 
-- (NSString*)uppercaseProtocolForRequest:(SRRequest*)request {
-  
-  switch (request.method) {
-    case SRRequestMethodGET:
-      return GET_HTTP_METHOD;
-      break;
-    case SRRequestMethodPOST:
-      return POST_HTTP_METHOD;
-      break;
-    case SRRequestMethodPUT:
-      return PUT_HTTP_METHOD;
-      break;
-    case SRRequestMethodDELETE:
-      return DELETE_HTTP_METHOD;
-      break;
-  }
+- (NSString*)uppercaseMethodForRequest:(SRRequest*)request {
   
   return nil;
   

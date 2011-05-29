@@ -10,6 +10,7 @@
 #import "SRCredentials.h"
 #import "SRParameter.h"
 #import "SRRequestSigner.h"
+#import "SRHttpHelper.h"
 
 @implementation SRRequest
 @synthesize url;
@@ -33,8 +34,6 @@
     self.url = theUrl;
     self.method = theMethod;
     self.credentials = theCredentials;
-    
-    // TODO: make creds read only
     
     // add key parameter
     [self.parameters addValue:self.credentials.key forKey:KEY_PARAMETER_KEY];
@@ -65,26 +64,22 @@
   NSMutableURLRequest *urlRequest = [[[NSMutableURLRequest alloc] initWithURL:self.url] autorelease];
   
   // set the correct HTTP method
-  switch ([self method]) {
-    case SRRequestMethodGET:
-      [urlRequest setHTTPMethod:GET_HTTP_METHOD];
-      break;
-    case SRRequestMethodPOST:
-      [urlRequest setHTTPMethod:POST_HTTP_METHOD];
-      break;
-    case SRRequestMethodPUT:
-      [urlRequest setHTTPMethod:PUT_HTTP_METHOD];
-      break;
-    case SRRequestMethodDELETE:
-      [urlRequest setHTTPMethod:DELETE_HTTP_METHOD];
-      break;  
-  }
+  [urlRequest setHTTPMethod:[SRHttpHelper methodStringForMethod:self.method]];
   
   // add the data
   NSString *postDataString = [self.parameters orderedParameterString];
-  NSData *postData = [postDataString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-  [urlRequest setHTTPBody:postData];
   
+  if (SRRequestMethodHasPostBody([self method])) {
+    
+    NSData *postData = [postDataString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    [urlRequest setHTTPBody:postData];
+    
+  } else {
+    
+    // append the parameters to the URL
+    [urlRequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", urlRequest.URL, postDataString]]];
+    
+  }
   
   // return the new request
   return urlRequest;

@@ -138,36 +138,12 @@
   
 }
 
-- (void)testUppercaseProtocolForRequest {
-  
-  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
-  
-  SRRequest *aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodGET credentials:creds];
-  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"GET"], @"GET expected");
-  [aRequest release];
-  
-  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodPUT credentials:creds];
-  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"PUT"], @"PUT expected");
-  [aRequest release];
-  
-  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodDELETE credentials:creds];
-  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"DELETE"], @"DELETE expected");
-  [aRequest release];
-  
-  aRequest = [[SRRequest alloc] initWithUrl:[NSURL URLWithString:@"http://www.stretchr.com/"] method:SRRequestMethodPOST credentials:creds];
-  STAssertTrue([[self.signer uppercaseProtocolForRequest:aRequest] isEqualToString:@"POST"], @"POST expected");
-  [aRequest release];
-  
-  [creds release];
-  
-}
-
 - (void)testHMAC_SHA1SignatureForText {
   
   NSString *plain = @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue";
   
   NSString *expectedSignature = @"0254006d89a17f8f1f82f4b191cc767dfbce0ec1";
-  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain usingSecret:nil];
+  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain];
   
   STAssertTrue([actualSignature isEqualToString:expectedSignature], @"Signature incorrect.  Expected: '%@' but was '%@'.", expectedSignature, actualSignature);
   
