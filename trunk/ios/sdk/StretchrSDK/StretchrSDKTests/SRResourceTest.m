@@ -10,15 +10,26 @@
 #import "SRResource.h"
 #import "TestHelper.h"
 
+#define TEST_PATH @"/people"
+
 @implementation SRResourceTest
+
+- (void)testInit {
+  
+  SRResource *resource = [[SRResource alloc] init];
+  
+  STAssertNotNil(resource.parameters, @"parameters shouldn't be nil");
+  
+  [resource release];
+  
+}
 
 - (void)testInitWithPath {
   
-  NSString *testPath = @"/people";
-  SRResource *resource = [[SRResource alloc] initWithPath:testPath];
+  SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH];
   
-  STAssertEqualStrings(testPath, [resource path], @"initWithPath didn't set the correct path");
-  
+  STAssertEqualStrings(TEST_PATH, [resource path], @"initWithPath didn't set the correct path");
+
   [resource release];
   
 }
