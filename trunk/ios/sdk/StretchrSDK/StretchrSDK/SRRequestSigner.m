@@ -55,16 +55,6 @@
 
 - (NSString*)stringLowercaseUrl:(NSURL*)url {
   return [[url absoluteString] lowercaseString];
-/*  
-  // build the domain
-  NSString *domain = [[NSString stringWithFormat:@"%@://%@", [url scheme], [url host]] lowercaseString];
-  
-  // add the path
-  NSString *formattedUrl = [NSString stringWithFormat:@"%@%@", domain, [url path]];
-  
-  // return the formatted string
-  return formattedUrl;
-  */
 }
 
 - (NSString *)HMAC_SHA1SignatureForText:(NSString *)text {
@@ -86,8 +76,8 @@
   digestString = [digestString stringByReplacingOccurrencesOfString:@" " withString:@""];
   digestString = [digestString stringByReplacingOccurrencesOfString:@"<" withString:@""];
   digestString = [digestString stringByReplacingOccurrencesOfString:@">" withString:@""];
-  // TODO: find a more elegant way of doing this bit!
   
+  // TODO: find a more elegant way of doing this bit!
   
   return digestString;
   
