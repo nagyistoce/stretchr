@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "SRParameterCollection.h"
 
 @interface SRResource : NSObject {
     
@@ -16,6 +16,7 @@
 #pragma mark - Properties
 
 @property (nonatomic, copy) NSString *path;
+@property (nonatomic, assign) SRParameterCollection *parameters;
 
 #pragma mark - init
 
