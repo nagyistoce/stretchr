@@ -25,5 +25,7 @@
 #pragma mark - Parameters
 
 - (void)addParameterValue:(NSString*)value forKey:(NSString*)key;
+- (void)setParameterValue:(NSString*)value forKey:(NSString*)key;
+- (NSString*)firstValueForKey:(NSString*)key;
 
 @end
