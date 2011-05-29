@@ -21,7 +21,7 @@
 }
 
 - (NSString*)generatorSignatureFromRequest:(SRRequest*)request {
-  return [self HMAC_SHA1SignatureForText:[self unencodedSignatureStringForRequest:request] usingSecret:request.credentials.secret];
+  return [self HMAC_SHA1SignatureForText:[self unencodedSignatureStringForRequest:request]];
 }
 
 - (NSString*)unencodedSignatureStringForRequest:(SRRequest*)request {
@@ -67,7 +67,7 @@
   */
 }
 
-- (NSString *)HMAC_SHA1SignatureForText:(NSString *)text usingSecret:(NSString *)secret {
+- (NSString *)HMAC_SHA1SignatureForText:(NSString *)text {
   
   // get the text as data
   NSData *textData = [text dataUsingEncoding:NSUTF8StringEncoding];

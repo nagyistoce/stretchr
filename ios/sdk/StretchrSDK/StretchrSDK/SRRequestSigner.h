@@ -30,6 +30,6 @@
 
 - (NSString*)unencodedSignatureStringForRequest:(SRRequest*)request;
 
-- (NSString *)HMAC_SHA1SignatureForText:(NSString *)text usingSecret:(NSString *)secret;
+- (NSString *)HMAC_SHA1SignatureForText:(NSString *)text;
 
 @end
