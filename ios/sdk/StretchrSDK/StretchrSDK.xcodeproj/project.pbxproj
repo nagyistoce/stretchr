@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		058A525413927862007437E7 /* SRHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525313927862007437E7 /* SRHttpHelper.m */; };
 		058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525713927870007437E7 /* SRHttpHelperTest.m */; };
+		058A525B139288C2007437E7 /* SRResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525A139288C2007437E7 /* SRResource.m */; };
+		058A525E139288E3007437E7 /* SRResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525D139288E3007437E7 /* SRResourceTest.m */; };
+		058A526213928BF9007437E7 /* SRContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A526113928BF9007437E7 /* SRContext.m */; };
+		058A526513928C07007437E7 /* SRContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A526413928C07007437E7 /* SRContextTest.m */; };
 		05B219BB13913B65003AD114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BA13913B65003AD114 /* UIKit.framework */; };
 		05B219BD13913B65003AD114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BC13913B65003AD114 /* Foundation.framework */; };
 		05B219BF13913B65003AD114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BE13913B65003AD114 /* CoreGraphics.framework */; };
@@ -50,6 +54,16 @@
 		058A525313927862007437E7 /* SRHttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHttpHelper.m; sourceTree = "<group>"; };
 		058A525613927870007437E7 /* SRHttpHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelperTest.h; sourceTree = "<group>"; };
 		058A525713927870007437E7 /* SRHttpHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHttpHelperTest.m; sourceTree = "<group>"; };
+		058A5259139288C2007437E7 /* SRResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRResource.h; sourceTree = "<group>"; };
+		058A525A139288C2007437E7 /* SRResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRResource.m; sourceTree = "<group>"; };
+		058A525C139288E3007437E7 /* SRResourceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRResourceTest.h; sourceTree = "<group>"; };
+		058A525D139288E3007437E7 /* SRResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRResourceTest.m; sourceTree = "<group>"; };
+		058A525F139289E0007437E7 /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		058A526013928BF9007437E7 /* SRContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRContext.h; sourceTree = "<group>"; };
+		058A526113928BF9007437E7 /* SRContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRContext.m; sourceTree = "<group>"; };
+		058A526313928C07007437E7 /* SRContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRContextTest.h; sourceTree = "<group>"; };
+		058A526413928C07007437E7 /* SRContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRContextTest.m; sourceTree = "<group>"; };
+		058A526E13928D43007437E7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		05B219B613913B65003AD114 /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B219BA13913B65003AD114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05B219BC13913B65003AD114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,6 +136,11 @@
 		05150FB513913F8E00CD2520 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				058A5259139288C2007437E7 /* SRResource.h */,
+				058A525A139288C2007437E7 /* SRResource.m */,
+				058A526013928BF9007437E7 /* SRContext.h */,
+				058A526113928BF9007437E7 /* SRContext.m */,
+				058A526E13928D43007437E7 /* Singleton.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -129,6 +148,10 @@
 		05150FB613913F9500CD2520 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				058A525C139288E3007437E7 /* SRResourceTest.h */,
+				058A525D139288E3007437E7 /* SRResourceTest.m */,
+				058A526313928C07007437E7 /* SRContextTest.h */,
+				058A526413928C07007437E7 /* SRContextTest.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -145,6 +168,8 @@
 		05150FB813913FA900CD2520 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				058A525F139289E0007437E7 /* TestHelper.h */,
+				05B21A0213913BAF003AD114 /* TestValues.h */,
 				05150FB613913F9500CD2520 /* Resources */,
 				05B21A1713913BEC003AD114 /* Foundation */,
 			);
@@ -247,7 +272,6 @@
 		05B21A1713913BEC003AD114 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				05B21A0213913BAF003AD114 /* TestValues.h */,
 				05B219ED13913BA0003AD114 /* NSString+URLEncodingTest.h */,
 				05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */,
 				05B219EF13913BA0003AD114 /* SRCredentialsTest.h */,
@@ -383,6 +407,8 @@
 				05B21A1413913BC0003AD114 /* SRRequest.m in Sources */,
 				05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */,
 				058A525413927862007437E7 /* SRHttpHelper.m in Sources */,
+				058A525B139288C2007437E7 /* SRResource.m in Sources */,
+				058A526213928BF9007437E7 /* SRContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +424,8 @@
 				05B21A0013913BA0003AD114 /* SRRequestSignerTest.m in Sources */,
 				05B21A0113913BA0003AD114 /* SRRequestTest.m in Sources */,
 				058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */,
+				058A525E139288E3007437E7 /* SRResourceTest.m in Sources */,
+				058A526513928C07007437E7 /* SRContextTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

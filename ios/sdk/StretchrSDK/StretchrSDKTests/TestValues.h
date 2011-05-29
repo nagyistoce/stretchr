@@ -6,6 +6,8 @@
 //  Copyright 2011 Stretchr.com. All rights reserved.
 //
 
+#pragma mark - Foundation
+
 #define EXPECTED_SIGNATURE @"e1d314c35ee124e548356f18c20145b2f9bbbeaa"
 #define EXPECTED_PARAMETER_STRING @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~z=Mat&Grant/Ryer&Edd"
 #define EXPECTED_PARAMETER_STRING_WITH_SECRET @"FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26~c%3Dthis-is-my-context-value%26~key%3Dabdh239d78c30f93jf88r0%26~secret%3DthisIsMySecretValue"
@@ -43,4 +45,3 @@
 
 #define KEYPARAM_KEY @"~key"
 #define KEYPARAM_VALUE TEST_KEY
-
