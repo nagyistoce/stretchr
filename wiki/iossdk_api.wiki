@@ -7,7 +7,7 @@
 In order to authenticate with Stretchr, you must set your domain, key and secret.
 
 {{{
-[SRContext useAccountName:@"your-account-name" key:@"your-key" secret:@"your-secret"];
+[[SRContext currentContext] setAccountName:@"your-account-name" key:@"your-key" secret:@"your-secret"];
 }}}
 
 `your-account-name` - The name of your account (the subdomain part in `x.xapi.co`)
