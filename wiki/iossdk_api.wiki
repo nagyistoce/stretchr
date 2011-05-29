@@ -1,6 +1,6 @@
 #summary API for Stretchr iOS SDK
 
-== Using the Stretchr iOS SDK ==
+== Tutorial: Using the Stretchr iOS SDK ==
 
 === Setting your `key` and `secret` ===
 
@@ -18,8 +18,11 @@ In order to authenticate with Stretchr, you must set your account name, key and 
 
 === Creating a new resource ===
 
-{{{
-SRResource *resource = [[SRResource alloc] initWithPath:@"/"];
+We are going to create a new resource to hold users feedback.  We do not need to define anything, instead we can just save our first resource when we need to:
 
+{{{
+SRResource *resource = [[SRResource alloc] initWithPath:@"/feedback"];
+[resource setParameterValue:@"John" forKey:@"name"];
+[resource setParameterValue:@"I love this service" forKey:@"comment"];
 [resource save];
 }}}
