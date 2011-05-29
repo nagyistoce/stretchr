@@ -69,35 +69,27 @@
 
 - (NSString *)HMAC_SHA1SignatureForText:(NSString *)text usingSecret:(NSString *)secret {
   
-	NSData *secretData = [secret dataUsingEncoding:NSUTF8StringEncoding];
-	NSData *textData = [text dataUsingEncoding:NSUTF8StringEncoding];
-	unsigned char result[CC_SHA1_DIGEST_LENGTH];
+  // get the text as data
+  NSData *textData = [text dataUsingEncoding:NSUTF8StringEncoding];
   
-	CCHmacContext hmacContext;
-	bzero(&hmacContext, sizeof(CCHmacContext));
-  CCHmacInit(&hmacContext, kCCHmacAlgSHA1, secretData.bytes, secretData.length);
-  CCHmacUpdate(&hmacContext, textData.bytes, textData.length);
-  CCHmacFinal(&hmacContext, result);
+  // create a memory buffer to hold the digest
+  unsigned char digest[CC_SHA1_DIGEST_LENGTH];
   
-  NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+  // perform the SHA-1 hashing
+  CC_SHA1([textData bytes], [textData length], digest);
   
-  for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
-    [output appendFormat:@"%02x", result[i]];
+  // convert the digest to NSData
+  NSData *digestData = [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
   
-  return output;
+  // turn it back into a string
+  NSString *digestString = [digestData description];
+  digestString = [digestString stringByReplacingOccurrencesOfString:@" " withString:@""];
+  digestString = [digestString stringByReplacingOccurrencesOfString:@"<" withString:@""];
+  digestString = [digestString stringByReplacingOccurrencesOfString:@">" withString:@""];
+  // TODO: find a more elegant way of doing this bit!
   
-  /*
-  NSLog(@"digest: %@", output);
-	
-	//Base64 Encoding
-	char base64Result[32];
-	size_t theResultLength = 32;
-	Base64EncodeData(result, 20, base64Result, &theResultLength);
-	NSData *theData = [NSData dataWithBytes:base64Result length:theResultLength];
-	NSString *base64EncodedResult = [[[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding] autorelease];
-	
-	return base64EncodedResult;
-  */
+  
+  return digestString;
   
 }
 

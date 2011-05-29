@@ -112,6 +112,8 @@
   STAssertNotNil(signature, @"Signature should not be nil");
   STAssertFalse([signature isEqualToString:@""], @"signature should not be empty");
   
+  NSLog(@"Signature: %@", signature);
+  
   STAssertTrue([signature isEqualToString:EXPECTED_SIGNATURE], @"Signature incorrect :-(");
   
 }
@@ -164,10 +166,8 @@
   
   NSString *plain = @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue";
   
-  NSString *secret = @"thisIsMySecretValue";
-  NSString *expectedSignature = @"bc32e193e0fbe8f7dc81b11fdc5a90d2b52a3b7c";
-  
-  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain usingSecret:secret];
+  NSString *expectedSignature = @"0254006d89a17f8f1f82f4b191cc767dfbce0ec1";
+  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain usingSecret:nil];
   
   STAssertTrue([actualSignature isEqualToString:expectedSignature], @"Signature incorrect.  Expected: '%@' but was '%@'.", expectedSignature, actualSignature);
   
