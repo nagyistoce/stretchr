@@ -64,6 +64,7 @@
 		058A526313928C07007437E7 /* SRContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRContextTest.h; sourceTree = "<group>"; };
 		058A526413928C07007437E7 /* SRContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRContextTest.m; sourceTree = "<group>"; };
 		058A526E13928D43007437E7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		058A526F13929539007437E7 /* SRFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRFoundation.h; sourceTree = "<group>"; };
 		05B219B613913B65003AD114 /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B219BA13913B65003AD114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05B219BC13913B65003AD114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -265,6 +266,7 @@
 				05B21A0F13913BC0003AD114 /* SRRequestSigner.m */,
 				058A525213927862007437E7 /* SRHttpHelper.h */,
 				058A525313927862007437E7 /* SRHttpHelper.m */,
+				058A526F13929539007437E7 /* SRFoundation.h */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";

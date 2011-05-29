@@ -29,9 +29,9 @@
   [[SRContext sharedInstance] setKey:key];
   [[SRContext sharedInstance] setSecret:secret];
   
-  STAssertEqualStrings(accountName, [[SRContext sharedInstance] accountName], @"accountName wrong");
-  STAssertEqualStrings(key, [[SRContext sharedInstance] key], @"key wrong");
-  STAssertEqualStrings(secret, [[SRContext sharedInstance] secret], @"secret wrong");
+  STAssertEqualStrings([[SRContext sharedInstance] accountName], accountName, @"accountName wrong");
+  STAssertEqualStrings([[SRContext sharedInstance] key], key, @"key wrong");
+  STAssertEqualStrings([[SRContext sharedInstance] secret], secret, @"secret wrong");
   
 }
 

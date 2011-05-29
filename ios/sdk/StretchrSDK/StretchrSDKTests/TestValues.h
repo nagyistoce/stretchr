@@ -6,6 +6,10 @@
 //  Copyright 2011 Stretchr.com. All rights reserved.
 //
 
+#pragma mark - Resources
+
+#define TEST_PATH @"/people"
+
 #pragma mark - Foundation
 
 #define EXPECTED_SIGNATURE @"e1d314c35ee124e548356f18c20145b2f9bbbeaa"
