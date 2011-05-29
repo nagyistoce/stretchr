@@ -3,7 +3,7 @@
 //  StretchrSDK
 //
 //  Created by Mat Ryer on 28/May/2011.
-//  Copyright 2011 Borealis Web Ltd. All rights reserved.
+//  Copyright 2011 Stretchr.com. All rights reserved.
 //
 
 #define EXPECTED_SIGNATURE @"e1d314c35ee124e548356f18c20145b2f9bbbeaa"
@@ -14,6 +14,8 @@
 
 #define TEST_URL @"http://EDD-test-domain.xapi.co/Groups/1/People"
 #define TEST_LOWERCASE_URL @"http://edd-test-domain.xapi.co/groups/1/people"
+
+#define EXPECTED_FULL_URL_FOR_GET @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=e1d314c35ee124e548356f18c20145b2f9bbbeaa"
 
 #define TEST_METHOD SRRequestMethodPOST
 #define TEST_KEY @"abdh239d78c30f93jf88r0"
@@ -37,3 +39,4 @@
 
 #define KEYPARAM_KEY @"~key"
 #define KEYPARAM_VALUE TEST_KEY
+

@@ -111,5 +111,32 @@
   
 }
 
+- (void)testMakeSignedUrlRequestForGET {
+  
+  NSURL *url = [NSURL URLWithString:TEST_URL];
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
+  SRRequest *request = [[SRRequest alloc] initWithUrl:url method:SRRequestMethodGET credentials:creds];
+  
+  // add the parameters
+  [request.parameters addValue:PARAM1_VALUE forKey:PARAM1_KEY];
+  [request.parameters addValue:PARAM2_VALUE forKey:PARAM2_KEY];
+  [request.parameters addValue:PARAM3_VALUE forKey:PARAM3_KEY];
+  [request.parameters addValue:PARAM4_VALUE forKey:PARAM4_KEY];
+  [request.parameters addValue:PARAM5_VALUE forKey:PARAM5_KEY];
+  
+  NSURLRequest *urlRequest = [request makeSignedUrlRequest];
+  
+  // check the URL (must have parameters appended)
+  NSString *actualUrl = [urlRequest.URL absoluteString];
+  NSString *expectedUrl = EXPECTED_FULL_URL_FOR_GET;
+  STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
+  
+  // check the HTTP method
+  STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"GET"], @"HTTPMethod should be GET");
+  
+  [creds release];
+  [request release];
+  
+}
 
 @end
