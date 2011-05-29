@@ -4,7 +4,7 @@
 
 === Setting your `key` and `secret` ===
 
-In order to authenticate with Stretchr, you must set your domain, key and secret.
+In order to authenticate with Stretchr, you must set your account name, key and secret.
 
 {{{
 [[SRContext currentContext] setAccountName:@"your-account-name" key:@"your-key" secret:@"your-secret"];
