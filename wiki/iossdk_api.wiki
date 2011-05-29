@@ -4,11 +4,13 @@
 
 === Setting your `key` and `secret` ===
 
-In order to authenticate with Stretchr, you must set your key and secret.
+In order to authenticate with Stretchr, you must set your domain, key and secret.
 
 {{{
-[SRContext setKey:@"your-key" andSecret:@"your-secret"];
+[SRContext useAccountName:@"your-account-name" key:@"your-key" secret:@"your-secret"];
 }}}
+
+`your-account-name` - The name of your account (the subdomain part in `x.xapi.co`)
 
 `your-key` - Your unique key provided by Stretchr
 
@@ -17,7 +19,7 @@ In order to authenticate with Stretchr, you must set your key and secret.
 === Creating a new resource ===
 
 {{{
-SRResource *resource = [SRResource create];
+SRResource *resource = [[SRResource alloc] initWithPath:@"/"];
 
 [resource save];
 }}}
