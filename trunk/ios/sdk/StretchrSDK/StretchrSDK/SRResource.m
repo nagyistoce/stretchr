@@ -42,4 +42,10 @@
 }
 
 
+#pragma mark - Parameters
+
+- (void)addParameterValue:(NSString*)value forKey:(NSString*)key {
+  [self.parameters addValue:value forKey:key];
+}
+
 @end

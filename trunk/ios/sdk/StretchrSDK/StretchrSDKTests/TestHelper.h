@@ -6,4 +6,4 @@
 //  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
 
-#define STAssertEqualStrings(expected, actual, message) STAssertTrue([expected isEqualToString:actual], @"%@Strings do not match, expected: \"%@\", actual: \"%@\".", message ? @"" : [NSString stringWithFormat:@"%@ - ", message], expected, actual)
+#define STAssertEqualStrings(actual, expected, message) STAssertTrue([expected isEqualToString:actual], @"%@Strings do not match, expected: \"%@\", actual: \"%@\".", message ? @"" : [NSString stringWithFormat:@"%@ - ", message], expected, actual)
