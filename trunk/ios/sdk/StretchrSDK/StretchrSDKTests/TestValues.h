@@ -10,12 +10,16 @@
 #define EXPECTED_PARAMETER_STRING @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~z=Mat&Grant/Ryer&Edd"
 #define EXPECTED_PARAMETER_STRING_WITH_SECRET @"FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26~c%3Dthis-is-my-context-value%26~key%3Dabdh239d78c30f93jf88r0%26~secret%3DthisIsMySecretValue"
 #define EXPECTED_UNENCODED_SIGNATURE_STRING @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26~c%3Dthis-is-my-context-value%26~key%3Dabdh239d78c30f93jf88r0%26~secret%3DthisIsMySecretValue"
+
 #define EXPECTED_FINAL_POST_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=e1d314c35ee124e548356f18c20145b2f9bbbeaa"
+#define EXPECTED_FINAL_PUT_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=3d6aec1e918d2ed7f2eab942a0b8ae6682e1774b"
 
 #define TEST_URL @"http://EDD-test-domain.xapi.co/Groups/1/People"
 #define TEST_LOWERCASE_URL @"http://edd-test-domain.xapi.co/groups/1/people"
 
-#define EXPECTED_FULL_URL_FOR_GET @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=e1d314c35ee124e548356f18c20145b2f9bbbeaa"
+#define EXPECTED_FULL_URL_FOR_GET @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=63d7fb1d305696822f85ffbba22b89380e8e1bff"
+
+#define EXPECTED_FULL_URL_FOR_DELETE @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=f7cd6d26cc58c2b00a292c12a5bf08a35ad2f8a7"
 
 #define TEST_METHOD SRRequestMethodPOST
 #define TEST_KEY @"abdh239d78c30f93jf88r0"

@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 @class SRRequest;
 
-#define GET_HTTP_METHOD @"GET"
-#define POST_HTTP_METHOD @"POST"
-#define PUT_HTTP_METHOD @"PUT"
-#define DELETE_HTTP_METHOD @"DELETE"
-
 @interface SRRequestSigner : NSObject {
     
 }
@@ -26,7 +21,7 @@
 
 - (NSString*)orderedParameterStringWithSecretForRequest:(SRRequest*)request;
 
-- (NSString*)uppercaseProtocolForRequest:(SRRequest*)request;
+- (NSString*)uppercaseMethodForRequest:(SRRequest*)request __attribute__ ((deprecated));
 
 - (NSString*)unencodedSignatureStringForRequest:(SRRequest*)request;
 

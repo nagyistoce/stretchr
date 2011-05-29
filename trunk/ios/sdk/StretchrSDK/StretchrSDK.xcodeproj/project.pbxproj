@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058A525413927862007437E7 /* SRHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525313927862007437E7 /* SRHttpHelper.m */; };
+		058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525713927870007437E7 /* SRHttpHelperTest.m */; };
 		05B219BB13913B65003AD114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BA13913B65003AD114 /* UIKit.framework */; };
 		05B219BD13913B65003AD114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BC13913B65003AD114 /* Foundation.framework */; };
 		05B219BF13913B65003AD114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BE13913B65003AD114 /* CoreGraphics.framework */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		058A525213927862007437E7 /* SRHttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelper.h; sourceTree = "<group>"; };
+		058A525313927862007437E7 /* SRHttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHttpHelper.m; sourceTree = "<group>"; };
+		058A525613927870007437E7 /* SRHttpHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelperTest.h; sourceTree = "<group>"; };
+		058A525713927870007437E7 /* SRHttpHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHttpHelperTest.m; sourceTree = "<group>"; };
 		05B219B613913B65003AD114 /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B219BA13913B65003AD114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05B219BC13913B65003AD114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +238,8 @@
 				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
 				05B21A0E13913BC0003AD114 /* SRRequestSigner.h */,
 				05B21A0F13913BC0003AD114 /* SRRequestSigner.m */,
+				058A525213927862007437E7 /* SRHttpHelper.h */,
+				058A525313927862007437E7 /* SRHttpHelper.m */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -254,6 +262,8 @@
 				05B219F813913BA0003AD114 /* SRRequestSignerTest.m */,
 				05B219F913913BA0003AD114 /* SRRequestTest.h */,
 				05B219FA13913BA0003AD114 /* SRRequestTest.m */,
+				058A525613927870007437E7 /* SRHttpHelperTest.h */,
+				058A525713927870007437E7 /* SRHttpHelperTest.m */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -372,6 +382,7 @@
 				05B21A1313913BC0003AD114 /* SRParameterCollection.m in Sources */,
 				05B21A1413913BC0003AD114 /* SRRequest.m in Sources */,
 				05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */,
+				058A525413927862007437E7 /* SRHttpHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +397,7 @@
 				05B219FF13913BA0003AD114 /* SRRequestMethodTest.m in Sources */,
 				05B21A0013913BA0003AD114 /* SRRequestSignerTest.m in Sources */,
 				05B21A0113913BA0003AD114 /* SRRequestTest.m in Sources */,
+				058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

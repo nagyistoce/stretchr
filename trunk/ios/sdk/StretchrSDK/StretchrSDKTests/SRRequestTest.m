@@ -101,6 +101,16 @@
   
   STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_POST_DATA], @"Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
   
+  /*
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Expected Post data:");
+   NSLog(@"%@", EXPECTED_FINAL_POST_DATA);
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Actual Post data:");
+   NSLog(@"%@", postDataString);
+   NSLog(@"------------------------------------------------------------------------");
+   */
+  
   // check the HTTP method
   STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"POST"], @"HTTPMethod should be POST");
   
@@ -129,10 +139,106 @@
   // check the URL (must have parameters appended)
   NSString *actualUrl = [urlRequest.URL absoluteString];
   NSString *expectedUrl = EXPECTED_FULL_URL_FOR_GET;
+  
+  /*
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Expected URL:");
+   NSLog(@"%@", expectedUrl);
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Actual URL:");
+   NSLog(@"%@", actualUrl);
+   NSLog(@"------------------------------------------------------------------------");
+   */
+  
   STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
   
   // check the HTTP method
   STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"GET"], @"HTTPMethod should be GET");
+  
+  [creds release];
+  [request release];
+  
+}
+
+- (void)testMakeSignedUrlRequestForPUT {
+  
+  NSURL *url = [NSURL URLWithString:TEST_URL];
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
+  SRRequest *request = [[SRRequest alloc] initWithUrl:url method:SRRequestMethodPUT credentials:creds];
+  
+  // add the parameters
+  [request.parameters addValue:PARAM1_VALUE forKey:PARAM1_KEY];
+  [request.parameters addValue:PARAM2_VALUE forKey:PARAM2_KEY];
+  [request.parameters addValue:PARAM3_VALUE forKey:PARAM3_KEY];
+  [request.parameters addValue:PARAM4_VALUE forKey:PARAM4_KEY];
+  [request.parameters addValue:PARAM5_VALUE forKey:PARAM5_KEY];
+  
+  NSURLRequest *urlRequest = [request makeSignedUrlRequest];
+  
+  // check the URL
+  NSString *actualUrl = [urlRequest.URL absoluteString];
+  NSString *expectedUrl = [url absoluteString];
+  STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
+  
+  // check the HTTP body
+  NSData *postData = [urlRequest HTTPBody];
+  NSString *postDataString = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+  
+  STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_PUT_DATA], @"Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
+  
+  /*
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Expected Post data:");
+   NSLog(@"%@", EXPECTED_FINAL_POST_DATA);
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Actual Post data:");
+   NSLog(@"%@", postDataString);
+   NSLog(@"------------------------------------------------------------------------");
+   */
+  
+  // check the HTTP method
+  STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"PUT"], @"HTTPMethod should be PUT");
+  
+  [postDataString release];
+  
+  [creds release];
+  [request release];
+  
+}
+
+- (void)testMakeSignedUrlRequestForDELETE {
+  
+  NSURL *url = [NSURL URLWithString:TEST_URL];
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:TEST_KEY secret:TEST_SECRET];
+  SRRequest *request = [[SRRequest alloc] initWithUrl:url method:SRRequestMethodDELETE credentials:creds];
+  
+  // add the parameters
+  [request.parameters addValue:PARAM1_VALUE forKey:PARAM1_KEY];
+  [request.parameters addValue:PARAM2_VALUE forKey:PARAM2_KEY];
+  [request.parameters addValue:PARAM3_VALUE forKey:PARAM3_KEY];
+  [request.parameters addValue:PARAM4_VALUE forKey:PARAM4_KEY];
+  [request.parameters addValue:PARAM5_VALUE forKey:PARAM5_KEY];
+  
+  NSURLRequest *urlRequest = [request makeSignedUrlRequest];
+  
+  // check the URL (must have parameters appended)
+  NSString *actualUrl = [urlRequest.URL absoluteString];
+  NSString *expectedUrl = EXPECTED_FULL_URL_FOR_DELETE;
+  
+  /*
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Expected URL:");
+   NSLog(@"%@", expectedUrl);
+   NSLog(@"------------------------------------------------------------------------");
+   NSLog(@"Actual URL:");
+   NSLog(@"%@", actualUrl);
+   NSLog(@"------------------------------------------------------------------------");
+   */
+  
+  STAssertTrue([actualUrl isEqualToString:expectedUrl], @"Incorrect URL.  Expected '%@' but was '%@'.", expectedUrl, actualUrl);
+  
+  // check the HTTP method
+  STAssertTrue([[urlRequest HTTPMethod] isEqualToString:@"DELETE"], @"HTTPMethod should be DELETE");
   
   [creds release];
   [request release];
