@@ -21,7 +21,7 @@
 
 - (id)initWithKey:(NSString*)key andValue:(NSString*)value;
 
-- (NSString *)URLEncodedParameterString;
+- (NSString *)URLParameterString;
 
 - (NSComparisonResult)compare:(id)object;
 

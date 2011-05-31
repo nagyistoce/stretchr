@@ -46,7 +46,7 @@
     
     param = [self.parameters objectAtIndex:i];
     
-    [paramString appendString:[param URLEncodedParameterString]];
+    [paramString appendString:[param URLParameterString]];
     
     if (i < l-1) {
       [paramString appendString:@"&"];

@@ -14,4 +14,12 @@
 
 SingletonImplementation(SRContext);
 
+- (void)setAccountName:(NSString*)theAccountName key:(NSString*)theKey secret:(NSString*)theSecret {
+  
+  [self setAccountName:theAccountName];
+  [self setKey:theKey];
+  [self setSecret:theSecret];
+  
+}
+
 @end

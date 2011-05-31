@@ -12,20 +12,20 @@
 
 #pragma mark - Foundation
 
-#define EXPECTED_SIGNATURE @"e1d314c35ee124e548356f18c20145b2f9bbbeaa"
+#define EXPECTED_SIGNATURE @"35b6d34742395160d3784b6b1a4e92e493a24453"
 #define EXPECTED_PARAMETER_STRING @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~z=Mat&Grant/Ryer&Edd"
-#define EXPECTED_PARAMETER_STRING_WITH_SECRET @"FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26~c%3Dthis-is-my-context-value%26~key%3Dabdh239d78c30f93jf88r0%26~secret%3DthisIsMySecretValue"
-#define EXPECTED_UNENCODED_SIGNATURE_STRING @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26~c%3Dthis-is-my-context-value%26~key%3Dabdh239d78c30f93jf88r0%26~secret%3DthisIsMySecretValue"
+#define EXPECTED_PARAMETER_STRING_WITH_SECRET @"FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue"
+#define EXPECTED_UNENCODED_SIGNATURE_STRING @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue"
 
-#define EXPECTED_FINAL_POST_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=e1d314c35ee124e548356f18c20145b2f9bbbeaa"
-#define EXPECTED_FINAL_PUT_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=3d6aec1e918d2ed7f2eab942a0b8ae6682e1774b"
+#define EXPECTED_FINAL_POST_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=35b6d34742395160d3784b6b1a4e92e493a24453"
+#define EXPECTED_FINAL_PUT_DATA @"FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=18a3bbcf63989eb643dc7cabb6187ef0721d9d37"
 
 #define TEST_URL @"http://EDD-test-domain.xapi.co/Groups/1/People"
 #define TEST_LOWERCASE_URL @"http://edd-test-domain.xapi.co/groups/1/people"
 
-#define EXPECTED_FULL_URL_FOR_GET @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=63d7fb1d305696822f85ffbba22b89380e8e1bff"
+#define EXPECTED_FULL_URL_FOR_GET @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=fcecf5339fce6a671eb856967e8e3956a861d41a"
 
-#define EXPECTED_FULL_URL_FOR_DELETE @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=f7cd6d26cc58c2b00a292c12a5bf08a35ad2f8a7"
+#define EXPECTED_FULL_URL_FOR_DELETE @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=9d38c01a706b0e7a47437de1668870e16c3918b1"
 
 #define TEST_METHOD SRRequestMethodPOST
 #define TEST_KEY @"abdh239d78c30f93jf88r0"

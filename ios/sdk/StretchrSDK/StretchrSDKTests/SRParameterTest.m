@@ -26,9 +26,9 @@
 - (void)testUrlEncodedParameterString {
   
   SRParameter *param1 = [[SRParameter alloc] initWithKey:@"~z" andValue:@"Mat&Grant/Ryer&Edd"];
-  NSString *encodedParamString = [param1 URLEncodedParameterString];
+  NSString *encodedParamString = [param1 URLParameterString];
   
-  STAssertTrue([encodedParamString isEqualToString:@"~z=Mat&Grant/Ryer&Edd"], @"URLEncodedParameterString incorrect");
+  STAssertTrue([encodedParamString isEqualToString:@"~z=Mat&Grant/Ryer&Edd"], @"URLEncodedParameterString incorrect (got: '%@')", encodedParamString);
   
   [param1 release];
   

@@ -28,8 +28,8 @@
   [super dealloc];
 }
 
-- (NSString *)URLEncodedParameterString {
-  return [NSString stringWithFormat:@"%@=%@", [self.key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], [self.value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];  
+- (NSString *)URLParameterString {
+  return [NSString stringWithFormat:@"%@=%@", self.key, self.value];
 }
 
 - (NSComparisonResult)compare:(id)inObject {

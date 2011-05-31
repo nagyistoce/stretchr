@@ -17,8 +17,19 @@
     NULL,
     (CFStringRef)self,
     NULL,
-    (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+    (CFStringRef)@"!*'();:@&=+$,/?%#[]~",
     kCFStringEncodingUTF8 );
+  
+}
+
+- (NSString*)stringByAddingPercentEscapesIncludingTildeUsingEncoding:(NSStringEncoding)encoding {
+  
+  return (NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                             NULL,
+                                                             (CFStringRef)self,
+                                                             NULL,
+                                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                             kCFStringEncodingUTF8 );
   
 }
 
