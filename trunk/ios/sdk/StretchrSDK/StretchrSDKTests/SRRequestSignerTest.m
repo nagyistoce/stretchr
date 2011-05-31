@@ -95,11 +95,9 @@
   
   NSString *orderedParameterString = [self.signer orderedParameterStringWithSecretForRequest:self.request];
   
-  /*
   NSLog(@"---------------------------------");
   NSLog(@"orderedParameterString: %@", orderedParameterString);
   NSLog(@"---------------------------------");
-  */
   
   STAssertTrue([orderedParameterString isEqualToString:EXPECTED_PARAMETER_STRING_WITH_SECRET], @"orderedParameterStringWithSecret incorrect");
   
@@ -143,6 +141,18 @@
   NSString *plain = @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue";
   
   NSString *expectedSignature = @"0254006d89a17f8f1f82f4b191cc767dfbce0ec1";
+  NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain];
+  
+  STAssertTrue([actualSignature isEqualToString:expectedSignature], @"Signature incorrect.  Expected: '%@' but was '%@'.", expectedSignature, actualSignature);
+  
+}
+
+- (void)testHMAC_SHA1SignatureForText_2 {
+  
+  
+  NSString *plain = @"POST&http%3A%2F%2Fedd-test-domain.xapi.co%2Fgroups%2F1%2Fpeople&FName%3DEdd%26email%3Dedd%40eddgrant.com%26email%3Dedd%40stretchr.com%26lName%3DGrant%26%7Ec%3Dthis-is-my-context-value%26%7Ekey%3Dabdh239d78c30f93jf88r0%26%7Esecret%3DthisIsMySecretValue";
+  
+  NSString *expectedSignature = @"35b6d34742395160d3784b6b1a4e92e493a24453";
   NSString *actualSignature = [self.signer HMAC_SHA1SignatureForText:plain];
   
   STAssertTrue([actualSignature isEqualToString:expectedSignature], @"Signature incorrect.  Expected: '%@' but was '%@'.", expectedSignature, actualSignature);

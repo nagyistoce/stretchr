@@ -184,7 +184,7 @@
   NSData *postData = [urlRequest HTTPBody];
   NSString *postDataString = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
   
-  STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_PUT_DATA], @"Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
+  STAssertTrue([postDataString isEqualToString:EXPECTED_FINAL_PUT_DATA], @"PUT Post Data incorrect, expected \"%@\" but was \"%@\".", EXPECTED_FINAL_POST_DATA, postDataString);
   
   /*
    NSLog(@"------------------------------------------------------------------------");

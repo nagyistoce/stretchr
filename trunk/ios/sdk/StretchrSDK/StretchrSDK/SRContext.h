@@ -19,4 +19,6 @@
 
 SingletonInterface(SRContext);
 
+- (void)setAccountName:(NSString*)accountName key:(NSString*)key secret:(NSString*)secret;
+
 @end

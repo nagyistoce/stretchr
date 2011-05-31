@@ -35,4 +35,22 @@
   
 }
 
+- (void)testPropertySetter {
+  
+  NSString *accountName = @"account-name";
+  NSString *key = @"account-name";
+  NSString *secret = @"account-name";
+  
+  [[SRContext sharedInstance] setAccountName:nil];
+  [[SRContext sharedInstance] setKey:nil];
+  [[SRContext sharedInstance] setSecret:nil];
+  
+  [[SRContext sharedInstance] setAccountName:accountName key:key secret:secret];
+  
+  STAssertEqualStrings([[SRContext sharedInstance] accountName], accountName, @"accountName wrong");
+  STAssertEqualStrings([[SRContext sharedInstance] key], key, @"key wrong");
+  STAssertEqualStrings([[SRContext sharedInstance] secret], secret, @"secret wrong");
+  
+}
+
 @end
