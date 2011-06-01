@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define ID_PARAMETER_KEY @"~id"
 #define KEY_PARAMETER_KEY @"~key"
 #define SECRET_PARAMETER_KEY @"~secret"
 #define SIGN_PARAMETER_KEY @"~sign"

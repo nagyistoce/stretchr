@@ -28,4 +28,10 @@
 - (void)setParameterValue:(NSString*)value forKey:(NSString*)key;
 - (NSString*)firstValueForKey:(NSString*)key;
 
+#pragma mark - Resource ID
+
+- (BOOL)hasResourceId;
+- (NSString*)resourceId;
+- (void)setResourceId:(NSString*)resourceId;
+
 @end

@@ -63,4 +63,18 @@
   
 }
 
+#pragma mark - Resource ID
+
+- (BOOL)hasResourceId {
+  return [self resourceId] != nil;
+}
+
+- (NSString*)resourceId {
+  return [self firstValueForKey:ID_PARAMETER_KEY];
+}
+
+- (void)setResourceId:(NSString*)resourceId {
+  [self setParameterValue:resourceId forKey:ID_PARAMETER_KEY];
+}
+
 @end
