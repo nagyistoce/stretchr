@@ -8,17 +8,34 @@
 
 #import "SRRequestFactory.h"
 #import "SRContext.h"
+#import "SRRequestSigner.h"
 
 @implementation SRRequestFactory
 
 + (SRRequest*)requestToCreateResource:(SRResource*)resource {
+return [self requestForResource:resource withMethod:SRRequestMethodPOST];
+}
+
++ (SRRequest*)requestToReadResource:(SRResource*)resource {
+return [self requestForResource:resource withMethod:SRRequestMethodGET];
+}
+
++ (SRRequest*)requestToUpdateResource:(SRResource*)resource {
+  return [self requestForResource:resource withMethod:SRRequestMethodPUT];
+}
+
++ (SRRequest*)requestToDeleteResource:(SRResource*)resource {
+  return [self requestForResource:resource withMethod:SRRequestMethodDELETE];
+}
+
++ (SRRequest*)requestForResource:(SRResource*)resource withMethod:(SRRequestMethod)method {
   
-  SRRequest *request = [[SRRequest alloc] initWithUrl:[[SRContext sharedInstance] URLForResource:resource] 
-                                               method:SRRequestMethodGET 
-                                          credentials:[[SRContext sharedInstance] credentials]];
+  SRRequest *request = [[[SRRequest alloc] initWithUrl:[[SRContext sharedInstance] URLForResource:resource] 
+                                                method:method
+                                           credentials:[[SRContext sharedInstance] credentials]] autorelease];
   
   // set the parameters
-  [request.parameters setParameters:resource.parameters.parameters];
+  [request.parameters mergeWithParameters:resource.parameters];
   
   return request;
   

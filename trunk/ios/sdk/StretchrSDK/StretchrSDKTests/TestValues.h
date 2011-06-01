@@ -50,3 +50,5 @@
 
 #define KEYPARAM_KEY @"~key"
 #define KEYPARAM_VALUE TEST_KEY
+
+#define TEST_RESOURCE_ID @"1"

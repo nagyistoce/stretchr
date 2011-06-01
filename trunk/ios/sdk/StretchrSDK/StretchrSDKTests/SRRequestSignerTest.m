@@ -95,9 +95,11 @@
   
   NSString *orderedParameterString = [self.signer orderedParameterStringWithSecretForRequest:self.request];
   
+  /*
   NSLog(@"---------------------------------");
   NSLog(@"orderedParameterString: %@", orderedParameterString);
   NSLog(@"---------------------------------");
+  */
   
   STAssertTrue([orderedParameterString isEqualToString:EXPECTED_PARAMETER_STRING_WITH_SECRET], @"orderedParameterStringWithSecret incorrect");
   

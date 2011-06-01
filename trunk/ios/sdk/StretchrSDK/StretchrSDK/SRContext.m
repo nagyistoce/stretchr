@@ -5,7 +5,7 @@
 //  Created by Mat Ryer on 29/May/2011.
 //  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
-
+#import "Constants.h"
 #import "SRContext.h"
 #import "SRResource.h"
 
@@ -34,11 +34,22 @@ SingletonImplementation(SRContext);
 }
 
 - (NSString*)rootURL {
-  return [NSString stringWithFormat:@"http://%@.xapi.co", self.accountName];
+  return [NSString stringWithFormat:XAPI_DOMAIN_FORMAT, self.accountName];
 }
 
 - (NSURL*)URLForResource:(SRResource*)resource {
-  return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self rootURL], resource.path]];
+  
+  NSString *url = nil;
+  NSString *path = [NSString stringWithFormat:@"%@%@", [self rootURL], resource.path];
+  
+  if ([resource hasResourceId]) {
+    url = [NSString stringWithFormat:@"%@%@%@", path, URL_PATH_SEPERATOR, [resource resourceId]];
+  } else {
+    url = path;
+  }
+  
+  return [NSURL URLWithString:url];
+  
 }
 
 @end

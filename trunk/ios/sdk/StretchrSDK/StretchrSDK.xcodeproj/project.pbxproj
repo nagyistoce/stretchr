@@ -114,6 +114,7 @@
 		05B21A0D13913BC0003AD114 /* SRRequestMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SRRequestMethod.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		05B21A0E13913BC0003AD114 /* SRRequestSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SRRequestSigner.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		05B21A0F13913BC0003AD114 /* SRRequestSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SRRequestSigner.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		05D6D9DC1396952D00C50801 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +262,7 @@
 		05B21A1613913BE2003AD114 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				05D6D9DC1396952D00C50801 /* Constants.h */,
 				05B21A0313913BC0003AD114 /* NSString+URLEncoding.h */,
 				05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */,
 				05B21A0513913BC0003AD114 /* SRCredentials.h */,

@@ -21,6 +21,8 @@
 - (void)addValue:(NSString*)value forKey:(NSString*)key;
 - (void)setSingleValue:(NSString*)value forKey:(NSString*)key;
 
+- (void)mergeWithParameters:(SRParameterCollection*)parameters;
+
 #pragma mark - Parameter string
 
 - (NSString*)orderedParameterString;
