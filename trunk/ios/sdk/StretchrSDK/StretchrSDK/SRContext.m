@@ -7,19 +7,38 @@
 //
 
 #import "SRContext.h"
-
+#import "SRResource.h"
 
 @implementation SRContext
-@synthesize accountName, key, secret;
+@synthesize accountName;
+@synthesize credentials;
 
 SingletonImplementation(SRContext);
 
 - (void)setAccountName:(NSString*)theAccountName key:(NSString*)theKey secret:(NSString*)theSecret {
   
   [self setAccountName:theAccountName];
-  [self setKey:theKey];
-  [self setSecret:theSecret];
+
+  SRCredentials *creds = [[SRCredentials alloc] initWithKey:theKey secret:theSecret];
+  self.credentials = creds;
+  [creds release];
   
+}
+
+- (void)dealloc {
+  
+  self.accountName = nil;
+  self.credentials = nil;
+  
+  [super dealloc];
+}
+
+- (NSString*)rootURL {
+  return [NSString stringWithFormat:@"http://%@.xapi.co", self.accountName];
+}
+
+- (NSURL*)URLForResource:(SRResource*)resource {
+  return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [self rootURL], resource.path]];
 }
 
 @end

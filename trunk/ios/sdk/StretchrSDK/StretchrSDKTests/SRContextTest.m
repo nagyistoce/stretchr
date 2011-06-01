@@ -9,6 +9,7 @@
 #import "SRContextTest.h"
 #import "TestHelper.h"
 #import "SRContext.h"
+#import "SRResource.h"
 
 @implementation SRContextTest
 
@@ -19,22 +20,6 @@
   
 }
 
-- (void)testProperties {
-  
-  NSString *accountName = @"account-name";
-  NSString *key = @"account-name";
-  NSString *secret = @"account-name";
-  
-  [[SRContext sharedInstance] setAccountName:accountName];
-  [[SRContext sharedInstance] setKey:key];
-  [[SRContext sharedInstance] setSecret:secret];
-  
-  STAssertEqualStrings([[SRContext sharedInstance] accountName], accountName, @"accountName wrong");
-  STAssertEqualStrings([[SRContext sharedInstance] key], key, @"key wrong");
-  STAssertEqualStrings([[SRContext sharedInstance] secret], secret, @"secret wrong");
-  
-}
-
 - (void)testPropertySetter {
   
   NSString *accountName = @"account-name";
@@ -42,14 +27,45 @@
   NSString *secret = @"account-name";
   
   [[SRContext sharedInstance] setAccountName:nil];
-  [[SRContext sharedInstance] setKey:nil];
-  [[SRContext sharedInstance] setSecret:nil];
+  [[SRContext sharedInstance] setCredentials:nil];
   
   [[SRContext sharedInstance] setAccountName:accountName key:key secret:secret];
   
   STAssertEqualStrings([[SRContext sharedInstance] accountName], accountName, @"accountName wrong");
-  STAssertEqualStrings([[SRContext sharedInstance] key], key, @"key wrong");
-  STAssertEqualStrings([[SRContext sharedInstance] secret], secret, @"secret wrong");
+  STAssertEqualStrings([[SRContext sharedInstance].credentials key], key, @"key wrong");
+  STAssertEqualStrings([[SRContext sharedInstance].credentials secret], secret, @"secret wrong");
+  
+}
+
+- (void)testRootURL {
+  
+  NSString *accountName = @"account-name";
+  NSString *key = @"account-name";
+  NSString *secret = @"account-name";
+  
+  [[SRContext sharedInstance] setAccountName:accountName key:key secret:secret];
+  
+  NSString *rootURL = [[SRContext sharedInstance] rootURL];
+  
+  STAssertEqualStrings(rootURL, @"http://account-name.xapi.co", @"rootURL wrong");
+  
+}
+
+- (void)testURLForResource {
+  
+  NSString *accountName = @"account-name";
+  NSString *key = @"account-name";
+  NSString *secret = @"account-name";
+  
+  [[SRContext sharedInstance] setAccountName:accountName key:key secret:secret];
+  
+  SRResource *resource = [[SRResource alloc] initWithPath:@"/people/1/comments/1"];
+  
+  NSURL *urlForResource = [[SRContext sharedInstance] URLForResource:resource];
+  
+  STAssertEqualStrings([urlForResource absoluteString], @"http://account-name.xapi.co/people/1/comments/1", @"URLForResource wrong"); 
+  
+  [resource release];
   
 }
 

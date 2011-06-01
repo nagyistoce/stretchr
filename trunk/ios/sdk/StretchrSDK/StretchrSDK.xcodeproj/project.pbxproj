@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056D39AE13953D8D00F64C21 /* SRRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */; };
+		056D39B213953DA000F64C21 /* SRRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D39B113953DA000F64C21 /* SRRequestFactory.m */; };
 		058A525413927862007437E7 /* SRHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525313927862007437E7 /* SRHttpHelper.m */; };
 		058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525713927870007437E7 /* SRHttpHelperTest.m */; };
 		058A525B139288C2007437E7 /* SRResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525A139288C2007437E7 /* SRResource.m */; };
@@ -50,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		056D39AC13953D8D00F64C21 /* SRRequestFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestFactoryTest.h; sourceTree = "<group>"; };
+		056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestFactoryTest.m; sourceTree = "<group>"; };
+		056D39B013953DA000F64C21 /* SRRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestFactory.h; sourceTree = "<group>"; };
+		056D39B113953DA000F64C21 /* SRRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestFactory.m; sourceTree = "<group>"; };
 		058A525213927862007437E7 /* SRHttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelper.h; sourceTree = "<group>"; };
 		058A525313927862007437E7 /* SRHttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRHttpHelper.m; sourceTree = "<group>"; };
 		058A525613927870007437E7 /* SRHttpHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelperTest.h; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 				058A526013928BF9007437E7 /* SRContext.h */,
 				058A526113928BF9007437E7 /* SRContext.m */,
 				058A526E13928D43007437E7 /* Singleton.h */,
+				056D39B013953DA000F64C21 /* SRRequestFactory.h */,
+				056D39B113953DA000F64C21 /* SRRequestFactory.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -153,6 +161,8 @@
 				058A525D139288E3007437E7 /* SRResourceTest.m */,
 				058A526313928C07007437E7 /* SRContextTest.h */,
 				058A526413928C07007437E7 /* SRContextTest.m */,
+				056D39AC13953D8D00F64C21 /* SRRequestFactoryTest.h */,
+				056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -411,6 +421,7 @@
 				058A525413927862007437E7 /* SRHttpHelper.m in Sources */,
 				058A525B139288C2007437E7 /* SRResource.m in Sources */,
 				058A526213928BF9007437E7 /* SRContext.m in Sources */,
+				056D39B213953DA000F64C21 /* SRRequestFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +439,7 @@
 				058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */,
 				058A525E139288E3007437E7 /* SRResourceTest.m in Sources */,
 				058A526513928C07007437E7 /* SRContextTest.m in Sources */,
+				056D39AE13953D8D00F64C21 /* SRRequestFactoryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
