@@ -7,6 +7,8 @@
 //
 
 #import "TestHelper.h"
+#import "TestValues.h"
+#import "SRContext.h"
 #import "SRRequestFactoryTest.h"
 #import "SRResource.h"
 #import "SRRequestFactory.h"
@@ -15,6 +17,17 @@
 #import "SRParameterCollection.h"
 
 @implementation SRRequestFactoryTest
+
+- (void)setUp {
+  [super setUp];
+  
+  [[SRContext sharedInstance] setAccountName:TEST_ACCOUNT key:TEST_KEY secret:TEST_SECRET];
+  
+}
+
+- (void)tearDown {
+  [super tearDown];
+}
 
 - (SRResource*)testResource {
   
@@ -35,6 +48,9 @@
   
   STAssertNotNil(request, @"Shouldn't be nil");
   
+  // check the URL
+  STAssertEqualStrings([request.url absoluteString], @"http://EDD-test-domain.xapi.co/people", @"URL incorrect.");
+  
   // check the parameters
   STAssertEqualStrings([request.parameters firstParameterWithKey:@"name"].value, @"Mat", @"name wrong");
   STAssertEqualStrings([request.parameters firstParameterWithKey:@"age"].value, @"28", @"age wrong");
@@ -42,6 +58,12 @@
   
   // check the method
   STAssertEquals(SRRequestMethodGET, request.method, @"Method incorrect");
+  
+}
+
+- (void)testRequestToUpdateResource {
+  
+  
   
 }
 

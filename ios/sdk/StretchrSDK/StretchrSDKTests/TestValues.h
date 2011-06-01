@@ -27,6 +27,7 @@
 
 #define EXPECTED_FULL_URL_FOR_DELETE @"http://EDD-test-domain.xapi.co/Groups/1/People?FName=Edd&email=edd@eddgrant.com&email=edd@stretchr.com&lName=Grant&~c=this-is-my-context-value&~key=abdh239d78c30f93jf88r0&~sign=9d38c01a706b0e7a47437de1668870e16c3918b1"
 
+#define TEST_ACCOUNT @"EDD-test-domain"
 #define TEST_METHOD SRRequestMethodPOST
 #define TEST_KEY @"abdh239d78c30f93jf88r0"
 #define TEST_SECRET @"thisIsMySecretValue"
