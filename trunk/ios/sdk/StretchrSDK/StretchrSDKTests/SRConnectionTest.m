@@ -6,6 +6,7 @@
 //  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
 
+#import "TestHelper.h"
 #import "SRConnectionTest.h"
 #import "SRConnection.h"
 
@@ -35,14 +36,12 @@
   STAssertNotNil([conn underlyingConnection], @"initWithRequest didn't create underlyingConnection");
   
   STAssertEqualObjects(targetObject, conn.target, @"target not set");
+  STAssertEqualStrings(NSStringFromSelector(conn.selector), @"description", @"selector incorrect.");
 
-  NSLog(@"SELECTOR: %@", conn.selector);
-  
   [request release];
   [conn release];
+  [targetObject release];
   
 }
-
-
 
 @end

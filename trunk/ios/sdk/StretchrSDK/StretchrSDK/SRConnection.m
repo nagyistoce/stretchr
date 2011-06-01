@@ -7,9 +7,10 @@
 //
 
 #import "SRConnection.h"
-
+#import "SRResponse.h"
 
 @implementation SRConnection
+@synthesize isBusy;
 @synthesize request = request_;
 @synthesize underlyingConnection = underlyingConnection_;
 @synthesize target, selector;
@@ -28,6 +29,9 @@
     // create the underlying connection
     underlyingConnection_ = [NSURLConnection connectionWithRequest:request_ delegate:self];
     [underlyingConnection_ retain];
+    
+    // who's busy?
+    isBusy = NO;
     
   }
   return self;
@@ -48,7 +52,53 @@
   [request_ release];
   [underlyingConnection_ release];
   
+  // nil out the other bits too
+  self.target = nil;
+  self.selector = nil;
+  
   [super dealloc];
+}
+
+#pragma mark - Actions
+
+- (void)start {
+  self.isBusy = YES;
+  [self.underlyingConnection start];
+}
+
+- (void)cancel {
+  [self.underlyingConnection cancel];
+  self.isBusy = NO;
+}
+
+#pragma mark - NSURLConnection
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)urlResponse {
+  
+  self.isBusy = NO;
+  
+  SRResponse *response = [[SRResponse alloc] init];
+  
+  // call the selector
+  if ([self.target respondsToSelector:self.selector]) {
+    [self.target performSelector:self.selector withObject:response];
+  }
+  
+  [response release];
+  
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+
+  SRResponse *response = [[SRResponse alloc] initWithError:error];
+  
+  // call the selector
+  if ([self.target respondsToSelector:self.selector]) {
+    [self.target performSelector:self.selector withObject:response];
+  }
+  
+  [response release];
+  
 }
 
 @end
