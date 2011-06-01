@@ -8,6 +8,7 @@
 
 #import "SRParameter.h"
 #import "NSString+URLEncoding.h"
+#import "Constants.h"
 
 @implementation SRParameter
 @synthesize key, value;
@@ -29,7 +30,7 @@
 }
 
 - (NSString *)URLParameterString {
-  return [NSString stringWithFormat:@"%@=%@", self.key, self.value];
+  return [NSString stringWithFormat:@"%@%@%@", self.key, URL_PARAMETER_ASSIGNMENT, self.value];
 }
 
 - (NSComparisonResult)compare:(id)inObject {

@@ -5,7 +5,6 @@
 //  Created by Mat Ryer on 29/May/2011.
 //  Copyright 2011 Borealis Web Ltd. All rights reserved.
 //
-#import "Constants.h"
 #import "SRContext.h"
 #import "SRResource.h"
 

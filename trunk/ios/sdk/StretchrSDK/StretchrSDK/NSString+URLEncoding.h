@@ -13,6 +13,4 @@
 
 - (NSString*)urlEncoded;
 
-- (NSString*)stringByAddingPercentEscapesIncludingTildeUsingEncoding:(NSStringEncoding)encoding;
-
 @end

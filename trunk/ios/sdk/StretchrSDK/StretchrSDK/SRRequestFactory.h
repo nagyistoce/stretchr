@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SRRequest.h"
-#import "SRResource.h"
+#import "SRFoundation.h"
 
 @interface SRRequestFactory : NSObject {
     

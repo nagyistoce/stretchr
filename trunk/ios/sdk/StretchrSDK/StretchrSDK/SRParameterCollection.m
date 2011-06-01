@@ -7,7 +7,7 @@
 //
 
 #import "SRParameterCollection.h"
-
+#import "Constants.h"
 
 @implementation SRParameterCollection
 @synthesize parameters;
@@ -49,7 +49,7 @@
     [paramString appendString:[param URLParameterString]];
     
     if (i < l-1) {
-      [paramString appendString:@"&"];
+      [paramString appendString:URL_PARAMETER_SEPERATOR];
     }
   }
   

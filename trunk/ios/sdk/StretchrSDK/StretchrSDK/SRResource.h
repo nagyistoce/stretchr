@@ -34,4 +34,15 @@
 
 - (BOOL)hasResourceId;
 
+#pragma mark - Requests
+
+- (NSURLRequest*)generateCreateRequest;
+- (NSURLRequest*)generateReadRequest;
+- (NSURLRequest*)generateUpdateRequest;
+- (NSURLRequest*)generateDeleteRequest;
+
+#pragma mark - Actions
+
+
+
 @end
