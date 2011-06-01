@@ -17,10 +17,12 @@
 
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, retain) SRParameterCollection *parameters;
+@property (nonatomic, copy) NSString *resourceId;
 
 #pragma mark - init
 
 - (id)initWithPath:(NSString*)path;
+- (id)initWithPath:(NSString*)path resourceId:(NSString*)resourceId;
 
 #pragma mark - Parameters
 
@@ -31,7 +33,5 @@
 #pragma mark - Resource ID
 
 - (BOOL)hasResourceId;
-- (NSString*)resourceId;
-- (void)setResourceId:(NSString*)resourceId;
 
 @end

@@ -101,4 +101,12 @@
   return [self.parameters count];
 }
 
+- (void)mergeWithParameters:(SRParameterCollection*)theParameters {
+  
+  for (SRParameter *param in theParameters.parameters) {
+    [self.parameters addObject:param];
+  }
+  
+}
+
 @end

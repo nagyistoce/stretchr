@@ -15,5 +15,10 @@
 }
 
 + (SRRequest*)requestToCreateResource:(SRResource*)resource;
++ (SRRequest*)requestToReadResource:(SRResource*)resource;
++ (SRRequest*)requestToUpdateResource:(SRResource*)resource;
++ (SRRequest*)requestToDeleteResource:(SRResource*)resource;
+
++ (SRRequest*)requestForResource:(SRResource*)resource withMethod:(SRRequestMethod)method;
 
 @end

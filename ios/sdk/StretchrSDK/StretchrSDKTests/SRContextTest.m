@@ -69,4 +69,23 @@
   
 }
 
+- (void)testURLForResourceWithId {
+  
+  NSString *accountName = @"account-name";
+  NSString *key = @"account-name";
+  NSString *secret = @"account-name";
+  
+  [[SRContext sharedInstance] setAccountName:accountName key:key secret:secret];
+  
+  SRResource *resource = [[SRResource alloc] initWithPath:@"/people"];
+  [resource setResourceId:@"1"];
+  
+  NSURL *urlForResource = [[SRContext sharedInstance] URLForResource:resource];
+  
+  STAssertEqualStrings([urlForResource absoluteString], @"http://account-name.xapi.co/people/1", @"URLForResource wrong"); 
+  
+  [resource release];
+  
+}
+
 @end

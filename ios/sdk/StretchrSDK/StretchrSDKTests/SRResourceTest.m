@@ -29,7 +29,18 @@
   SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH];
   
   STAssertEqualStrings([resource path], TEST_PATH, @"initWithPath didn't set the correct path");
+  
+  [resource release];
+  
+}
 
+- (void)testInitWithPathResourceId {
+  
+  SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH resourceId:TEST_RESOURCE_ID];
+  
+  STAssertEqualStrings([resource path], TEST_PATH, @"testInitWithPathResourceId didn't set the correct path");
+  STAssertEqualStrings([resource resourceId], TEST_RESOURCE_ID, @"testInitWithPathResourceId didn't set the correct resourceId");
+  
   [resource release];
   
 }
@@ -113,14 +124,13 @@
 
 - (void)testResourceId {
   
-  NSString *testId = @"testId";
   SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH];
   
-  [resource setResourceId:testId];
+  [resource setResourceId:TEST_RESOURCE_ID];
   
   NSString *value = [resource firstValueForKey:ID_PARAMETER_KEY];
-  STAssertEqualStrings(value, testId, @"~id was not correct.");
-  STAssertEqualStrings(value, [resource resourceId], @"~id was not correct.");
+  STAssertNil(value, @"Resource shouldn't set ID as parameter");
+  STAssertEqualStrings([resource resourceId], TEST_RESOURCE_ID, @"~id was not correct.");
   
 }
 

@@ -67,6 +67,8 @@
   
   STAssertTrue([paramString isEqualToString:EXPECTED_PARAMETER_STRING], @"orderedParameterString incorrect.");
   
+  [params release];
+  
 }
 
 - (void)testFirstParameterWithKey {
@@ -83,6 +85,8 @@
   
   STAssertNil([params firstParameterWithKey:@"no-such-key"], @"If no key is found, it should return nil.");
   
+  [params release];
+  
 }
 
 - (void)testSetSingleValueForKey {
@@ -95,6 +99,32 @@
   
   STAssertEquals((NSUInteger)1, [params count], @"There should still be one parameter (when using setSingleValue:forKey:");
   STAssertTrue([[params objectAtIndex:0].value isEqualToString:@"value3"], @"value should be latest");
+  
+  [params release];
+  
+}
+
+- (void)testMergeWithParameters {
+  
+  SRParameterCollection *params = [[SRParameterCollection alloc] init];
+  
+  [params setSingleValue:@"value1" forKey:@"key1"];
+  [params setSingleValue:@"value2" forKey:@"key2"];
+  [params setSingleValue:@"value3" forKey:@"key3"];
+  
+  SRParameterCollection *params2 = [[SRParameterCollection alloc] init];
+  
+  [params2 setSingleValue:@"value4" forKey:@"key4"];
+  [params2 setSingleValue:@"value5" forKey:@"key5"];
+  [params2 setSingleValue:@"value6" forKey:@"key6"];
+  
+  [params mergeWithParameters:params2];
+  
+  STAssertEquals([params count], (NSUInteger)6, @"params should have incorporated params2");
+  STAssertEquals([params2 count], (NSUInteger)3, @"params2 should NOT have incorporated params");
+  
+  [params release];
+  [params2 release];
   
 }
 

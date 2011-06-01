@@ -44,4 +44,9 @@
   
 }
 
+- (NSString *) description
+{
+  return [NSString stringWithFormat:@"%@ <0x%x> {'%@': '%@'}", NSStringFromClass([self class]), self, self.key, self.value];
+}
+
 @end

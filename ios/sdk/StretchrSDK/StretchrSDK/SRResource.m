@@ -12,6 +12,7 @@
 @implementation SRResource
 @synthesize path;
 @synthesize parameters;
+@synthesize resourceId;
 
 - (id)init {
   if ((self = [super init])) {
@@ -35,9 +36,20 @@
   
 }
 
+- (id)initWithPath:(NSString*)thePath resourceId:(NSString*)theResourceId {
+  
+  if ((self = [self initWithPath:thePath])) {
+    // set the resource ID
+    self.resourceId = theResourceId;
+  }
+  return self;
+  
+}
+
 - (void)dealloc {
   self.path = nil;
   self.parameters = nil;
+  self.resourceId = nil;
   [super dealloc];
 }
 
@@ -67,14 +79,6 @@
 
 - (BOOL)hasResourceId {
   return [self resourceId] != nil;
-}
-
-- (NSString*)resourceId {
-  return [self firstValueForKey:ID_PARAMETER_KEY];
-}
-
-- (void)setResourceId:(NSString*)resourceId {
-  [self setParameterValue:resourceId forKey:ID_PARAMETER_KEY];
 }
 
 @end
