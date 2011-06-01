@@ -15,6 +15,8 @@
 		058A525E139288E3007437E7 /* SRResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525D139288E3007437E7 /* SRResourceTest.m */; };
 		058A526213928BF9007437E7 /* SRContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A526113928BF9007437E7 /* SRContext.m */; };
 		058A526513928C07007437E7 /* SRContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A526413928C07007437E7 /* SRContextTest.m */; };
+		05A76B051396D04C00578EE0 /* SRResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B041396D04C00578EE0 /* SRResponse.m */; };
+		05A76B091396D06600578EE0 /* SRResponseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A76B081396D06600578EE0 /* SRResponseTest.m */; };
 		05B219BB13913B65003AD114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BA13913B65003AD114 /* UIKit.framework */; };
 		05B219BD13913B65003AD114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BC13913B65003AD114 /* Foundation.framework */; };
 		05B219BF13913B65003AD114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B219BE13913B65003AD114 /* CoreGraphics.framework */; };
@@ -39,6 +41,8 @@
 		05B21A1313913BC0003AD114 /* SRParameterCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0A13913BC0003AD114 /* SRParameterCollection.m */; };
 		05B21A1413913BC0003AD114 /* SRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0C13913BC0003AD114 /* SRRequest.m */; };
 		05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0F13913BC0003AD114 /* SRRequestSigner.m */; };
+		05D6D9E61396B31900C50801 /* SRConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E51396B31800C50801 /* SRConnection.m */; };
+		05D6D9E91396B35100C50801 /* SRConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E81396B35000C50801 /* SRConnectionTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		058A526413928C07007437E7 /* SRContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRContextTest.m; sourceTree = "<group>"; };
 		058A526E13928D43007437E7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		058A526F13929539007437E7 /* SRFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRFoundation.h; sourceTree = "<group>"; };
+		05A76B031396D04C00578EE0 /* SRResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRResponse.h; sourceTree = "<group>"; };
+		05A76B041396D04C00578EE0 /* SRResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRResponse.m; sourceTree = "<group>"; };
+		05A76B071396D06600578EE0 /* SRResponseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRResponseTest.h; sourceTree = "<group>"; };
+		05A76B081396D06600578EE0 /* SRResponseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRResponseTest.m; sourceTree = "<group>"; };
 		05B219B613913B65003AD114 /* StretchrSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StretchrSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B219BA13913B65003AD114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05B219BC13913B65003AD114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +123,10 @@
 		05B21A0E13913BC0003AD114 /* SRRequestSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SRRequestSigner.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		05B21A0F13913BC0003AD114 /* SRRequestSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SRRequestSigner.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05D6D9DC1396952D00C50801 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05D6D9E41396B31800C50801 /* SRConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRConnection.h; sourceTree = "<group>"; };
+		05D6D9E51396B31800C50801 /* SRConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRConnection.m; sourceTree = "<group>"; };
+		05D6D9E71396B35000C50801 /* SRConnectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRConnectionTest.h; sourceTree = "<group>"; };
+		05D6D9E81396B35000C50801 /* SRConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRConnectionTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +158,6 @@
 			children = (
 				058A5259139288C2007437E7 /* SRResource.h */,
 				058A525A139288C2007437E7 /* SRResource.m */,
-				058A526013928BF9007437E7 /* SRContext.h */,
-				058A526113928BF9007437E7 /* SRContext.m */,
-				058A526E13928D43007437E7 /* Singleton.h */,
-				056D39B013953DA000F64C21 /* SRRequestFactory.h */,
-				056D39B113953DA000F64C21 /* SRRequestFactory.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -160,10 +167,6 @@
 			children = (
 				058A525C139288E3007437E7 /* SRResourceTest.h */,
 				058A525D139288E3007437E7 /* SRResourceTest.m */,
-				058A526313928C07007437E7 /* SRContextTest.h */,
-				058A526413928C07007437E7 /* SRContextTest.m */,
-				056D39AC13953D8D00F64C21 /* SRRequestFactoryTest.h */,
-				056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -186,6 +189,133 @@
 				05B21A1713913BEC003AD114 /* Foundation */,
 			);
 			name = StretchrSDK;
+			sourceTree = "<group>";
+		};
+		05A76AF61396CEB500578EE0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				056D39B013953DA000F64C21 /* SRRequestFactory.h */,
+				056D39B113953DA000F64C21 /* SRRequestFactory.m */,
+				05B21A0B13913BC0003AD114 /* SRRequest.h */,
+				05B21A0C13913BC0003AD114 /* SRRequest.m */,
+				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		05A76AF81396CEC100578EE0 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				05D6D9E41396B31800C50801 /* SRConnection.h */,
+				05D6D9E51396B31800C50801 /* SRConnection.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		05A76AF91396CECD00578EE0 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				058A526013928BF9007437E7 /* SRContext.h */,
+				058A526113928BF9007437E7 /* SRContext.m */,
+			);
+			name = Context;
+			sourceTree = "<group>";
+		};
+		05A76AFA1396CED900578EE0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A0313913BC0003AD114 /* NSString+URLEncoding.h */,
+				05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */,
+				05B21A0E13913BC0003AD114 /* SRRequestSigner.h */,
+				05B21A0F13913BC0003AD114 /* SRRequestSigner.m */,
+				05B21A0513913BC0003AD114 /* SRCredentials.h */,
+				05B21A0613913BC0003AD114 /* SRCredentials.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		05A76AFB1396CEF200578EE0 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				05B21A0713913BC0003AD114 /* SRParameter.h */,
+				05B21A0813913BC0003AD114 /* SRParameter.m */,
+				05B21A0913913BC0003AD114 /* SRParameterCollection.h */,
+				05B21A0A13913BC0003AD114 /* SRParameterCollection.m */,
+			);
+			name = Parameters;
+			sourceTree = "<group>";
+		};
+		05A76AFC1396CF0700578EE0 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				05B219F313913BA0003AD114 /* SRParameterTest.h */,
+				05B219F413913BA0003AD114 /* SRParameterTest.m */,
+				05B219F113913BA0003AD114 /* SRParameterCollectionTest.h */,
+				05B219F213913BA0003AD114 /* SRParameterCollectionTest.m */,
+			);
+			name = Parameters;
+			sourceTree = "<group>";
+		};
+		05A76AFD1396CF1100578EE0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				05B219F513913BA0003AD114 /* SRRequestMethodTest.h */,
+				05B219F613913BA0003AD114 /* SRRequestMethodTest.m */,
+				05B219F913913BA0003AD114 /* SRRequestTest.h */,
+				05B219FA13913BA0003AD114 /* SRRequestTest.m */,
+				056D39AC13953D8D00F64C21 /* SRRequestFactoryTest.h */,
+				056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		05A76AFE1396CF1E00578EE0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				05B219F713913BA0003AD114 /* SRRequestSignerTest.h */,
+				05B219F813913BA0003AD114 /* SRRequestSignerTest.m */,
+				05B219ED13913BA0003AD114 /* NSString+URLEncodingTest.h */,
+				05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */,
+				05B219EF13913BA0003AD114 /* SRCredentialsTest.h */,
+				05B219F013913BA0003AD114 /* SRCredentialsTest.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		05A76AFF1396CF4B00578EE0 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				058A526313928C07007437E7 /* SRContextTest.h */,
+				058A526413928C07007437E7 /* SRContextTest.m */,
+			);
+			name = Context;
+			sourceTree = "<group>";
+		};
+		05A76B001396CF8500578EE0 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				05D6D9E71396B35000C50801 /* SRConnectionTest.h */,
+				05D6D9E81396B35000C50801 /* SRConnectionTest.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		05A76B021396D03900578EE0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				05A76B031396D04C00578EE0 /* SRResponse.h */,
+				05A76B041396D04C00578EE0 /* SRResponse.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		05A76B061396D05100578EE0 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				05A76B071396D06600578EE0 /* SRResponseTest.h */,
+				05A76B081396D06600578EE0 /* SRResponseTest.m */,
+			);
+			name = Response;
 			sourceTree = "<group>";
 		};
 		05B219AB13913B65003AD114 = {
@@ -262,23 +392,17 @@
 		05B21A1613913BE2003AD114 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				058A526F13929539007437E7 /* SRFoundation.h */,
 				05D6D9DC1396952D00C50801 /* Constants.h */,
-				05B21A0313913BC0003AD114 /* NSString+URLEncoding.h */,
-				05B21A0413913BC0003AD114 /* NSString+URLEncoding.m */,
-				05B21A0513913BC0003AD114 /* SRCredentials.h */,
-				05B21A0613913BC0003AD114 /* SRCredentials.m */,
-				05B21A0713913BC0003AD114 /* SRParameter.h */,
-				05B21A0813913BC0003AD114 /* SRParameter.m */,
-				05B21A0913913BC0003AD114 /* SRParameterCollection.h */,
-				05B21A0A13913BC0003AD114 /* SRParameterCollection.m */,
-				05B21A0B13913BC0003AD114 /* SRRequest.h */,
-				05B21A0C13913BC0003AD114 /* SRRequest.m */,
-				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
-				05B21A0E13913BC0003AD114 /* SRRequestSigner.h */,
-				05B21A0F13913BC0003AD114 /* SRRequestSigner.m */,
+				058A526E13928D43007437E7 /* Singleton.h */,
+				05A76AFB1396CEF200578EE0 /* Parameters */,
+				05A76AFA1396CED900578EE0 /* Security */,
+				05A76AF91396CECD00578EE0 /* Context */,
+				05A76AF81396CEC100578EE0 /* Connection */,
+				05A76AF61396CEB500578EE0 /* Request */,
+				05A76B021396D03900578EE0 /* Response */,
 				058A525213927862007437E7 /* SRHttpHelper.h */,
 				058A525313927862007437E7 /* SRHttpHelper.m */,
-				058A526F13929539007437E7 /* SRFoundation.h */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -286,20 +410,12 @@
 		05B21A1713913BEC003AD114 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				05B219ED13913BA0003AD114 /* NSString+URLEncodingTest.h */,
-				05B219EE13913BA0003AD114 /* NSString+URLEncodingTest.m */,
-				05B219EF13913BA0003AD114 /* SRCredentialsTest.h */,
-				05B219F013913BA0003AD114 /* SRCredentialsTest.m */,
-				05B219F113913BA0003AD114 /* SRParameterCollectionTest.h */,
-				05B219F213913BA0003AD114 /* SRParameterCollectionTest.m */,
-				05B219F313913BA0003AD114 /* SRParameterTest.h */,
-				05B219F413913BA0003AD114 /* SRParameterTest.m */,
-				05B219F513913BA0003AD114 /* SRRequestMethodTest.h */,
-				05B219F613913BA0003AD114 /* SRRequestMethodTest.m */,
-				05B219F713913BA0003AD114 /* SRRequestSignerTest.h */,
-				05B219F813913BA0003AD114 /* SRRequestSignerTest.m */,
-				05B219F913913BA0003AD114 /* SRRequestTest.h */,
-				05B219FA13913BA0003AD114 /* SRRequestTest.m */,
+				05A76B001396CF8500578EE0 /* Connection */,
+				05A76AFF1396CF4B00578EE0 /* Context */,
+				05A76AFE1396CF1E00578EE0 /* Security */,
+				05A76AFC1396CF0700578EE0 /* Parameters */,
+				05A76AFD1396CF1100578EE0 /* Request */,
+				05A76B061396D05100578EE0 /* Response */,
 				058A525613927870007437E7 /* SRHttpHelperTest.h */,
 				058A525713927870007437E7 /* SRHttpHelperTest.m */,
 			);
@@ -424,6 +540,8 @@
 				058A525B139288C2007437E7 /* SRResource.m in Sources */,
 				058A526213928BF9007437E7 /* SRContext.m in Sources */,
 				056D39B213953DA000F64C21 /* SRRequestFactory.m in Sources */,
+				05D6D9E61396B31900C50801 /* SRConnection.m in Sources */,
+				05A76B051396D04C00578EE0 /* SRResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +560,8 @@
 				058A525E139288E3007437E7 /* SRResourceTest.m in Sources */,
 				058A526513928C07007437E7 /* SRContextTest.m in Sources */,
 				056D39AE13953D8D00F64C21 /* SRRequestFactoryTest.m in Sources */,
+				05D6D9E91396B35100C50801 /* SRConnectionTest.m in Sources */,
+				05A76B091396D06600578EE0 /* SRResponseTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

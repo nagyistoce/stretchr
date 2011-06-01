@@ -7,7 +7,7 @@
 //
 
 #import "NSString+URLEncoding.h"
-
+#import "Constants.h"
 
 @implementation NSString (URLEncoding)
 
@@ -17,19 +17,8 @@
     NULL,
     (CFStringRef)self,
     NULL,
-    (CFStringRef)@"!*'();:@&=+$,/?%#[]~",
+    (CFStringRef)URL_CHARACTERS_TO_ENCODE,
     kCFStringEncodingUTF8 );
-  
-}
-
-- (NSString*)stringByAddingPercentEscapesIncludingTildeUsingEncoding:(NSStringEncoding)encoding {
-  
-  return (NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                             NULL,
-                                                             (CFStringRef)self,
-                                                             NULL,
-                                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                             kCFStringEncodingUTF8 );
   
 }
 

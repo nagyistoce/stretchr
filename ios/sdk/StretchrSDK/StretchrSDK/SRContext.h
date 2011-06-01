@@ -12,7 +12,6 @@
 @class SRCredentials;
 
 @interface SRContext : NSObject {
-  
 }
 
 @property (nonatomic, copy) NSString *accountName;

@@ -7,10 +7,10 @@
 //
 
 #import "SRRequestFactory.h"
-#import "SRContext.h"
-#import "SRRequestSigner.h"
 
 @implementation SRRequestFactory
+
+
 
 + (SRRequest*)requestToCreateResource:(SRResource*)resource {
 return [self requestForResource:resource withMethod:SRRequestMethodPOST];
@@ -27,6 +27,9 @@ return [self requestForResource:resource withMethod:SRRequestMethodGET];
 + (SRRequest*)requestToDeleteResource:(SRResource*)resource {
   return [self requestForResource:resource withMethod:SRRequestMethodDELETE];
 }
+
+
+
 
 + (SRRequest*)requestForResource:(SRResource*)resource withMethod:(SRRequestMethod)method {
   

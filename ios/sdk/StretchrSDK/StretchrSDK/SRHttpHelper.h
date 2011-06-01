@@ -11,12 +11,6 @@
 
 #pragma mark Method strings
 
-#define GET_HTTP_METHOD @"GET"
-#define POST_HTTP_METHOD @"POST"
-#define PUT_HTTP_METHOD @"PUT"
-#define DELETE_HTTP_METHOD @"DELETE"
-
-
 @interface SRHttpHelper : NSObject {
     
 }

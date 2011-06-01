@@ -8,7 +8,6 @@
 
 #import "SRResource.h"
 
-
 @implementation SRResource
 @synthesize path;
 @synthesize parameters;
@@ -79,6 +78,24 @@
 
 - (BOOL)hasResourceId {
   return [self resourceId] != nil;
+}
+
+#pragma mark - Requests
+
+- (NSURLRequest*)generateCreateRequest {
+  return [[SRRequestFactory requestToCreateResource:self] makeSignedUrlRequest];
+}
+
+- (NSURLRequest*)generateReadRequest {
+  return [[SRRequestFactory requestToReadResource:self] makeSignedUrlRequest];
+}
+
+- (NSURLRequest*)generateUpdateRequest {
+  return [[SRRequestFactory requestToUpdateResource:self] makeSignedUrlRequest];
+}
+
+- (NSURLRequest*)generateDeleteRequest {
+  return [[SRRequestFactory requestToDeleteResource:self] makeSignedUrlRequest];
 }
 
 @end
