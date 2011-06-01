@@ -8,17 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
+@class SRResource;
+@class SRCredentials;
 
 @interface SRContext : NSObject {
   
 }
 
 @property (nonatomic, copy) NSString *accountName;
-@property (nonatomic, copy) NSString *key;
-@property (nonatomic, copy) NSString *secret;
+@property (nonatomic, retain) SRCredentials *credentials;
 
 SingletonInterface(SRContext);
 
 - (void)setAccountName:(NSString*)accountName key:(NSString*)key secret:(NSString*)secret;
+
+- (NSString*)rootURL;
+
+- (NSURL*)URLForResource:(SRResource*)resource;
 
 @end
