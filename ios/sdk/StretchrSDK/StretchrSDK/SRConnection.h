@@ -14,6 +14,7 @@
   NSURLConnection *underlyingConnection_;
 }
 
+@property (nonatomic, assign) BOOL isBusy;
 @property (nonatomic, readonly) NSURLRequest* request;
 @property (nonatomic, readonly) NSURLConnection *underlyingConnection;
 @property (nonatomic, assign) id target;
@@ -21,5 +22,8 @@
 
 - (id)initWithRequest:(NSURLRequest*)request;
 - (id)initWithRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector;
+
+- (void)start;
+- (void)cancel;
 
 @end

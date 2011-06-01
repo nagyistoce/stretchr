@@ -194,11 +194,11 @@
 		05A76AF61396CEB500578EE0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
 				056D39B013953DA000F64C21 /* SRRequestFactory.h */,
 				056D39B113953DA000F64C21 /* SRRequestFactory.m */,
 				05B21A0B13913BC0003AD114 /* SRRequest.h */,
 				05B21A0C13913BC0003AD114 /* SRRequest.m */,
-				05B21A0D13913BC0003AD114 /* SRRequestMethod.h */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -395,14 +395,14 @@
 				058A526F13929539007437E7 /* SRFoundation.h */,
 				05D6D9DC1396952D00C50801 /* Constants.h */,
 				058A526E13928D43007437E7 /* Singleton.h */,
+				058A525213927862007437E7 /* SRHttpHelper.h */,
+				058A525313927862007437E7 /* SRHttpHelper.m */,
 				05A76AFB1396CEF200578EE0 /* Parameters */,
 				05A76AFA1396CED900578EE0 /* Security */,
 				05A76AF91396CECD00578EE0 /* Context */,
 				05A76AF81396CEC100578EE0 /* Connection */,
 				05A76AF61396CEB500578EE0 /* Request */,
 				05A76B021396D03900578EE0 /* Response */,
-				058A525213927862007437E7 /* SRHttpHelper.h */,
-				058A525313927862007437E7 /* SRHttpHelper.m */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";

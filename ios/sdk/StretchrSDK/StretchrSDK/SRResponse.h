@@ -13,4 +13,12 @@
     
 }
 
+@property (nonatomic, retain) NSURLResponse *urlResponse;
+@property (nonatomic, retain) NSError *error;
+
+- (id)initWithResponse:(NSURLResponse*)response;
+- (id)initWithError:(NSError*)theError;
+
+- (BOOL)success;
+
 @end

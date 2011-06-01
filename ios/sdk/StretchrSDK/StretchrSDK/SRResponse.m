@@ -10,5 +10,35 @@
 
 
 @implementation SRResponse
+@synthesize urlResponse;
+@synthesize error;
+
+- (id)initWithResponse:(NSURLResponse*)theResponse {
+  if ((self = [super init])) {
+    
+    self.urlResponse = theResponse;
+    
+  }
+  return self;
+}
+
+- (id)initWithError:(NSError*)theError {
+  if ((self = [super init])) {
+    self.error = theError;
+  }
+  return self;
+}
+
+- (void)dealloc {
+  
+  self.urlResponse = nil;
+  self.error = nil;
+  
+  [super dealloc];
+}
+
+- (BOOL)success {
+  return self.error == nil;
+}
 
 @end
