@@ -111,5 +111,31 @@
   
 }
 
+- (void)testResourceId {
+  
+  NSString *testId = @"testId";
+  SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH];
+  
+  [resource setResourceId:testId];
+  
+  NSString *value = [resource firstValueForKey:ID_PARAMETER_KEY];
+  STAssertEqualStrings(value, testId, @"~id was not correct.");
+  STAssertEqualStrings(value, [resource resourceId], @"~id was not correct.");
+  
+}
+
+- (void)testHasResourceId {
+  
+  NSString *testId = @"testId";
+  SRResource *resource = [[SRResource alloc] initWithPath:TEST_PATH];
+  
+  STAssertFalse([resource hasResourceId], @"hasResourceId should be false when no ID");
+  
+  [resource setResourceId:testId];
+  
+  STAssertTrue([resource hasResourceId], @"hasResourceId should be true when ID present");
+  
+  
+}
 
 @end
