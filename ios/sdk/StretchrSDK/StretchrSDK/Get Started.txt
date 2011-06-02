@@ -1,0 +1,2 @@
+
+To use the StretchrSDK, just copy the StretchrSDK/StretchrSDK contents to your own project.
