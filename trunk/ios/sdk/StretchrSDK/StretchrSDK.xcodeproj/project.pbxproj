@@ -44,6 +44,10 @@
 		05D6D9E61396B31900C50801 /* SRConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E51396B31800C50801 /* SRConnection.m */; };
 		05D6D9E91396B35100C50801 /* SRConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E81396B35000C50801 /* SRConnectionTest.m */; };
 		05E02D1F13977FA700FAF5C6 /* TestTargetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */; };
+		05E02D251397C6D800FAF5C6 /* RequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E02D231397C6D800FAF5C6 /* RequestViewController.m */; };
+		05E02D261397C6D800FAF5C6 /* RequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E02D241397C6D800FAF5C6 /* RequestViewController.xib */; };
+		05E02D2A1397D22600FAF5C6 /* ResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E02D281397D22600FAF5C6 /* ResponseViewController.m */; };
+		05E02D2B1397D22600FAF5C6 /* ResponseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E02D291397D22600FAF5C6 /* ResponseViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +135,12 @@
 		05E02D1D13977FA700FAF5C6 /* TestTargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTargetObject.h; sourceTree = "<group>"; };
 		05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTargetObject.m; sourceTree = "<group>"; };
 		05E02D201397A0B200FAF5C6 /* StretchrSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrSDK.h; sourceTree = "<group>"; };
+		05E02D221397C6D800FAF5C6 /* RequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestViewController.h; sourceTree = "<group>"; };
+		05E02D231397C6D800FAF5C6 /* RequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestViewController.m; sourceTree = "<group>"; };
+		05E02D241397C6D800FAF5C6 /* RequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestViewController.xib; sourceTree = "<group>"; };
+		05E02D271397D22600FAF5C6 /* ResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseViewController.h; sourceTree = "<group>"; };
+		05E02D281397D22600FAF5C6 /* ResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseViewController.m; sourceTree = "<group>"; };
+		05E02D291397D22600FAF5C6 /* ResponseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResponseViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +382,7 @@
 		05B219C013913B65003AD114 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				05E02D211397C66800FAF5C6 /* App */,
 				05150FB713913FA100CD2520 /* StretchrSDK */,
 				05B219C913913B65003AD114 /* StretchrSDKAppDelegate.h */,
 				05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */,
@@ -427,6 +438,19 @@
 				05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		05E02D211397C66800FAF5C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				05E02D221397C6D800FAF5C6 /* RequestViewController.h */,
+				05E02D231397C6D800FAF5C6 /* RequestViewController.m */,
+				05E02D241397C6D800FAF5C6 /* RequestViewController.xib */,
+				05E02D271397D22600FAF5C6 /* ResponseViewController.h */,
+				05E02D281397D22600FAF5C6 /* ResponseViewController.m */,
+				05E02D291397D22600FAF5C6 /* ResponseViewController.xib */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +525,8 @@
 			files = (
 				05B219C513913B65003AD114 /* InfoPlist.strings in Resources */,
 				05B219CE13913B66003AD114 /* MainWindow.xib in Resources */,
+				05E02D261397C6D800FAF5C6 /* RequestViewController.xib in Resources */,
+				05E02D2B1397D22600FAF5C6 /* ResponseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +575,8 @@
 				056D39B213953DA000F64C21 /* SRRequestFactory.m in Sources */,
 				05D6D9E61396B31900C50801 /* SRConnection.m in Sources */,
 				05A76B051396D04C00578EE0 /* SRResponse.m in Sources */,
+				05E02D251397C6D800FAF5C6 /* RequestViewController.m in Sources */,
+				05E02D2A1397D22600FAF5C6 /* ResponseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
