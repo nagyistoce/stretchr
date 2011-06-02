@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SRFoundation.h"
+@class SRConnection;
 
 @interface SRResource : NSObject {
     
@@ -43,6 +44,11 @@
 
 #pragma mark - Actions
 
+- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
 
+- (SRConnection*)createThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
+- (SRConnection*)readThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
+- (SRConnection*)updateThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
+- (SRConnection*)deleteThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
 
 @end
