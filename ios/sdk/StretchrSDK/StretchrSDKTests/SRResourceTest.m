@@ -11,6 +11,9 @@
 #import "SRResource.h"
 #import "TestHelper.h"
 #import "TestValues.h"
+#import "TestTargetObject.h"
+#import "SRConnection.h"
+#import "Constants.h"
 
 @implementation SRResourceTest
 
@@ -218,6 +221,90 @@
   STAssertNotNil(request, @"The request shouldn't be nil");
   STAssertEqualStrings([request HTTPMethod], @"DELETE", @"The request should have the correct HTTP method.");
   STAssertEqualStrings([[request URL] absoluteString], @"http://EDD-test-domain.xapi.co/people?age=28&location=London&name=Mat&~key=abdh239d78c30f93jf88r0&~sign=18c4b9895554139505046589fc39416608b5f1a3", @"Incorrect URL");
+  
+}
+
+- (void)testCreateConnectionForRequestTargetSelectorStartImmediately {
+ 
+  TestTargetObject *target = [[TestTargetObject alloc] init];
+  SRResource *resource = [self testResource];
+  NSURLRequest *underlyingRequest = [[NSURLRequest alloc] init];
+  
+  SRConnection *connection = [resource createConnectionForRequest:underlyingRequest 
+                                                           target:target 
+                                                         selector:@selector(processResponse:) 
+                                                 startImmediately:NO];
+  
+  STAssertNotNil(connection, @"createConnectionForRequest:Target:Selector:StartImmediately: should return connection object");
+  STAssertEqualObjects(connection.request, underlyingRequest, @"Connection should have correct request");
+  STAssertNotNil(connection.underlyingConnection, @"The underlying connection should have been created");
+  STAssertEqualObjects(connection.target, target, @"target should be set");
+  STAssertEqualStrings(NSStringFromSelector(connection.selector), @"processResponse:", @"Correct selector should have been specified");
+  
+}
+
+- (void)testCreate {
+  
+  TestTargetObject *target = [[TestTargetObject alloc] init];
+  SRResource *resource = [self testResource];
+  
+  // create
+  SRConnection *connection = [resource createThenCallTarget:target selector:@selector(processResponse:) startImmediately:NO];
+  
+  STAssertNotNil(connection, @"*thenCallTarget:selector: should return SRConnection object");
+  
+  // just check the HTTP method to ensure it's correct
+  STAssertEqualStrings(connection.request.HTTPMethod, POST_HTTP_METHOD, @"HTTP Method incorrect");
+  
+  [target release];
+  
+}
+- (void)testRead {
+  
+  TestTargetObject *target = [[TestTargetObject alloc] init];
+  SRResource *resource = [self testResource];
+  
+  // create
+  SRConnection *connection = [resource readThenCallTarget:target selector:@selector(processResponse:) startImmediately:NO];
+  
+  STAssertNotNil(connection, @"*thenCallTarget:selector: should return SRConnection object");
+  
+  // just check the HTTP method to ensure it's correct
+  STAssertEqualStrings(connection.request.HTTPMethod, GET_HTTP_METHOD, @"HTTP Method incorrect");
+  
+  [target release];
+  
+}
+- (void)testUpdate {
+  
+  TestTargetObject *target = [[TestTargetObject alloc] init];
+  SRResource *resource = [self testResource];
+  
+  // create
+  SRConnection *connection = [resource updateThenCallTarget:target selector:@selector(processResponse:) startImmediately:NO];
+  
+  STAssertNotNil(connection, @"*thenCallTarget:selector: should return SRConnection object");
+  
+  // just check the HTTP method to ensure it's correct
+  STAssertEqualStrings(connection.request.HTTPMethod, PUT_HTTP_METHOD, @"HTTP Method incorrect");
+  
+  [target release];
+  
+}
+- (void)testDelete {
+  
+  TestTargetObject *target = [[TestTargetObject alloc] init];
+  SRResource *resource = [self testResource];
+  
+  // create
+  SRConnection *connection = [resource deleteThenCallTarget:target selector:@selector(processResponse:) startImmediately:NO];
+  
+  STAssertNotNil(connection, @"*thenCallTarget:selector: should return SRConnection object");
+  
+  // just check the HTTP method to ensure it's correct
+  STAssertEqualStrings(connection.request.HTTPMethod, DELETE_HTTP_METHOD, @"HTTP Method incorrect");
+  
+  [target release];
   
 }
   

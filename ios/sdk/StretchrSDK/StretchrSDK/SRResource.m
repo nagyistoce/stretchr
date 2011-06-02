@@ -7,6 +7,7 @@
 //
 
 #import "SRResource.h"
+#import "SRConnection.h"
 
 @implementation SRResource
 @synthesize path;
@@ -96,6 +97,48 @@
 
 - (NSURLRequest*)generateDeleteRequest {
   return [[SRRequestFactory requestToDeleteResource:self] makeSignedUrlRequest];
+}
+
+#pragma mark - Actions
+
+- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+  
+  SRConnection *connection = [[[SRConnection alloc] initWithRequest:request target:target selector:selector] autorelease];
+  
+  if (startImmediately) {
+    [connection start];
+  }
+  
+  return connection;
+  
+}
+
+- (SRConnection*)createThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+  return [self createConnectionForRequest:[self generateCreateRequest] 
+                                   target:target 
+                                 selector:selector 
+                         startImmediately:startImmediately];
+}
+
+- (SRConnection*)readThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+  return [self createConnectionForRequest:[self generateReadRequest] 
+                                   target:target 
+                                 selector:selector 
+                         startImmediately:startImmediately];
+}
+
+- (SRConnection*)updateThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+  return [self createConnectionForRequest:[self generateUpdateRequest] 
+                                   target:target 
+                                 selector:selector 
+                         startImmediately:startImmediately];
+}
+
+- (SRConnection*)deleteThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+  return [self createConnectionForRequest:[self generateDeleteRequest] 
+                                   target:target 
+                                 selector:selector 
+                         startImmediately:startImmediately];
 }
 
 @end

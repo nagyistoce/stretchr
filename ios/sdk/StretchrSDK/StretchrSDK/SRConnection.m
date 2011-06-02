@@ -63,19 +63,23 @@
 
 - (void)start {
   self.isBusy = YES;
+  [self retain];
   [self.underlyingConnection start];
 }
 
 - (void)cancel {
   [self.underlyingConnection cancel];
   self.isBusy = NO;
+  [self release];
 }
 
 #pragma mark - NSURLConnection
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)urlResponse {
   
+  // finished
   self.isBusy = NO;
+  [self release];
   
   SRResponse *response = [[SRResponse alloc] initWithResponse:urlResponse];
   
@@ -93,6 +97,10 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 
+  // finished
+  self.isBusy = NO;
+  [self release];
+  
   SRResponse *response = [[SRResponse alloc] initWithError:error];
   
   // set this connection

@@ -130,6 +130,7 @@
 		05D6D9E81396B35000C50801 /* SRConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRConnectionTest.m; sourceTree = "<group>"; };
 		05E02D1D13977FA700FAF5C6 /* TestTargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTargetObject.h; sourceTree = "<group>"; };
 		05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTargetObject.m; sourceTree = "<group>"; };
+		05E02D201397A0B200FAF5C6 /* StretchrSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrSDK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +178,18 @@
 		05150FB713913FA100CD2520 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				05E02D201397A0B200FAF5C6 /* StretchrSDK.h */,
+				058A526F13929539007437E7 /* SRFoundation.h */,
+				05D6D9DC1396952D00C50801 /* Constants.h */,
+				058A526E13928D43007437E7 /* Singleton.h */,
+				058A525213927862007437E7 /* SRHttpHelper.h */,
+				058A525313927862007437E7 /* SRHttpHelper.m */,
+				05A76AFB1396CEF200578EE0 /* Parameters */,
+				05A76AFA1396CED900578EE0 /* Security */,
+				05A76AF91396CECD00578EE0 /* Context */,
+				05A76AF81396CEC100578EE0 /* Connection */,
+				05A76AF61396CEB500578EE0 /* Request */,
+				05A76B021396D03900578EE0 /* Response */,
 				05150FB513913F8E00CD2520 /* Resources */,
 				05B21A1613913BE2003AD114 /* Foundation */,
 			);
@@ -188,7 +201,14 @@
 			children = (
 				05E02D1B13977F9200FAF5C6 /* Helpers */,
 				05150FB613913F9500CD2520 /* Resources */,
-				05B21A1713913BEC003AD114 /* Foundation */,
+				05A76B001396CF8500578EE0 /* Connection */,
+				05A76AFF1396CF4B00578EE0 /* Context */,
+				05A76AFE1396CF1E00578EE0 /* Security */,
+				05A76AFC1396CF0700578EE0 /* Parameters */,
+				05A76AFD1396CF1100578EE0 /* Request */,
+				05A76B061396D05100578EE0 /* Response */,
+				058A525613927870007437E7 /* SRHttpHelperTest.h */,
+				058A525713927870007437E7 /* SRHttpHelperTest.m */,
 			);
 			name = StretchrSDK;
 			sourceTree = "<group>";
@@ -394,32 +414,6 @@
 		05B21A1613913BE2003AD114 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				058A526F13929539007437E7 /* SRFoundation.h */,
-				05D6D9DC1396952D00C50801 /* Constants.h */,
-				058A526E13928D43007437E7 /* Singleton.h */,
-				058A525213927862007437E7 /* SRHttpHelper.h */,
-				058A525313927862007437E7 /* SRHttpHelper.m */,
-				05A76AFB1396CEF200578EE0 /* Parameters */,
-				05A76AFA1396CED900578EE0 /* Security */,
-				05A76AF91396CECD00578EE0 /* Context */,
-				05A76AF81396CEC100578EE0 /* Connection */,
-				05A76AF61396CEB500578EE0 /* Request */,
-				05A76B021396D03900578EE0 /* Response */,
-			);
-			name = Foundation;
-			sourceTree = "<group>";
-		};
-		05B21A1713913BEC003AD114 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				05A76B001396CF8500578EE0 /* Connection */,
-				05A76AFF1396CF4B00578EE0 /* Context */,
-				05A76AFE1396CF1E00578EE0 /* Security */,
-				05A76AFC1396CF0700578EE0 /* Parameters */,
-				05A76AFD1396CF1100578EE0 /* Request */,
-				05A76B061396D05100578EE0 /* Response */,
-				058A525613927870007437E7 /* SRHttpHelperTest.h */,
-				058A525713927870007437E7 /* SRHttpHelperTest.m */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
