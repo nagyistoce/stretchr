@@ -18,8 +18,6 @@
   
   NSString *actual = [original urlEncoded];
   
-  NSLog(@"%@", actual);
-  
   STAssertTrue([expected isEqualToString:actual], @"'%@' expected but was '%@'.", expected, actual);
   
 }
