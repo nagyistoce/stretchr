@@ -77,7 +77,10 @@
   
   self.isBusy = NO;
   
-  SRResponse *response = [[SRResponse alloc] init];
+  SRResponse *response = [[SRResponse alloc] initWithResponse:urlResponse];
+  
+  // set this connection
+  [response setConnection:self];
   
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {
@@ -91,6 +94,9 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 
   SRResponse *response = [[SRResponse alloc] initWithError:error];
+  
+  // set this connection
+  [response setConnection:self];
   
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {

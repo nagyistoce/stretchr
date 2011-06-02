@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SRConnection;
 
 @interface SRResponse : NSObject {
     
 }
 
+@property (nonatomic, retain) SRConnection *connection;
 @property (nonatomic, retain) NSURLResponse *urlResponse;
 @property (nonatomic, retain) NSError *error;
 

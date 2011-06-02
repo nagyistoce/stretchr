@@ -43,6 +43,7 @@
 		05B21A1513913BC0003AD114 /* SRRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B21A0F13913BC0003AD114 /* SRRequestSigner.m */; };
 		05D6D9E61396B31900C50801 /* SRConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E51396B31800C50801 /* SRConnection.m */; };
 		05D6D9E91396B35100C50801 /* SRConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D6D9E81396B35000C50801 /* SRConnectionTest.m */; };
+		05E02D1F13977FA700FAF5C6 /* TestTargetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		05D6D9E51396B31800C50801 /* SRConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRConnection.m; sourceTree = "<group>"; };
 		05D6D9E71396B35000C50801 /* SRConnectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRConnectionTest.h; sourceTree = "<group>"; };
 		05D6D9E81396B35000C50801 /* SRConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRConnectionTest.m; sourceTree = "<group>"; };
+		05E02D1D13977FA700FAF5C6 /* TestTargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTargetObject.h; sourceTree = "<group>"; };
+		05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTargetObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +186,7 @@
 		05150FB813913FA900CD2520 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
-				058A525F139289E0007437E7 /* TestHelper.h */,
-				05B21A0213913BAF003AD114 /* TestValues.h */,
+				05E02D1B13977F9200FAF5C6 /* Helpers */,
 				05150FB613913F9500CD2520 /* Resources */,
 				05B21A1713913BEC003AD114 /* Foundation */,
 			);
@@ -422,6 +424,17 @@
 			name = Foundation;
 			sourceTree = "<group>";
 		};
+		05E02D1B13977F9200FAF5C6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				058A525F139289E0007437E7 /* TestHelper.h */,
+				05B21A0213913BAF003AD114 /* TestValues.h */,
+				05E02D1D13977FA700FAF5C6 /* TestTargetObject.h */,
+				05E02D1E13977FA700FAF5C6 /* TestTargetObject.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -562,6 +575,7 @@
 				056D39AE13953D8D00F64C21 /* SRRequestFactoryTest.m in Sources */,
 				05D6D9E91396B35100C50801 /* SRConnectionTest.m in Sources */,
 				05A76B091396D06600578EE0 /* SRResponseTest.m in Sources */,
+				05E02D1F13977FA700FAF5C6 /* TestTargetObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
