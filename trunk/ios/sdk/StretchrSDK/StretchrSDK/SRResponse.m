@@ -8,10 +8,10 @@
 
 #import "SRResponse.h"
 
-
 @implementation SRResponse
 @synthesize urlResponse;
 @synthesize error;
+@synthesize connection;
 
 - (id)initWithResponse:(NSURLResponse*)theResponse {
   if ((self = [super init])) {
@@ -33,6 +33,7 @@
   
   self.urlResponse = nil;
   self.error = nil;
+  self.connection = nil;
   
   [super dealloc];
 }
