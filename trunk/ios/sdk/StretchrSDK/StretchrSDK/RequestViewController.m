@@ -10,6 +10,8 @@
 
 
 @implementation RequestViewController
+@synthesize settingsView;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +24,10 @@
 
 - (void)dealloc
 {
+  
+  self.settingsView = nil;
+  self.scrollView = nil;
+  
     [super dealloc];
 }
 
@@ -38,7 +44,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  
+  // put the settings view inside the scroll view
+  [self.settingsView setFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.settingsView.frame))];
+  [self.scrollView addSubview:self.settingsView];
+  [self.scrollView setContentSize:self.settingsView.frame.size];
+  
 }
 
 - (void)viewDidUnload

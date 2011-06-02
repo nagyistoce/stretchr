@@ -13,4 +13,7 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UIView *settingsView;
+@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
+
 @end
