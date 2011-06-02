@@ -12,6 +12,7 @@
 @implementation RequestViewController
 @synthesize settingsView;
 @synthesize scrollView;
+@synthesize accountNameTextField, keyTextField, secretTextField, pathTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +29,12 @@
   self.settingsView = nil;
   self.scrollView = nil;
   
-    [super dealloc];
+  self.accountNameTextField = nil;
+  self.keyTextField = nil;
+  self.secretTextField = nil;
+  self.pathTextField = nil;
+  
+  [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,5 +70,51 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - Validation
+
+- (BOOL)validate {
+  
+  BOOL valid = YES;
+  
+  if (valid) valid = [self validateNotEmpty:self.accountNameTextField name:@"Account name"];
+  if (valid) valid = [self validateNotEmpty:self.keyTextField name:@"Key"];
+  if (valid) valid = [self validateNotEmpty:self.secretTextField name:@"Secret"];
+  if (valid) valid = [self validateNotEmpty:self.pathTextField name:@"Path"];
+  
+  return valid;
+  
+}
+- (BOOL)validateNotEmpty:(UITextField*)textField name:(NSString*)name {
+  if ([textField.text isEqualToString:@""]) {
+    [self showErrorMessage:[NSString stringWithFormat:@"%@ cannot be empty", name]];
+    [textField becomeFirstResponder];
+    return NO;
+  }
+  return YES;
+}
+
+#pragma mark - User interaction
+
+- (void)showErrorMessage:(NSString*)message {
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops, something's wrong" 
+                                                  message:message 
+                                                 delegate:nil 
+                                        cancelButtonTitle:@"OK" 
+                                        otherButtonTitles:nil];
+  [alert show];
+  [alert release];
+}
+
+- (IBAction)makeRequestButtonTapped:(id)sender {
+  
+  if ([self validate]) {
+    
+    // do it...
+    
+  }
+  
+}
+
 
 @end
