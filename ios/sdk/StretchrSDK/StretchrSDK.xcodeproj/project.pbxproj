@@ -197,6 +197,41 @@
 			name = StretchrSDK;
 			sourceTree = "<group>";
 		};
+		0568F5131397D536001F017B /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				05E02D3E1397D43F00FAF5C6 /* NSString+URLEncoding.h */,
+				05E02D3F1397D43F00FAF5C6 /* NSString+URLEncoding.m */,
+				05E02D451397D43F00FAF5C6 /* SRCredentials.h */,
+				05E02D461397D43F00FAF5C6 /* SRCredentials.m */,
+				05E02D531397D43F00FAF5C6 /* SRRequestSigner.h */,
+				05E02D541397D43F00FAF5C6 /* SRRequestSigner.m */,
+				05E02D431397D43F00FAF5C6 /* SRContext.h */,
+				05E02D441397D43F00FAF5C6 /* SRContext.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		0568F5151397D55E001F017B /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				05E02D411397D43F00FAF5C6 /* SRConnection.h */,
+				05E02D421397D43F00FAF5C6 /* SRConnection.m */,
+				05E02D4E1397D43F00FAF5C6 /* SRRequest.h */,
+				05E02D4F1397D43F00FAF5C6 /* SRRequest.m */,
+				05E02D4A1397D43F00FAF5C6 /* SRParameter.h */,
+				05E02D4B1397D43F00FAF5C6 /* SRParameter.m */,
+				05E02D4C1397D43F00FAF5C6 /* SRParameterCollection.h */,
+				05E02D4D1397D43F00FAF5C6 /* SRParameterCollection.m */,
+				05E02D501397D43F00FAF5C6 /* SRRequestFactory.h */,
+				05E02D511397D43F00FAF5C6 /* SRRequestFactory.m */,
+				05E02D521397D43F00FAF5C6 /* SRRequestMethod.h */,
+				05E02D571397D43F00FAF5C6 /* SRResponse.h */,
+				05E02D581397D43F00FAF5C6 /* SRResponse.m */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
 		05A76AFC1396CF0700578EE0 /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,35 +413,16 @@
 		05E02D3C1397D42700FAF5C6 /* StretchrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				05E02D591397D43F00FAF5C6 /* StretchrSDK.h */,
+				0568F5151397D55E001F017B /* IO */,
+				0568F5131397D536001F017B /* Security */,
 				05E02D3D1397D43F00FAF5C6 /* Constants.h */,
-				05E02D3E1397D43F00FAF5C6 /* NSString+URLEncoding.h */,
-				05E02D3F1397D43F00FAF5C6 /* NSString+URLEncoding.m */,
 				05E02D401397D43F00FAF5C6 /* Singleton.h */,
-				05E02D411397D43F00FAF5C6 /* SRConnection.h */,
-				05E02D421397D43F00FAF5C6 /* SRConnection.m */,
-				05E02D431397D43F00FAF5C6 /* SRContext.h */,
-				05E02D441397D43F00FAF5C6 /* SRContext.m */,
-				05E02D451397D43F00FAF5C6 /* SRCredentials.h */,
-				05E02D461397D43F00FAF5C6 /* SRCredentials.m */,
 				05E02D471397D43F00FAF5C6 /* SRFoundation.h */,
 				05E02D481397D43F00FAF5C6 /* SRHttpHelper.h */,
 				05E02D491397D43F00FAF5C6 /* SRHttpHelper.m */,
-				05E02D4A1397D43F00FAF5C6 /* SRParameter.h */,
-				05E02D4B1397D43F00FAF5C6 /* SRParameter.m */,
-				05E02D4C1397D43F00FAF5C6 /* SRParameterCollection.h */,
-				05E02D4D1397D43F00FAF5C6 /* SRParameterCollection.m */,
-				05E02D4E1397D43F00FAF5C6 /* SRRequest.h */,
-				05E02D4F1397D43F00FAF5C6 /* SRRequest.m */,
-				05E02D501397D43F00FAF5C6 /* SRRequestFactory.h */,
-				05E02D511397D43F00FAF5C6 /* SRRequestFactory.m */,
-				05E02D521397D43F00FAF5C6 /* SRRequestMethod.h */,
-				05E02D531397D43F00FAF5C6 /* SRRequestSigner.h */,
-				05E02D541397D43F00FAF5C6 /* SRRequestSigner.m */,
 				05E02D551397D43F00FAF5C6 /* SRResource.h */,
 				05E02D561397D43F00FAF5C6 /* SRResource.m */,
-				05E02D571397D43F00FAF5C6 /* SRResponse.h */,
-				05E02D581397D43F00FAF5C6 /* SRResponse.m */,
-				05E02D591397D43F00FAF5C6 /* StretchrSDK.h */,
 			);
 			name = StretchrSDK;
 			sourceTree = "<group>";
