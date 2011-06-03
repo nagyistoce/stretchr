@@ -14,5 +14,14 @@
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *portraitHelpText;
+@property (nonatomic, retain) IBOutlet UITextView *textView;
+@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+
+
+- (void)addOutput:(NSString*)text;
+
+- (void)setDoneButtonHidden:(BOOL)hidden;
+
+- (IBAction)doneButtonPressed:(id)sender;
 
 @end
