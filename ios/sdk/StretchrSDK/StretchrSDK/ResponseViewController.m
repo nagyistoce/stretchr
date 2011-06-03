@@ -11,6 +11,8 @@
 
 @implementation ResponseViewController
 @synthesize portraitHelpText;
+@synthesize textView;
+@synthesize toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +25,11 @@
 
 - (void)dealloc
 {
+  
+  self.portraitHelpText = nil;
+  self.textView = nil;
+  self.toolbar = nil;
+  
     [super dealloc];
 }
 
@@ -70,6 +77,42 @@
   
   [UIView commitAnimations];
   
+}
+
+- (void)addOutput:(NSString*)text {
+  [self.textView setText:[NSString stringWithFormat:@"%@%@\n", self.textView.text, text]];
+  
+  // make sure the textView is visible
+  if (self.textView.hidden) {
+    
+    [self.textView setAlpha:0];
+    [self.textView setHidden:NO];
+    [self.toolbar setAlpha:0];
+    [self.toolbar setHidden:NO];
+    
+    [UIView beginAnimations:nil context:nil];
+    [self.textView setAlpha:1];
+    [self.toolbar setAlpha:1];
+    [UIView commitAnimations];
+    
+  }
+  
+}
+
+- (void)setDoneButtonHidden:(BOOL)hidden {
+  if (hidden) {
+    // remove the done button
+    
+    NSMutableArray *items = [NSMutableArray arrayWithArray:self.toolbar.items];
+    [items removeObjectAtIndex:0];
+    
+    [self.toolbar setItems:items];
+    
+  }
+}
+
+- (IBAction)doneButtonPressed:(id)sender {
+  [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

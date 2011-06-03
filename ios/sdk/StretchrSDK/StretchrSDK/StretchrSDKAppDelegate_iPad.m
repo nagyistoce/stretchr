@@ -20,7 +20,7 @@
   
   // give the request view controller a ref to the response one (since they both exist on iPad)
   [requestViewController setResponseViewController:responseViewController];
-  
+    
   UISplitViewController *splitViewController = [[UISplitViewController alloc] initWithNibName:nil bundle:nil];
   [splitViewController setViewControllers:[NSArray arrayWithObjects:requestViewController, responseViewController, nil]];
   
