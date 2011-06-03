@@ -12,6 +12,7 @@
 @synthesize urlResponse;
 @synthesize error;
 @synthesize connection;
+@synthesize data;
 
 - (id)initWithResponse:(NSHTTPURLResponse*)theResponse {
   if ((self = [super init])) {
@@ -34,6 +35,7 @@
   self.urlResponse = nil;
   self.error = nil;
   self.connection = nil;
+  self.data = nil;
   
   [super dealloc];
 }

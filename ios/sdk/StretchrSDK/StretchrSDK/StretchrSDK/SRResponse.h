@@ -16,6 +16,7 @@
 @property (nonatomic, retain) SRConnection *connection;
 @property (nonatomic, retain) NSHTTPURLResponse *urlResponse;
 @property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) NSData *data;
 
 - (id)initWithResponse:(NSHTTPURLResponse*)response;
 - (id)initWithError:(NSError*)theError;

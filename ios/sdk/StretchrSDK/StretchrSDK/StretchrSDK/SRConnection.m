@@ -110,6 +110,9 @@
   // set this connection
   [response setConnection:self];
   
+  // set the data
+  [response setData:[NSData dataWithData:self.receivedData]];
+  
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {
     [self.target performSelector:self.selector withObject:response];
@@ -129,6 +132,9 @@
   
   // set this connection
   [response setConnection:self];
+  
+  // set the data
+  [response setData:[NSData dataWithData:self.receivedData]];
   
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {
