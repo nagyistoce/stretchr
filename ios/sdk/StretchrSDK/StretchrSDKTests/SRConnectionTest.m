@@ -11,31 +11,38 @@
 #import "SRConnection.h"
 #import "TestTargetObject.h"
 #import "SRResponse.h"
+#import "SRRequest.h"
 
 @implementation SRConnectionTest
 
-- (void)testInitWithRequest {
+- (void)testInitWithRequestOriginalRequest {
   
   NSURLRequest *request = [[NSURLRequest alloc] init];
-  SRConnection *conn = [[SRConnection alloc] initWithRequest:request];
+  SRRequest *originalRequest = [[SRRequest alloc] init];
+  SRConnection *conn = [[SRConnection alloc] initWithRequest:request originalRequest:originalRequest];
   
   STAssertEqualObjects([conn request], request, @"initWithRequest didn't set request");
   STAssertNotNil([conn underlyingConnection], @"initWithRequest didn't create underlyingConnection");
   
+  STAssertEqualObjects(originalRequest, [conn originalRequest], @"Original request not set");
+  
   [request release];
   [conn release];
+  [originalRequest release];
   
 }
 
 - (void)testInitWithRequestTargetSelector {
   
   NSObject *targetObject = [[NSObject alloc] init];
-  
+  SRRequest *originalRequest = [[SRRequest alloc] init];
   NSURLRequest *request = [[NSURLRequest alloc] init];
-  SRConnection *conn = [[SRConnection alloc] initWithRequest:request target:targetObject selector:@selector(description)];
+  SRConnection *conn = [[SRConnection alloc] initWithRequest:request originalRequest:originalRequest target:targetObject selector:@selector(description)];
   
   STAssertEqualObjects([conn request], request, @"initWithRequest didn't set request");
   STAssertNotNil([conn underlyingConnection], @"initWithRequest didn't create underlyingConnection");
+  
+  STAssertEqualObjects(originalRequest, [conn originalRequest], @"Original request not set");
   
   STAssertEqualObjects(targetObject, conn.target, @"target not set");
   STAssertEqualStrings(NSStringFromSelector(conn.selector), @"description", @"selector incorrect.");
@@ -43,6 +50,7 @@
   [request release];
   [conn release];
   [targetObject release];
+  [originalRequest release];
   
 }
 
@@ -52,8 +60,9 @@
   TestTargetObject *target = [[TestTargetObject alloc] init];
   
   // create the request and connection
+  SRRequest *originalRequest = [[SRRequest alloc] init];
   NSURLRequest *urlRequest = [[NSURLRequest alloc] init];
-  SRConnection *conn = [[SRConnection alloc] initWithRequest:urlRequest target:target selector:@selector(processResponse:)];
+  SRConnection *conn = [[SRConnection alloc] initWithRequest:urlRequest originalRequest:originalRequest target:target selector:@selector(processResponse:)];
   
   // create test connection and response objects
   NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
@@ -76,6 +85,7 @@
   [urlConnection release];
   [urlResponse release];
   [target release];
+  [originalRequest release];
   
 }
 
@@ -85,8 +95,9 @@
   TestTargetObject *target = [[TestTargetObject alloc] init];
   
   // create the request and connection
+  SRRequest *originalRequest = [[SRRequest alloc] init];
   NSURLRequest *urlRequest = [[NSURLRequest alloc] init];
-  SRConnection *conn = [[SRConnection alloc] initWithRequest:urlRequest target:target selector:@selector(processResponse:)];
+  SRConnection *conn = [[SRConnection alloc] initWithRequest:urlRequest originalRequest:originalRequest target:target selector:@selector(processResponse:)];
   
   // create test connection and response objects
   NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
@@ -109,6 +120,7 @@
   [urlConnection release];
   [theError release];
   [target release];
+  [originalRequest release];
   
 }
 

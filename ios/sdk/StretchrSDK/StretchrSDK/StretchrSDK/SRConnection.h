@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SRRequest;
 
 @interface SRConnection : NSObject {
   NSURLRequest *request_;
@@ -16,12 +16,13 @@
 
 @property (nonatomic, assign) BOOL isBusy;
 @property (nonatomic, readonly) NSURLRequest* request;
+@property (nonatomic, retain) SRRequest *originalRequest;
 @property (nonatomic, readonly) NSURLConnection *underlyingConnection;
 @property (nonatomic, assign) id target;
 @property (nonatomic, assign) SEL selector;
 
-- (id)initWithRequest:(NSURLRequest*)request;
-- (id)initWithRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector;
+- (id)initWithRequest:(NSURLRequest*)request originalRequest:(SRRequest*)originalRequest;
+- (id)initWithRequest:(NSURLRequest*)request originalRequest:(SRRequest*)originalRequest target:(id)target selector:(SEL)selector;
 
 - (void)start;
 - (void)cancel;

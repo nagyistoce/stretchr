@@ -81,29 +81,11 @@
   return [self resourceId] != nil;
 }
 
-#pragma mark - Requests
-
-- (NSURLRequest*)generateCreateRequest {
-  return [[SRRequestFactory requestToCreateResource:self] makeSignedUrlRequest];
-}
-
-- (NSURLRequest*)generateReadRequest {
-  return [[SRRequestFactory requestToReadResource:self] makeSignedUrlRequest];
-}
-
-- (NSURLRequest*)generateUpdateRequest {
-  return [[SRRequestFactory requestToUpdateResource:self] makeSignedUrlRequest];
-}
-
-- (NSURLRequest*)generateDeleteRequest {
-  return [[SRRequestFactory requestToDeleteResource:self] makeSignedUrlRequest];
-}
-
 #pragma mark - Actions
 
-- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
+- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request withOriginalRequest:(SRRequest *)originalRequest target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
   
-  SRConnection *connection = [[[SRConnection alloc] initWithRequest:request target:target selector:selector] autorelease];
+  SRConnection *connection = [[[SRConnection alloc] initWithRequest:request originalRequest:originalRequest target:target selector:selector] autorelease];
   
   if (startImmediately) {
     [connection start];
@@ -114,31 +96,54 @@
 }
 
 - (SRConnection*)createThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
-  return [self createConnectionForRequest:[self generateCreateRequest] 
+  
+  SRRequest *originalRequest = [SRRequestFactory requestToCreateResource:self];
+  NSURLRequest *request = [originalRequest makeSignedUrlRequest];
+  
+  return [self createConnectionForRequest:request
+                      withOriginalRequest:originalRequest
                                    target:target 
                                  selector:selector 
                          startImmediately:startImmediately];
 }
 
 - (SRConnection*)readThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
-  return [self createConnectionForRequest:[self generateReadRequest] 
+  
+  SRRequest *originalRequest = [SRRequestFactory requestToReadResource:self];
+  NSURLRequest *request = [originalRequest makeSignedUrlRequest];
+  
+  return [self createConnectionForRequest:request
+                      withOriginalRequest:originalRequest
                                    target:target 
                                  selector:selector 
                          startImmediately:startImmediately];
+  
 }
 
 - (SRConnection*)updateThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
-  return [self createConnectionForRequest:[self generateUpdateRequest] 
+  
+  SRRequest *originalRequest = [SRRequestFactory requestToUpdateResource:self];
+  NSURLRequest *request = [originalRequest makeSignedUrlRequest];
+  
+  return [self createConnectionForRequest:request
+                      withOriginalRequest:originalRequest
                                    target:target 
                                  selector:selector 
                          startImmediately:startImmediately];
+  
 }
 
 - (SRConnection*)deleteThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately {
-  return [self createConnectionForRequest:[self generateDeleteRequest] 
+  
+  SRRequest *originalRequest = [SRRequestFactory requestToDeleteResource:self];
+  NSURLRequest *request = [originalRequest makeSignedUrlRequest];
+  
+  return [self createConnectionForRequest:request
+                      withOriginalRequest:originalRequest
                                    target:target 
                                  selector:selector 
                          startImmediately:startImmediately];
+  
 }
 
 @end

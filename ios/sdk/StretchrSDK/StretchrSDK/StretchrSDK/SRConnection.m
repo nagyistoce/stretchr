@@ -12,6 +12,7 @@
 @implementation SRConnection
 @synthesize isBusy;
 @synthesize request = request_;
+@synthesize originalRequest;
 @synthesize underlyingConnection = underlyingConnection_;
 @synthesize target, selector;
 
@@ -20,9 +21,13 @@
   return nil;
 }
 
-- (id)initWithRequest:(NSURLRequest*)theRequest {
+- (id)initWithRequest:(NSURLRequest*)theRequest originalRequest:(SRRequest*)theOriginalRequest {
   if ((self = [super init])) {
     
+    // save the original request
+    self.originalRequest = theOriginalRequest;
+    
+    // save the request
     request_ = theRequest;
     [request_ retain];
     
@@ -37,8 +42,8 @@
   return self;
 }
 
-- (id)initWithRequest:(NSURLRequest *)theRequest target:(id)theTarget selector:(SEL)theSelector {
-  if ((self = [self initWithRequest:theRequest])) {
+- (id)initWithRequest:(NSURLRequest *)theRequest originalRequest:(SRRequest*)theOriginalRequest target:(id)theTarget selector:(SEL)theSelector {
+  if ((self = [self initWithRequest:theRequest originalRequest:theOriginalRequest])) {
     
     self.target = theTarget;
     self.selector = theSelector;
@@ -55,6 +60,7 @@
   // nil out the other bits too
   self.target = nil;
   self.selector = nil;
+  self.originalRequest = nil;
   
   [super dealloc];
 }
