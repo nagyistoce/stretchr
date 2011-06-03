@@ -37,7 +37,6 @@
     
     // add key parameter
     [self.parameters addValue:self.credentials.key forKey:KEY_PARAMETER_KEY];
-    NSLog(@"key parameter added");
     
   }
   return self;
