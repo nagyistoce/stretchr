@@ -15,3 +15,4 @@
 #import "SRResource.h"
 #import "SRRequestFactory.h"
 #import "SRResponse.h"
+#import "SRConnection.h"
