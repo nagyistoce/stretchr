@@ -13,6 +13,7 @@
 @synthesize settingsView;
 @synthesize scrollView;
 @synthesize accountNameTextField, keyTextField, secretTextField, pathTextField;
+@synthesize responseViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,7 +50,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  
+  // set the background style
+  [self.settingsView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"sky-stripe"]]];
   
   // put the settings view inside the scroll view
   [self.settingsView setFrame:CGRectMake(0, 0, CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.settingsView.frame))];
@@ -67,8 +71,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  // Return YES for supported orientations
+  return YES;
 }
 
 #pragma mark - Validation
@@ -116,5 +120,14 @@
   
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  
+  // move to the next text field
+  
+  
+  return NO;
+}
 
 @end
