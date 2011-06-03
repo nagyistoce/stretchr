@@ -35,16 +35,9 @@
 
 - (BOOL)hasResourceId;
 
-#pragma mark - Requests
-
-- (NSURLRequest*)generateCreateRequest;
-- (NSURLRequest*)generateReadRequest;
-- (NSURLRequest*)generateUpdateRequest;
-- (NSURLRequest*)generateDeleteRequest;
-
 #pragma mark - Actions
 
-- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
+- (SRConnection*)createConnectionForRequest:(NSURLRequest*)request withOriginalRequest:(SRRequest*)originalRequest target:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
 
 - (SRConnection*)createThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;
 - (SRConnection*)readThenCallTarget:(id)target selector:(SEL)selector startImmediately:(BOOL)startImmediately;

@@ -167,70 +167,15 @@
   
 }
 
-- (void)testGenerateReadRequest {
-  
-  SRResource *resource = [self testResource];
-  NSURLRequest *request = [resource generateReadRequest];
-    
-  // check key things about the request
-  STAssertNotNil(request, @"The request shouldn't be nil");
-  STAssertEqualStrings([request HTTPMethod], @"GET", @"The request should have the correct HTTP method.");
-  STAssertEqualStrings([[request URL] absoluteString], @"http://EDD-test-domain.xapi.co/people?age=28&location=London&name=Mat&~key=abdh239d78c30f93jf88r0&~sign=5d217c75ed9c82f71dadad9af05ce5b8d6d96568", @"Incorrect URL");
-  
-}
-
-- (void)testGenerateCreateRequest {
-  
-  SRResource *resource = [self testResource];
-  NSURLRequest *request = [resource generateCreateRequest];
-  
-  // check key things about the request
-  STAssertNotNil(request, @"The request shouldn't be nil");
-  STAssertEqualStrings([request HTTPMethod], @"POST", @"The request should have the correct HTTP method.");
-  STAssertEqualStrings([[request URL] absoluteString], @"http://EDD-test-domain.xapi.co/people", @"Incorrect URL");
-  
-  NSString *httpBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-  STAssertEqualStrings(httpBody, @"age=28&location=London&name=Mat&~key=abdh239d78c30f93jf88r0&~sign=75581803595f516bc5c4ec68c5828ed767ab154a", @"HTTP body incorrect");
-  [httpBody release];
-  
-}
-
-- (void)testGenerateUpdateRequest {
-  
-  SRResource *resource = [self testResource];
-  NSURLRequest *request = [resource generateUpdateRequest];
-  
-  // check key things about the request
-  STAssertNotNil(request, @"The request shouldn't be nil");
-  STAssertEqualStrings([request HTTPMethod], @"PUT", @"The request should have the correct HTTP method.");
-  STAssertEqualStrings([[request URL] absoluteString], @"http://EDD-test-domain.xapi.co/people", @"Incorrect URL");
-  
-  NSString *httpBody = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-  
-  STAssertEqualStrings(httpBody, @"age=28&location=London&name=Mat&~key=abdh239d78c30f93jf88r0&~sign=69b27c9ee2f8fb1b6d65a6ac335633f4638a87bf", @"HTTP body incorrect");
-  [httpBody release];
-  
-}
-
-- (void)testGenerateDeleteRequest {
-  
-  SRResource *resource = [self testResource];
-  NSURLRequest *request = [resource generateDeleteRequest];
-  
-  // check key things about the request
-  STAssertNotNil(request, @"The request shouldn't be nil");
-  STAssertEqualStrings([request HTTPMethod], @"DELETE", @"The request should have the correct HTTP method.");
-  STAssertEqualStrings([[request URL] absoluteString], @"http://EDD-test-domain.xapi.co/people?age=28&location=London&name=Mat&~key=abdh239d78c30f93jf88r0&~sign=18c4b9895554139505046589fc39416608b5f1a3", @"Incorrect URL");
-  
-}
-
 - (void)testCreateConnectionForRequestTargetSelectorStartImmediately {
  
+  SRRequest *originalRequest = [[SRRequest alloc] init];
   TestTargetObject *target = [[TestTargetObject alloc] init];
   SRResource *resource = [self testResource];
   NSURLRequest *underlyingRequest = [[NSURLRequest alloc] init];
   
   SRConnection *connection = [resource createConnectionForRequest:underlyingRequest 
+                                              withOriginalRequest:originalRequest
                                                            target:target 
                                                          selector:@selector(processResponse:) 
                                                  startImmediately:NO];
@@ -240,6 +185,11 @@
   STAssertNotNil(connection.underlyingConnection, @"The underlying connection should have been created");
   STAssertEqualObjects(connection.target, target, @"target should be set");
   STAssertEqualStrings(NSStringFromSelector(connection.selector), @"processResponse:", @"Correct selector should have been specified");
+  STAssertEqualObjects(connection.originalRequest, originalRequest, @"originalRequest should be set");
+  
+  [originalRequest release];
+  [target release];
+  [underlyingRequest release];
   
 }
 
