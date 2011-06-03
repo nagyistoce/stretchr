@@ -19,9 +19,12 @@
 
 
 - (void)addOutput:(NSString*)text;
+- (void)addRawOutput:(NSString*)text;
 
 - (void)setDoneButtonHidden:(BOOL)hidden;
 
 - (IBAction)doneButtonPressed:(id)sender;
+
+- (IBAction)clearButtonPressed:(id)sender;
 
 @end

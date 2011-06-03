@@ -7,6 +7,7 @@
 //
 
 #import "RequestViewController.h"
+#import "StretchrSDK.h"
 
 @implementation RequestViewController
 @synthesize settingsView;
@@ -147,7 +148,8 @@
   
   // hide the done button if we're on iPad
   if (responseViewControllerNotHomeGrown) {
-    [self.responseViewController setDoneButtonHidden:YES];
+    if ([self.responseViewController.toolbar.items count] > 1)
+      [self.responseViewController setDoneButtonHidden:YES];
   }
   
   // setup the context
@@ -157,6 +159,9 @@
   
   // create the resource
   SRResource *resource = [[SRResource alloc] initWithPath:self.pathTextField.text];
+  
+  // timestamp
+  requestStarted = [[NSDate alloc] init];
   
   if (![self.IDTextField.text isEqualToString:@""]) {
     [resource setResourceId:self.IDTextField.text];
@@ -168,7 +173,8 @@
       break;
     case 1: // Read
       
-      [self writeConnectionDetailsToResponseViewController:[resource readThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES]];
+      currentConnection = [resource readThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES];
+      [self writeConnectionDetailsToResponseViewController:currentConnection];
       
       break;
     case 2: // Update
@@ -184,9 +190,45 @@
 - (void)writeConnectionDetailsToResponseViewController:(SRConnection*)connection {
   
   NSURLRequest *underlyingRequest = [connection request];
-  NSString *requestDescription = [NSString stringWithFormat:@"%@ %@", underlyingRequest.HTTPMethod, [underlyingRequest.URL absoluteString]];
   
+  NSString *paramString = @"";
+  // TODO: write parameters
+  for (SRParameter *param in connection.originalRequest.parameters.parameters) {
+    paramString = [NSString stringWithFormat:@"%@\n  %@: \"%@\"", paramString, param.key, param.value];
+  }
+  
+  // security details
+  NSString *contextDetails = [NSString stringWithFormat:@"Account name: %@\nKey: %@\nSecret: %@\n\nParameters:%@\n", [[SRContext sharedInstance] accountName], [[SRContext sharedInstance] credentials].key, [[SRContext sharedInstance] credentials].secret, paramString];
+  [self.responseViewController addOutput:contextDetails];
+  
+  // request details
+  NSString *requestDescription = [NSString stringWithFormat:@"%@ %@", underlyingRequest.HTTPMethod, [underlyingRequest.URL absoluteString]];
   [self.responseViewController addOutput:requestDescription];
+  
+}
+
+- (void)writeResponseDetailsToResponseViewController:(SRResponse*)response {
+
+  NSTimeInterval timeTaken = [requestStarted timeIntervalSinceNow];
+  
+  [requestStarted release];
+  requestStarted = nil;
+  
+  [self.responseViewController addOutput:@""];
+  [self.responseViewController addOutput:[NSString stringWithFormat:@"Response: %d", [response.urlResponse statusCode]]];
+  [self.responseViewController addOutput:[NSString stringWithFormat:@"Request took: %f seconds.", 0 - timeTaken]];
+  
+  // write headers
+  [self.responseViewController addRawOutput:@"\nHeaders: "];
+  [self.responseViewController addRawOutput:[response.urlResponse.allHeaderFields description]];
+  
+  // write the raw output
+ [self.responseViewController addOutput:@"-- Body --"];
+  
+  NSString *responseText = [[NSString alloc] initWithBytes:[response.data bytes] length:[response.data length] encoding:NSUTF8StringEncoding];
+  [self.responseViewController addRawOutput:[NSString stringWithFormat:@"\n%@", responseText]];
+  
+  [self.responseViewController addOutput:@"-- End of Body --"];
   
 }
 
@@ -222,9 +264,12 @@
 
 - (void)stretchrResponseReceived:(SRResponse*)response {
   
-  NSLog(@"Response received");
+  // finished
+  currentConnection = nil;
   
   [self hideBusy];
+  
+  [self writeResponseDetailsToResponseViewController:response];
   
 }
 
@@ -323,6 +368,17 @@
   scrollView.contentInset = contentInsets;
   scrollView.scrollIndicatorInsets = contentInsets;
   [UIView commitAnimations];
+  
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+  
+  // cancel request
+  if (currentConnection) {
+    [currentConnection cancel];
+  }
   
 }
 
