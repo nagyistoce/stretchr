@@ -10,6 +10,7 @@
 
 
 @implementation ResponseViewController
+@synthesize portraitHelpText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +40,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+  
+  [self didRotateFromInterfaceOrientation:UIInterfaceOrientationPortrait];
+  
 }
 
 - (void)viewDidUnload
@@ -51,7 +55,21 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  return YES;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+  
+  [UIView beginAnimations:nil context:nil];
+  [UIView setAnimationDuration:2];
+  if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])) {
+    [self.portraitHelpText setAlpha:0];
+  } else {
+    [self.portraitHelpText setAlpha:1];
+  }
+  
+  [UIView commitAnimations];
+  
 }
 
 @end

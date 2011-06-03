@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053C55F31398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 053C55F21398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.m */; };
+		053C55F71398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 053C55F61398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.m */; };
+		053C55FB1398E53300D2FE41 /* sky-stripe.png in Resources */ = {isa = PBXBuildFile; fileRef = 053C55F91398E53300D2FE41 /* sky-stripe.png */; };
+		053C55FC1398E53300D2FE41 /* sky-stripe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053C55FA1398E53300D2FE41 /* sky-stripe@2x.png */; };
 		056D39AE13953D8D00F64C21 /* SRRequestFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */; };
 		058A525813927870007437E7 /* SRHttpHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525713927870007437E7 /* SRHttpHelperTest.m */; };
 		058A525E139288E3007437E7 /* SRResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 058A525D139288E3007437E7 /* SRResourceTest.m */; };
@@ -63,6 +67,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053C55F11398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrSDKAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		053C55F21398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrSDKAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		053C55F51398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StretchrSDKAppDelegate_iPad.h; sourceTree = "<group>"; };
+		053C55F61398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StretchrSDKAppDelegate_iPad.m; sourceTree = "<group>"; };
+		053C55F91398E53300D2FE41 /* sky-stripe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky-stripe.png"; sourceTree = "<group>"; };
+		053C55FA1398E53300D2FE41 /* sky-stripe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky-stripe@2x.png"; sourceTree = "<group>"; };
 		056D39AC13953D8D00F64C21 /* SRRequestFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRequestFactoryTest.h; sourceTree = "<group>"; };
 		056D39AD13953D8D00F64C21 /* SRRequestFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRequestFactoryTest.m; sourceTree = "<group>"; };
 		058A525613927870007437E7 /* SRHttpHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRHttpHelperTest.h; sourceTree = "<group>"; };
@@ -195,6 +205,15 @@
 				058A525713927870007437E7 /* SRHttpHelperTest.m */,
 			);
 			name = StretchrSDK;
+			sourceTree = "<group>";
+		};
+		053C55F81398E52800D2FE41 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				053C55F91398E53300D2FE41 /* sky-stripe.png */,
+				053C55FA1398E53300D2FE41 /* sky-stripe@2x.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		0568F5131397D536001F017B /* Security */ = {
@@ -380,6 +399,7 @@
 		05E02D211397C66800FAF5C6 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				053C55F81398E52800D2FE41 /* Assets */,
 				05E02D2C1397D37B00FAF5C6 /* AppDelegate */,
 				05E02D301397D39700FAF5C6 /* ViewControllers */,
 			);
@@ -391,6 +411,10 @@
 			children = (
 				05B219C913913B65003AD114 /* StretchrSDKAppDelegate.h */,
 				05B219CA13913B65003AD114 /* StretchrSDKAppDelegate.m */,
+				053C55F11398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.h */,
+				053C55F21398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.m */,
+				053C55F51398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.h */,
+				053C55F61398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.m */,
 				05B219CC13913B66003AD114 /* MainWindow.xib */,
 				05E02D2D1397D37F00FAF5C6 /* MainWindow-iPad.xib */,
 			);
@@ -503,6 +527,8 @@
 				05E02D2B1397D22600FAF5C6 /* ResponseViewController.xib in Resources */,
 				05E02D2F1397D37F00FAF5C6 /* MainWindow-iPad.xib in Resources */,
 				05E02D321397D3B500FAF5C6 /* Get Started.txt in Resources */,
+				053C55FB1398E53300D2FE41 /* sky-stripe.png in Resources */,
+				053C55FC1398E53300D2FE41 /* sky-stripe@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +579,8 @@
 				05E02D651397D43F00FAF5C6 /* SRRequestSigner.m in Sources */,
 				05E02D661397D43F00FAF5C6 /* SRResource.m in Sources */,
 				05E02D671397D43F00FAF5C6 /* SRResponse.m in Sources */,
+				053C55F31398E2D200D2FE41 /* StretchrSDKAppDelegate_iPhone.m in Sources */,
+				053C55F71398E2DF00D2FE41 /* StretchrSDKAppDelegate_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import "StretchrSDKAppDelegate.h"
-#import "RequestViewController.h"
 
 @implementation StretchrSDKAppDelegate
 
@@ -16,14 +15,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
-  // iPhone
-  RequestViewController *vc = [[RequestViewController alloc] initWithNibName:@"RequestViewController" bundle:nil];
-  [self.window setRootViewController:vc];
-  [vc release];
-  
   [self.window makeKeyAndVisible];
-    return YES;
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

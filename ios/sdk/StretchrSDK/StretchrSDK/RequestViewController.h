@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResponseViewController.h"
 
-
-@interface RequestViewController : UIViewController {
+@interface RequestViewController : UIViewController <UITextFieldDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UIView *settingsView;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
-
 @property (nonatomic, retain) IBOutlet UITextField *accountNameTextField;
 @property (nonatomic, retain) IBOutlet UITextField *keyTextField;
 @property (nonatomic, retain) IBOutlet UITextField *secretTextField;
 @property (nonatomic, retain) IBOutlet UITextField *pathTextField;
+
+@property (nonatomic, retain) ResponseViewController *responseViewController;
 
 #pragma mark - Validation
 
