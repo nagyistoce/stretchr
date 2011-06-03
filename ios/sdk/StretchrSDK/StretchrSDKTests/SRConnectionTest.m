@@ -54,7 +54,7 @@
   
 }
 
-- (void)testDidReceiveResponse {
+- (void)testConnectionDidReceiveResponse {
   
   // create a test target object
   TestTargetObject *target = [[TestTargetObject alloc] init];
@@ -89,7 +89,7 @@
   
 }
 
-- (void)testDidReceiveError {
+- (void)testConnectionDidReceiveError {
   
   // create a test target object
   TestTargetObject *target = [[TestTargetObject alloc] init];
@@ -121,6 +121,43 @@
   [theError release];
   [target release];
   [originalRequest release];
+  
+}
+
+- (void)testConnectionDidReceiveData {
+  
+  SRRequest *originalRequest = [[SRRequest alloc] init];
+  NSURLRequest *urlRequest = [[NSURLRequest alloc] init];
+  NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
+  SRConnection *conn = [[SRConnection alloc] initWithRequest:urlRequest originalRequest:originalRequest target:nil selector:nil];
+  
+  STAssertNil(conn.receivedData, @"receivedData should start off nil");
+  
+  // send in some data
+  NSData *dataLoadOne = [@"data-stream-one" dataUsingEncoding:NSUTF8StringEncoding];
+  
+  [conn connection:urlConnection didReceiveData:dataLoadOne];
+  
+  STAssertNotNil(conn.receivedData, @"Some data should exist");
+  STAssertTrue([conn.receivedData isEqualToData:dataLoadOne], @"So far, the data should equal our first set");
+  
+  // send in some more data
+  NSData *dataLoadTwo = [@"data-stream-two" dataUsingEncoding:NSUTF8StringEncoding];
+  
+  [conn connection:urlConnection didReceiveData:dataLoadTwo];
+  
+  // build up the test data
+  NSMutableData *testData = [[NSMutableData alloc] init];
+  [testData appendData:dataLoadOne];
+  [testData appendData:dataLoadTwo];
+  
+  STAssertTrue([conn.receivedData isEqualToData:testData], @"Data should be equal to test data");
+  
+  [testData release];
+  [urlConnection release];
+  [originalRequest release];
+  [urlRequest release];
+  [conn release];
   
 }
 

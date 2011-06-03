@@ -15,6 +15,7 @@
 @synthesize originalRequest;
 @synthesize underlyingConnection = underlyingConnection_;
 @synthesize target, selector;
+@synthesize receivedData;
 
 - (id)init {
   [NSException raise:@"InvalidMethod" format:@"You must use initWithRequest:"];
@@ -61,6 +62,7 @@
   self.target = nil;
   self.selector = nil;
   self.originalRequest = nil;
+  self.receivedData = nil;
   
   [super dealloc];
 }
@@ -81,7 +83,23 @@
 
 #pragma mark - NSURLConnection
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)urlResponse {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+  
+  // save the data that just came in
+  
+  if (!self.receivedData) {
+    
+    NSMutableData *receivedDataStore = [[NSMutableData alloc] initWithData:data];
+    self.receivedData = receivedDataStore;
+    [receivedDataStore release];
+    
+  } else {
+    [self.receivedData appendData:data];
+  }
+  
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)urlResponse {
   
   // finished
   self.isBusy = NO;

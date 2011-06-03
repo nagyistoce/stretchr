@@ -13,7 +13,7 @@
 @synthesize error;
 @synthesize connection;
 
-- (id)initWithResponse:(NSURLResponse*)theResponse {
+- (id)initWithResponse:(NSHTTPURLResponse*)theResponse {
   if ((self = [super init])) {
     
     self.urlResponse = theResponse;

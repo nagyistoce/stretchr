@@ -14,10 +14,10 @@
 }
 
 @property (nonatomic, retain) SRConnection *connection;
-@property (nonatomic, retain) NSURLResponse *urlResponse;
+@property (nonatomic, retain) NSHTTPURLResponse *urlResponse;
 @property (nonatomic, retain) NSError *error;
 
-- (id)initWithResponse:(NSURLResponse*)response;
+- (id)initWithResponse:(NSHTTPURLResponse*)response;
 - (id)initWithError:(NSError*)theError;
 
 - (BOOL)success;

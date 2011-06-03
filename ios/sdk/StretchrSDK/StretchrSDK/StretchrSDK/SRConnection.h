@@ -15,6 +15,8 @@
 }
 
 @property (nonatomic, assign) BOOL isBusy;
+@property (nonatomic, retain) NSMutableData *receivedData;
+
 @property (nonatomic, readonly) NSURLRequest* request;
 @property (nonatomic, retain) SRRequest *originalRequest;
 @property (nonatomic, readonly) NSURLConnection *underlyingConnection;

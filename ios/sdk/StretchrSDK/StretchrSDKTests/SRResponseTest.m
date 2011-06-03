@@ -13,7 +13,7 @@
 
 - (void)testInitWithResponse {
   
-  NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
+  NSHTTPURLResponse *urlResponse = [[NSHTTPURLResponse alloc] init];
   SRResponse *response = [[SRResponse alloc] initWithResponse:urlResponse];
   
   STAssertEqualObjects(urlResponse, response.urlResponse, @"urlResponse not set by constructor");
