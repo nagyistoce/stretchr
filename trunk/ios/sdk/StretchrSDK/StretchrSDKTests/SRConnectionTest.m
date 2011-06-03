@@ -68,6 +68,11 @@
   NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
   NSURLResponse *urlResponse = [[NSURLResponse alloc] init];
   
+  NSData *testData = [@"data-stream-one" dataUsingEncoding:NSUTF8StringEncoding];
+  
+  // send some data
+  [conn connection:urlConnection didReceiveData:testData];
+  
   // call didReceiveResponse
   [conn connection:urlConnection didReceiveResponse:urlResponse];
   
@@ -75,6 +80,7 @@
   STAssertNotNil(target.lastResponse, @"processResponse: should have been called on the target");
   
   // make sure the response object has the right properties
+  STAssertTrue([target.lastResponse.data isEqualToData:testData], @"The data in the response should be the data passed in through connection:didReceiveData:");
   STAssertEqualObjects(target.lastResponse.connection, conn, @"response.connection incorrect");
   STAssertEqualObjects(target.lastResponse.urlResponse, urlResponse, @"response.urlResponse incorrect");
   STAssertNil(target.lastResponse.error, @"Should be no error object");
@@ -103,6 +109,10 @@
   NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
   NSError *theError = [[NSError alloc] init];
   
+  // send some test data
+  NSData *testData = [@"data-stream-one" dataUsingEncoding:NSUTF8StringEncoding];
+  [conn connection:urlConnection didReceiveData:testData];
+  
   // call didReceiveResponse
   [conn connection:urlConnection didFailWithError:theError];
   
@@ -112,6 +122,8 @@
   // make sure the response object has the right properties
   STAssertEqualObjects(target.lastResponse.connection, conn, @"response.connection incorrect");
   STAssertEqualObjects(target.lastResponse.error, theError, @"response.error incorrect");
+  STAssertTrue([target.lastResponse.data isEqualToData:testData], @"The data in the response should be the data passed in through connection:didReceiveData:");
+  
   STAssertNil(target.lastResponse.urlResponse, @"Should be no urlResponse object");
   
   // tidy up
