@@ -80,8 +80,24 @@
 }
 
 - (void)addOutput:(NSString*)text {
-  [self.textView setText:[NSString stringWithFormat:@"%@%@\n", self.textView.text, text]];
   
+	NSDate *now = [NSDate date];
+	NSDateFormatter *formatter = nil;
+	formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"h:mm:ss"];
+
+  text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@"\n\t"];
+  
+  [self addRawOutput:[NSString stringWithFormat:@"\n%@\t%@", [formatter stringFromDate:now], text]];
+  
+  [formatter release];
+
+}
+
+- (void)addRawOutput:(NSString*)text {
+  
+  [self.textView setText:[NSString stringWithFormat:@"%@%@", self.textView.text, text]];
+    
   // make sure the textView is visible
   if (self.textView.hidden) {
     
@@ -113,6 +129,10 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
   [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)clearButtonPressed:(id)sender {
+  [self.textView setText:@""];
 }
 
 @end

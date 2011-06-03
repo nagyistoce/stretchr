@@ -10,10 +10,12 @@
 #import "StretchrSDK.h"
 #import "ResponseViewController.h"
 
-@interface RequestViewController : UIViewController <UITextFieldDelegate> {
+@interface RequestViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
   UITextField *activeField;
   ResponseViewController *responseViewController_;
   BOOL responseViewControllerNotHomeGrown;
+  SRConnection *currentConnection;
+  NSDate *requestStarted;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *settingsView;
@@ -43,6 +45,7 @@
 
 - (void)makeRequest;
 - (void)writeConnectionDetailsToResponseViewController:(SRConnection*)connection;
+- (void)writeResponseDetailsToResponseViewController:(SRResponse*)response;
 - (void)showBusy;
 - (void)hideBusy;
 - (void)stretchrResponseReceived:(SRResponse*)response;
