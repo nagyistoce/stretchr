@@ -167,23 +167,43 @@
     [resource setResourceId:self.IDTextField.text];
   }
   
+  // set the parameters
+  for (NSInteger tag = 6; tag < 25; tag += 2) {
+    
+    UITextField *field = (UITextField*)[self.view viewWithTag:tag];
+    
+    if (![field.text isEqualToString:@""]) {
+      NSString *value = ((UITextField*)[self.view viewWithTag:tag+1]).text;
+      [resource addParameterValue:value forKey:field.text];
+    }
+    
+  }
+  
   switch (self.methodSegmentedControl.selectedSegmentIndex) {
     case 0: // Create
+      
+      currentConnection = [resource createThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES];
       
       break;
     case 1: // Read
       
       currentConnection = [resource readThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES];
-      [self writeConnectionDetailsToResponseViewController:currentConnection];
       
       break;
     case 2: // Update
       
+      currentConnection = [resource updateThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES];
+      
       break;
     case 3: // Delete
       
+      currentConnection = [resource deleteThenCallTarget:self selector:@selector(stretchrResponseReceived:) startImmediately:YES];
+      
       break;
   }
+  
+  // write the details out
+  [self writeConnectionDetailsToResponseViewController:currentConnection];
   
 }
 
@@ -223,7 +243,9 @@
   [self.responseViewController addRawOutput:[response.urlResponse.allHeaderFields description]];
   
   // write the raw output
- [self.responseViewController addOutput:@"-- Body --"];
+  [self.responseViewController addOutput:@"-- Body --"];
+  
+  NSLog(@"%@", response.data);
   
   NSString *responseText = [[NSString alloc] initWithBytes:[response.data bytes] length:[response.data length] encoding:NSUTF8StringEncoding];
   [self.responseViewController addRawOutput:[NSString stringWithFormat:@"\n%@", responseText]];
