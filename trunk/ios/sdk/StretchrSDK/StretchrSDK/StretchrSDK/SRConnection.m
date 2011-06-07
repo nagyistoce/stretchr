@@ -16,6 +16,7 @@
 @synthesize underlyingConnection = underlyingConnection_;
 @synthesize target, selector;
 @synthesize receivedData;
+@synthesize response;
 
 - (id)init {
   [NSException raise:@"InvalidMethod" format:@"You must use initWithRequest:"];
@@ -99,26 +100,33 @@
   
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)urlResponse {
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
   
   // finished
   self.isBusy = NO;
   [self release];
   
-  SRResponse *response = [[SRResponse alloc] initWithResponse:urlResponse];
-  
   // set this connection
-  [response setConnection:self];
+  [self.response setConnection:self];
   
   // set the data
-  [response setData:[NSData dataWithData:self.receivedData]];
+  [self.response setData:[NSData dataWithData:self.receivedData]];
   
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {
-    [self.target performSelector:self.selector withObject:response];
+    [self.target performSelector:self.selector withObject:self.response];
   }
   
   [response release];
+  
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)urlResponse {
+  
+  // create the response object
+  SRResponse *theResponse = [[SRResponse alloc] initWithResponse:urlResponse];
+  self.response = theResponse;
+  [theResponse release];
   
 }
 
@@ -127,21 +135,21 @@
   // finished
   self.isBusy = NO;
   [self release];
-  
-  SRResponse *response = [[SRResponse alloc] initWithError:error];
+
+  SRResponse *theResponse = [[SRResponse alloc] initWithError:error];
+  self.response = theResponse;
+  [theResponse release];
   
   // set this connection
-  [response setConnection:self];
+  [self.response setConnection:self];
   
   // set the data
-  [response setData:[NSData dataWithData:self.receivedData]];
+  [self.response setData:[NSData dataWithData:self.receivedData]];
   
   // call the selector
   if ([self.target respondsToSelector:self.selector]) {
     [self.target performSelector:self.selector withObject:response];
   }
-  
-  [response release];
   
 }
 
