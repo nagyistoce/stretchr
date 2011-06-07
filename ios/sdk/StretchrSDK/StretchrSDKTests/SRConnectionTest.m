@@ -76,6 +76,9 @@
   // call didReceiveResponse
   [conn connection:urlConnection didReceiveResponse:urlResponse];
   
+  // and finish things up
+  [conn connectionDidFinishLoading:urlConnection];
+  
   // ensure the target method received the response
   STAssertNotNil(target.lastResponse, @"processResponse: should have been called on the target");
   

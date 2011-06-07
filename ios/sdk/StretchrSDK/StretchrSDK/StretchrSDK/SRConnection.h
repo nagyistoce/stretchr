@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class SRRequest;
+@class SRResponse;
 
 @interface SRConnection : NSObject {
   NSURLRequest *request_;
@@ -16,6 +17,7 @@
 
 @property (nonatomic, assign) BOOL isBusy;
 @property (nonatomic, retain) NSMutableData *receivedData;
+@property (nonatomic, retain) SRResponse *response;
 
 @property (nonatomic, readonly) NSURLRequest* request;
 @property (nonatomic, retain) SRRequest *originalRequest;
