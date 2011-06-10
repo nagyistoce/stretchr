@@ -30,5 +30,7 @@ We are going to create a new resource to hold users feedback.  We do not need to
 SRResource *resource = [[SRResource alloc] initWithPath:@"/feedback"];
 [resource setParameterValue:@"John" forKey:@"name"];
 [resource setParameterValue:@"I love this service" forKey:@"comment"];
-[resource save];
+[resource createThenCallTarget:self selector:@selector(methodToSendResponseTo:)];
 }}}
+
+`methodToSendResponseTo` - The method to call (on the target) when the Stretchr service has responded, with either a success or an error.  The one and only argument passed to the method is an `SRResponse` object.
