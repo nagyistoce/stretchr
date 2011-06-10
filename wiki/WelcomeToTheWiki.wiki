@@ -1,10 +1,11 @@
 #summary Wiki homepage
 
+== Stretchr ==
+
+  * Stretchr is currently in BETA
+  * [sdks SDKs]
+
 == `webdo` ==
 
   * A lightweight RESTful API tester written in ruby
   * See [webdo] for more information
-
-== Stretchr ==
-
-  * This project is under construction
