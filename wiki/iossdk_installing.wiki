@@ -6,6 +6,4 @@
 
 Get the Stretchr SDK project from subversion:
 
-{{{
-http://stretchr.googlecode.com/svn/trunk/ios/sdk/StretchrSDK
-}}}
+ * http://stretchr.googlecode.com/svn/trunk/ios/sdk/StretchrSDK
