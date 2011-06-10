@@ -2,4 +2,7 @@
 
 = Stretchr SDK for iOS =
 
-Coming soon
+NOTE: The current version is a BETA version (v0.1)
+
+ * [iossdk_installation Installing Stretchr iOS SDK]
+ * [iossdk_api API Documentation]
