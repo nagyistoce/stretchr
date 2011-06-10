@@ -1,0 +1,11 @@
+#summary Overview of how to install the Stretchr iOS SDK
+
+= Installing Stretchr iOS SDK =
+
+== Get the code ==
+
+Get the Stretchr SDK project from subversion:
+
+{{{
+http://stretchr.googlecode.com/svn/trunk/ios/sdk/StretchrSDK
+}}}
