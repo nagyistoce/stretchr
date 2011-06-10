@@ -1,5 +1,7 @@
 #summary API for Stretchr iOS SDK
 
+<wiki:toc max_depth="3" />
+
 == Tutorial: Using the Stretchr iOS SDK ==
 
 === Get started ===
