@@ -2,6 +2,10 @@
 
 == Tutorial: Using the Stretchr iOS SDK ==
 
+=== Get started ===
+
+ * see [iossdk_installing Installing Stretchr iOS SDK]
+
 === Setting your `key` and `secret` ===
 
 In order to authenticate with Stretchr, you must set your account name, key and secret.  This can be done once, usually in your AppDelegate.
