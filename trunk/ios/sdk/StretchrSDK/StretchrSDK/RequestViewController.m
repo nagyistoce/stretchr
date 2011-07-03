@@ -212,6 +212,7 @@
   NSURLRequest *underlyingRequest = [connection request];
   
   NSString *paramString = @"";
+  
   // TODO: write parameters
   for (SRParameter *param in connection.originalRequest.parameters.parameters) {
     paramString = [NSString stringWithFormat:@"%@\n  %@: \"%@\"", paramString, param.key, param.value];
@@ -220,6 +221,11 @@
   // security details
   NSString *contextDetails = [NSString stringWithFormat:@"Account name: %@\nKey: %@\nSecret: %@\n\nParameters:%@\n", [[SRContext sharedInstance] accountName], [[SRContext sharedInstance] credentials].key, [[SRContext sharedInstance] credentials].secret, paramString];
   [self.responseViewController addOutput:contextDetails];
+  
+  // write the signature base string (for debugging purposes)
+  SRRequestSigner *signer = [[SRRequestSigner alloc] init];
+  [self.responseViewController addOutput:[NSString stringWithFormat:@"Pre-signed: %@", [signer unencodedSignatureStringForRequest:connection.originalRequest]]];
+  [signer release];
   
   // request details
   NSString *requestDescription = [NSString stringWithFormat:@"%@ %@", underlyingRequest.HTTPMethod, [underlyingRequest.URL absoluteString]];
