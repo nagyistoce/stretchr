@@ -31,4 +31,9 @@
 - (void)start;
 - (void)cancel;
 
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)urlResponse;
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+
 @end

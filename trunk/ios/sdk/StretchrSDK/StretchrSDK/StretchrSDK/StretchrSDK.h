@@ -8,3 +8,4 @@
 
 #import "SRFoundation.h"
 #import "SRResource.h"
+#import "SRRequestSigner.h"
