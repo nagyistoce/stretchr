@@ -74,7 +74,7 @@
   [conn connection:urlConnection didReceiveData:testData];
   
   // call didReceiveResponse
-  [conn connection:urlConnection didReceiveResponse:urlResponse];
+  [conn connection:urlConnection didReceiveResponse:(NSHTTPURLResponse*)urlResponse];
   
   // and finish things up
   [conn connectionDidFinishLoading:urlConnection];
